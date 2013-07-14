@@ -1,6 +1,24 @@
-%p#notice= notice
+=flash[:notice]
+
+%h2= @listing.name
+
+%p= @listing.description
 
 
-= link_to 'Edit', edit_listing_path(@listing)
-\|
-= link_to 'Back', listings_path
+%p Guests: #{@listing.guests}
+
+
+%h4 Reviews
+
+- @listing.reviews.each do |review|
+  %p= review.description
+  %br
+
+%h4 Create new Review
+=form_for([@listing, @review]) do |f|
+  .field
+    =f.label :description
+    %br
+    =f.text_area :description
+  .actions
+    =f.submit
