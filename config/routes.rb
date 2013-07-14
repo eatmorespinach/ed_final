@@ -1,10 +1,12 @@
 MyProject::Application.routes.draw do
   resources :listings
 
-  get "landing/index"
-  get "contents/about"
-  get "contents/faq"
-  get "contents/contact"
+  
+  get "about" => "contents#about"
+  get "faq" => "contents#faq"
+  get "contact" => "contents#contact"
+
+  root :to => "landing#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
