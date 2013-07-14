@@ -1,4 +1,7 @@
 MyProject::Application.routes.draw do
+  resources :listings
+
+  get "landing/index"
   get "contents/about"
   get "contents/faq"
   get "contents/contact"
