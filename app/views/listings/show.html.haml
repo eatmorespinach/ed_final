@@ -1,6 +1,6 @@
 =flash[:notice]
 
-%h2= @listing.name
+%h2= @listing.title
 
 %p= @listing.description
 
@@ -8,17 +8,17 @@
 %p Guests: #{@listing.guests}
 
 
-%h4 Reviews
+/ %h4 Reviews
 
-- @listing.reviews.each do |review|
-  %p= review.description
-  %br
+/ - @listing.reviews.each do |review|
+/   %p= review.description
+/   %br
 
-%h4 Create new Review
-=form_for([@listing, @review]) do |f|
-  .field
-    =f.label :description
-    %br
-    =f.text_area :description
-  .actions
-    =f.submit
+/ %h4 Create new Review
+/ =form_for([@listing, @review]) do |f|
+/   .field
+/     =f.label :description
+/     %br
+/     =f.text_area :description
+/   .actions
+/     =f.submit
