@@ -1,3 +1,56 @@
 // Place all the styles related to the Landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$default_text: #333333;
+
+
+
+#hero {
+	position: relative;
+}
+
+#heropic {
+	width: 960px;
+	height: 665px;
+}
+
+#tagline {
+	position: absolute;
+	color: $default_text;
+	margin-left:80px;
+	margin-top: 400px;
+	line-height: 110%;
+	background: white;
+}
+
+.taglines {
+	margin-top:15px;
+	text-align: left;
+	padding-left: 34px;
+}
+
+#hero button {
+	position: absolute;
+	margin-left: 650px;
+	margin-top: 600px;
+}
+
+#images {
+
+	li {
+		display: inline-block;
+  	margin: 10px;
+	}
+  li img {
+	  -webkit-transition: 1s all ease-in-out;
+  	opacity: 0;
+  	height: 80px;
+	}
+	li img:hover {
+  	-webkit-transform: scale(1.5) rotate(10deg);
+	}
+		li.show img {
+  	opacity: 1;
+	}
+}
