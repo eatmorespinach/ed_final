@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(params[:listing])
+    @listing = Listing.new(set_listing)
 
     if @listing.save
       redirect_to listings_url
@@ -26,7 +26,7 @@ class ListingsController < ApplicationController
   end
 
   def update
-    @listing = Listing.find(params[:id])
+    @listing = Listing.new(set_listing)
 
     if @listing.update_attributes(params[:listing])
       redirect_to listing_path(@listing)
@@ -40,11 +40,11 @@ class ListingsController < ApplicationController
     @listing.destroy
   end
 
-  # private
+  private
   #   # Use callbacks to share common setup or constraints between actions.
-  #   def set_listing
-  #     @listing = Listing.find(params[:id])
-  #   end
+  def set_listing
+    params.require(:listing).permit!
+  end
 
   #   # Never trust parameters from the scary internet, only allow the white list through.
   #   def listing_params
