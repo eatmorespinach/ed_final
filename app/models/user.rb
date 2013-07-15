@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-	attr_accessible :email, :password, :password_confirmation
+  has_many :reviews
+  has_many :listings, :through => :reviews
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create

@@ -6,6 +6,10 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+
+    if current_user
+      @review = @listing.reviews.build
+    end
   end
 
   def new

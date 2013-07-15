@@ -12,17 +12,17 @@
       / Everything you want hidden at 940px or less, place within here
       .nav-collapse.collapse
         %ul.nav
-          / - if current_user
-          /   %li #{link_to "Host Listings", listings_path}
-          /   %li #{link_to "Profile", listings_path}
-          /   %li #{link_to "Log out", logout_path}
-          / - else
-          /   %li=link_to "Sign up", signup_path
-          /   %li #{link_to "log in", login_path}
+          - if current_user
+            %li #{link_to "Host Listings", listings_path}
+            %li #{link_to "Profile", listings_path}
+            %li #{link_to "Log out", logout_path}
+          - else
+            %li=link_to "Sign up", signup_path
+            %li #{link_to "log in", login_path}
 
 
-          / %li=link_to "Sign Up", login_path
-          / %li=link_to "FAQ", faq_path
-          / %li=link_to "Login", login_path
+        /   %li=link_to "Sign Up", login_path
+        /   %li=link_to "FAQ", faq_path
+        /   %li=link_to "Login", login_path
         / .nav, .navbar-search, .navbar-form, etc
 
