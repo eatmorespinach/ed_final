@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130715225547) do
+ActiveRecord::Schema.define(version: 20130716001421) do
 
   create_table "listings", force: true do |t|
     t.datetime "created_at"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20130715225547) do
     t.string   "title"
     t.text     "description"
     t.integer  "guests"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer "rating"
+    t.text    "description"
+    t.integer "listing_id"
   end
 
   create_table "users", force: true do |t|
