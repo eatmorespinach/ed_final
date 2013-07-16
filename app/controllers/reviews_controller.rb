@@ -6,8 +6,8 @@ class ReviewsController < ApplicationController
 
 	def create
 		load_listing
-		@review = @listing.reviews.build(params[:review])
-		
+		@review = Review.new(load_review)
+
 		if @review.save
 			redirect_to listing_path(params[:listing_id]), notice: 'Thanks for your review!'
 		else
@@ -22,9 +22,13 @@ class ReviewsController < ApplicationController
 
 	private 
 
-	def load_listing
-		@listing = Listing.find(params[:listing_id])
+	def load_review
+		params.require(:review).permit!
 	end
 
+	def load_listing
+		@listing = Listing.find(params[:listing_id])
+		
+	end
 
 end
