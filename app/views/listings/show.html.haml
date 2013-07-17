@@ -9,11 +9,13 @@
 %h4 Reviews
 
 - @listing.reviews.each do |review|
+
   %p= review.description
   %br
 
 %h4 Create new Review
-=form_for([@listing, @review]) do |f|
+
+= form_for([@listing, @review]) do |f|
   .field
     =f.label :description
     %br
