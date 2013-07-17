@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		git 
 	end
 
 
