@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 	end
 
 	def show 
+		@user = current_user
+		#why doesn't User.find(params[:user_id]) work?
 	end
 
 	def edit
