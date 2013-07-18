@@ -8,6 +8,7 @@ MyProject::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   get "profile" => "users#show", :as => "profile"
+  get "profile/edit" => "users#edit", :as => "profile/edit"
   
   resources :listings do
     resources :reviews

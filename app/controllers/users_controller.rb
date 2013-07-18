@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :ensure_logged_in, :only => [:edit]
+
 	def new
 	  @user = User.new
 	end
@@ -12,11 +14,11 @@ class UsersController < ApplicationController
 	  end
 	end
 
-	def show
-		git 
+	def show 
 	end
 
-
+	def edit
+	end
 private
 
   def set_user
