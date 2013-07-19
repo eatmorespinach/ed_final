@@ -1,7 +1,6 @@
 MyProject::Application.routes.draw do
 
 
-  get "logout" => "sessions#destroy"
   get "login" => "sessions#new"
   get "signup" => "users#new"
   get "profile" => "users#show"
