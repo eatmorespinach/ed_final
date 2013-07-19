@@ -4,7 +4,7 @@ describe "StaticPages" do
 
 	describe "landing page" do
 
-		visit root_path
+		before {visit root_path}
 
 		it "should have title StayTraders" do
 			page.should have_content("StayTraders")

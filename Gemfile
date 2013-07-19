@@ -18,13 +18,8 @@ gem 'pry'
 gem "binding_of_caller"
 
 group :development do
-  gem 'better_errors' # makes the errors we see in the browser more descriptive
+  gem 'better_errors'
 end
-
-# Use CoffeeScript for .js.coffee assets and views
-# gem 'coffee-rails', '~> 4.0.0' (uncomment to generate js.coffee files)
-
-gem 'haml-rails', '>= 0.3.4', :group => :development
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -45,6 +40,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'haml-rails', '>= 0.3.4'
 end
 
 group :test do 
