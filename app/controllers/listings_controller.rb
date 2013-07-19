@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-before_action :ensure_logged_in, :only => [:show]
+before_action :require_login, :only => [:show]
 
   def index
     @listings = Listing.all
@@ -49,7 +49,7 @@ before_action :ensure_logged_in, :only => [:show]
   
   #   # Use callbacks to share common setup or constraints between actions.
   def set_listing
-    params.require(:listing).permit! #what should this actually be?                                                       
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :in_exchange)                                                       
   end
 
   #   # Never trust parameters from the scary internet, only allow the white list through.

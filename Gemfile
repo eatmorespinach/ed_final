@@ -8,6 +8,7 @@ gem 'pg'
 
 gem 'sorcery'
 
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
@@ -15,6 +16,9 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'pry'
+
+
+gem "binding_of_caller"
 
 group :development do
   gem 'better_errors' # makes the errors we see in the browser more descriptive

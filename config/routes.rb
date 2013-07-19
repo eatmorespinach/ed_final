@@ -1,21 +1,18 @@
 MyProject::Application.routes.draw do
-  get "sessions/new"
-  get "users/new"
 
 
-
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
-  get "profile" => "users#show", :as => "profile"
-  get "profile/edit" => "users#edit", :as => "profile/edit"
+  get "logout" => "sessions#destroy"
+  get "login" => "sessions#new"
+  get "signup" => "users#new"
+  get "profile" => "users#show"
+  get "profile/edit" => "users#edit"
   
   resources :listings do
     resources :reviews
   end
 
   resources :users
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   
   get "about" => "contents#about"

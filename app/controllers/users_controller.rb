@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :ensure_logged_in, :only => [:edit]
+	before_action :require_login, :only => [:edit]
 
 	def new
 	  @user = User.new
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 	def create
 	  @user = User.new(set_user)
 	  if @user.save
-	    redirect_to login_path, :notice => "Signed up!"
+	  	auto_login(@user)
+	    redirect_to listings_path, :notice => "Welcome to StayTrade!"
 	  else
 	    render :new
 	  end
@@ -16,15 +17,16 @@ class UsersController < ApplicationController
 
 	def show 
 		@user = current_user
-		#why doesn't User.find(params[:user_id]) work?
 	end
 
 	def edit
+		#this will be settings
 	end
+
 private
 
   def set_user
-    params.require(:user).permit! #what should this actually be?                                                       
+    params.require(:user).permit(:first_name, :last_name, :password, :email) #what should this actually be?                                                       
   end
 
 end
