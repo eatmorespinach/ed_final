@@ -24,7 +24,7 @@ before_action :require_login, :only => [:show]
     @listing = Listing.new(set_listing)
 
     if @listing.save
-      redirect_to listings_url
+      redirect_to listings_url, :alert => "Hosting created!"
     else
       render :new
     end
@@ -49,7 +49,7 @@ before_action :require_login, :only => [:show]
   
   #   # Use callbacks to share common setup or constraints between actions.
   def set_listing
-    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :in_exchange)                                                       
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :image, :in_exchange)                                                       
   end
 
   #   # Never trust parameters from the scary internet, only allow the white list through.

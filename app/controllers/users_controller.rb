@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	  @user = User.new(set_user)
 	  if @user.save
 	  	auto_login(@user)
-	    redirect_to listings_path, :alert => "Welcome to StayTrade. View Hostings below"
+	    redirect_to listings_path, :alert => "Welcome to StayTraders. View Hostings below"
 	  else
 	    render :new
 	  end
