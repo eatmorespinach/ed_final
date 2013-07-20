@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130719194223) do
+ActiveRecord::Schema.define(version: 20130720211159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listing_images", force: true do |t|
+    t.string   "file"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "listing_images", ["project_id"], name: "index_listing_images_on_project_id", using: :btree
 
   create_table "listings", force: true do |t|
     t.datetime "created_at"
@@ -24,7 +33,7 @@ ActiveRecord::Schema.define(version: 20130719194223) do
     t.integer  "guests"
     t.string   "city"
     t.integer  "country_id"
-    t.integer  "stay_length"
+    t.string   "stay_length"
     t.text     "in_exchange"
   end
 

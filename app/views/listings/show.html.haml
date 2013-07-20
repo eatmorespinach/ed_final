@@ -4,7 +4,11 @@
 
 %p= @listing.description
 
+/ =image_tag @listing.image_url.to_s
+
 %p Guests: #{@listing.guests}
+
+%p #{@listing.stay_length}
 
 %h4 Reviews
 
