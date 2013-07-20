@@ -10,6 +10,8 @@ gem 'sorcery'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 
+
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'pry'
@@ -44,7 +46,7 @@ group :development, :test do
 end
 
 group :test do 
-  gem "factory_girl_rails" 
+  gem "factory_girl_rails" , "~> 4.0"
   gem "capybara" # needed for our integration tests, which we'll talk about more later
 end
 

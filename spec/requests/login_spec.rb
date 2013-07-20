@@ -1,22 +1,34 @@
 require 'spec_helper'
 
 describe 'User sign up and login process' do 
+	before(:each) do
+		visit root_path
+		
+	end
 
-	before {visit signup_path}
+	it "successfully creates user" do
+		click_link("Sign Up")
+#it needed to be "it" instead of describe.
+#We never actually loaded the Signup page!!! So it's in line 6
 
-
-
-	describe "successfully create user" do
-		fill_in "user[first_name]", with: 'Eric'
-		fill_in "user[last_name]", with: 'Szeto'
-		fill_in "user[email]", with: 'eric@gmail.com'
-		fill_in "user[password]", with: '123456'
-		fill_in "user[password_confirmation]", with: '123456'
-
-		click_link 'Sign Up'
-
-		it "should have increased the number of users" do
-			User.all.count.should == 1
-		end
+#are these tests view tests, model test...etc?
+		fill_in "First name", with: 'Eric'
+		fill_in "Last name", with: 'Szeto'
+		fill_in "Email", with: 'eric@gmail.com'
+		fill_in "Password", with: '123456'
+		fill_in "Password confirmation", with: '123456'
+		click_button 'Sign Up'
+		page.should have_text("Hostings")
 	end	
+
+	it "successfully logs existing user in" do
+		click_link("Log In")
+		page.should have_text("Email")
+		#how do we test existing user login
+		#user = FactoryGirl.build(:user)?
+
+	end
+
+
+
 end

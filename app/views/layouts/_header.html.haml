@@ -13,7 +13,7 @@
       .nav-collapse.collapse
         %ul.nav
           - if current_user
-            %li #{link_to "Host Listings", listings_path}
+            %li #{link_to "Hostings", listings_path}
             %li #{link_to "#{current_user.first_name}", profile_path}
             %li #{link_to "Log out", session_path('current'), method: :delete}
           - else

@@ -6,8 +6,17 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+
     = render "layouts/header"
+    - if flash[:alert]
+      .alert
+        = flash[:alert]
     .container
       = yield 
+
+    - if flash[:notice]
+      .notice
+        = flash[:notice]
+
     = render "layouts/footer"
 

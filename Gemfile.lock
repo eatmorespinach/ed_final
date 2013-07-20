@@ -181,7 +181,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 2.3.2.0)
   capybara
-  factory_girl_rails
+  factory_girl_rails (~> 4.0)
   haml-rails (>= 0.3.4)
   jbuilder (~> 1.2)
   jquery-rails
