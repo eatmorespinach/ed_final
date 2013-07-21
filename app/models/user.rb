@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :listings
 
-
   before_save {|user| user.email = email.downcase}
+  validates :first_name, presence: true, length: {minimum: 2, maximum:30}
+  validates :last_name, presence: true, length: {maximum: 30}
   validates_confirmation_of :password, length: {minimum: 6}
   validates_presence_of :password, :on => :create
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
