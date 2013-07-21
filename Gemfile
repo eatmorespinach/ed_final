@@ -15,11 +15,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'pry'
 gem 'carrierwave'
 
-
 gem "binding_of_caller"
 
 group :development do
   gem 'better_errors'
+  gem 'meta_request'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

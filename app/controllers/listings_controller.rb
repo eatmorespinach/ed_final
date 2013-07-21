@@ -21,7 +21,16 @@ before_action :require_login, :only => [:show]
   end
 
   def create
-    @listing = Listing.new(set_listing)
+    @listing = Listing.new(
+      title: params[:listing][:title],
+      description: params[:listing][:description], 
+      guests: params[:listing][:guests], 
+      city: params[:listing][:guests],
+      stay_length: params[:listing][:stay_length],
+      country_id: params[:listing][:country_id],
+      image: params[:listing][:image],
+      in_exchange: params[:listing][:in_exchange],
+    )
 
     if @listing.save
       redirect_to listings_url, :alert => "Hosting created!"
