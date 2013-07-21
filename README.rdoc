@@ -1,3 +1,7 @@
 Drew Sing and Eric Szeto's Bitmaker final project. 
 
 
+Notes: 
+
+Should we consider a join table for listing_images and images?
+

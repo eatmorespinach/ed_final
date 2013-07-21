@@ -18,6 +18,7 @@ before_action :require_login, :only => [:show]
   end
 
   def edit
+
   end
 
   def create
@@ -25,14 +26,17 @@ before_action :require_login, :only => [:show]
     #if they save listing, but forget image, listing will not have image and will require user to update listing with image. 
     #user before_save possibly to solve.
     @listing_image = ListingImage.new
-    binding.pry
+
     @listing_image.file = params[:listing][:file]
       #now we assign 
 
-    if @listing.save && @listing_image.save
+    if @listing.save
       @listing_image.listing_id = @listing.id #build would remove this line, and replace "new"
-      @listing_image.save
-      redirect_to listings_url, :alert => "Hosting created!"
+      if @listing_image.save
+        redirect_to listings_url, :alert => "Hosting created!"
+      else
+        render :new, notice: 'you need to upload an image'
+      end
     else
       render :new
     end
