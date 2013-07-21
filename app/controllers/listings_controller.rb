@@ -21,21 +21,16 @@ before_action :require_login, :only => [:show]
   end
 
   def create
-    @listing = Listing.new(
-      title: params[:listing][:title],
-      description: params[:listing][:description],
-      guests: params[:listing][:guests],
-      city: params[:listing][:guests],
-      stay_length: params[:listing][:stay_length],
-      country_id: params[:listing][:country_id],
-      in_exchange: params[:listing][:in_exchange],
-    )
+    @listing = Listing.new(listing_params)
+    #if they save listing, but forget image, listing will not have image and will require user to update listing with image. 
+    #user before_save possibly to solve.
+    @listing_image = ListingImage.new
+    binding.pry
+    @listing_image.file = params[:listing][:file]
+      #now we assign 
 
-
-
-    if @listing.save
-      @listing_image =@listing.listing_images.build
-      @listing_image.file = params[:listing][:file]
+    if @listing.save && @listing_image.save
+      @listing_image.listing_id = @listing.id #build would remove this line, and replace "new"
       @listing_image.save
       redirect_to listings_url, :alert => "Hosting created!"
     else
@@ -44,7 +39,7 @@ before_action :require_login, :only => [:show]
   end
 
   def update
-    @listing = Listing.new(set_listing)
+    @listing = Listing.new(listing_params)
 
     if @listing.update_attributes(params[:listing])
       redirect_to listing_path(@listing)
@@ -61,9 +56,13 @@ before_action :require_login, :only => [:show]
   private
 
   #   # Use callbacks to share common setup or constraints between actions.
-  def set_listing
-    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :image, :in_exchange)
+  def listing_params
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :in_exchange)
   end
+
+  # def listing_image_params
+  #   params.require(:listing).permit(:file)
+  # end
 
   #   # Never trust parameters from the scary internet, only allow the white list through.
   # def listing_params
