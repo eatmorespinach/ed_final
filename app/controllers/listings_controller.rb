@@ -23,16 +23,20 @@ before_action :require_login, :only => [:show]
   def create
     @listing = Listing.new(
       title: params[:listing][:title],
-      description: params[:listing][:description], 
-      guests: params[:listing][:guests], 
+      description: params[:listing][:description],
+      guests: params[:listing][:guests],
       city: params[:listing][:guests],
       stay_length: params[:listing][:stay_length],
       country_id: params[:listing][:country_id],
-      image: params[:listing][:image],
       in_exchange: params[:listing][:in_exchange],
     )
 
+
+
     if @listing.save
+      @listing_image =@listing.listing_images.build
+      @listing_image.file = params[:listing][:file]
+      @listing_image.save
       redirect_to listings_url, :alert => "Hosting created!"
     else
       render :new
@@ -51,14 +55,14 @@ before_action :require_login, :only => [:show]
 
   def destroy
     @listing = Listing.find(params[:id])
-    @listing.destroy               
+    @listing.destroy
   end
-   
+
   private
-  
+
   #   # Use callbacks to share common setup or constraints between actions.
   def set_listing
-    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :image, :in_exchange)                                                       
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :image, :in_exchange)
   end
 
   #   # Never trust parameters from the scary internet, only allow the white list through.

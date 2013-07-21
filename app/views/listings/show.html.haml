@@ -4,7 +4,7 @@
 
 %p= @listing.description
 
-= image_tag @listing.listing_images.image_url.to_s
+= image_tag @listing.listing_images.first.file.url
 
 
 %p Guests: #{@listing.guests}
