@@ -2,6 +2,8 @@
 
 %h2= @listing.title
 
+%h3= @listing.city
+
 %p= @listing.description
 
 = image_tag @listing.listing_images.first.file.url
