@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
   	redirect_to new_sessions_path, alert: "Please log in!"
   end
 
+
+
+
 end
