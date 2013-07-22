@@ -8,9 +8,9 @@
 %h3= @listing.city
 
 %p= @listing.description
-
-= image_tag @listing.listing_images.first.file.url
-
+ 
+- @listing.listing_images.each do |image|
+  = image_tag image.file_url
 
 %p Guests: #{@listing.guests}
 
