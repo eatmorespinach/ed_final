@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 	def create
 	  user = login(params[:email], params[:password])
 	  if user
-	    redirect_back_or_to listings_path, :notice => "Logged in!"
+	    redirect_back_or_to listings_path
 	  else
 	    flash.now.alert = "Email or password was invalid"
 	    render :new

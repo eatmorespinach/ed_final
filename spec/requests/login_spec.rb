@@ -24,7 +24,19 @@ describe 'User sign up and login process' do
 		fill_in('Email', :with => user.email)
 		fill_in('Password', :with => 'password')
 		click_button 'Log In'
-		expect(page).to have_text("Logged in")
+		expect(page).to have_text("Hostings")
+	end
+
+	it "successfully logs out a user" do
+		user = FactoryGirl.create(:user, password: 'password')
+		click_link("Log In")
+		page.should have_text("Email")
+		fill_in('Email', :with => user.email)
+		fill_in('Password', :with => 'password')
+		click_button 'Log In'
+		expect(page).to have_text("Hostings")
+		click_link 'Log out'
+		expect(page).to have_text("Logged out")
 	end
 
 
