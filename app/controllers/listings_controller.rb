@@ -43,7 +43,7 @@ before_action :require_login, :only => [:show]
   end
 
   def update
-    @listing = Listing.new(listing_params)
+    @listing = Listing.find(params[:id])
 
     if @listing.update_attributes(listing_params)
       redirect_to listing_path(@listing)
