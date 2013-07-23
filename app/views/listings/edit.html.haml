@@ -1,7 +1,10 @@
-%h1 Editing listing
+- content_for :title do
+  = "Edit Hosting" 
+
+%h1 Edit Hosting
 
 = render 'form'
 
 = link_to 'Show', @listing
-\|
+
 = link_to 'Back', listings_path

@@ -1,34 +1,39 @@
 - content_for :title do
-  = "Hosting" 
+  = "#{@listing.title}" 
 
 =flash[:notice]
 
-%h2= @listing.title
 
+
+
+%h2= @listing.title
 %h3= @listing.city
 
-%p= @listing.description
- 
-- @listing.listing_images.each do |image|
-  = image_tag image.file_url
 
-%p Guests: #{@listing.guests}
+.row-fluid
+  .span12
+    %p this is the Fluid 12 level
+    .row-fluid
+      .span6
+        %p= @listing.description
+        %p Guests: #{@listing.guests}
+        %p #{@listing.stay_length}
+         
+        - @listing.listing_images.each do |image|
+          = image_tag image.file_url
 
-%p #{@listing.stay_length}
+        %h4 Reviews
 
-%h4 Reviews
+        - @listing.reviews.each do |review|
+          %p= review.description
+    .row-fluid
+      .span6
+        %h4 Create new Review
 
-- @listing.reviews.each do |review|
-
-  %p= review.description
-  %br
-
-%h4 Create new Review
-
-= form_for([@listing, @review]) do |f|
-  .field
-    =f.label :description
-    %br
-    =f.text_area :description
-  .actions
-    =f.submit
+        = form_for([@listing, @review]) do |f|
+          .field
+            =f.label :description
+            %br
+            =f.text_area :description
+          .actions
+            =f.submit

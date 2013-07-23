@@ -18,7 +18,7 @@ before_action :require_login, :only => [:show]
   end
 
   def edit
-
+    @listing = Listing.find(params[:id])
   end
 
   def create
@@ -45,7 +45,7 @@ before_action :require_login, :only => [:show]
   def update
     @listing = Listing.new(listing_params)
 
-    if @listing.update_attributes(params[:listing])
+    if @listing.update_attributes(listing_params)
       redirect_to listing_path(@listing)
     else
       render :edit

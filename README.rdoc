@@ -3,5 +3,18 @@ Drew Sing and Eric Szeto's Bitmaker final project.
 
 Notes: 
 
-Should we consider a join table for listing_images and images?
+Ask mina Twitter bootstrap contents.css.scss issue
+.main-content {
+	@extend .row-fluid;
+}
+
+.left {
+	@include makeFluidColumn(6);
+
+}
+
+.right {
+	@include makeFluidColumn(6);
+}
+
 
