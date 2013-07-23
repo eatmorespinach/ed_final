@@ -8,25 +8,23 @@ describe 'User sign up and login process' do
 
 	it "successfully creates user" do
 		click_link("Sign Up")
-#it needed to be "it" instead of describe.
-#We never actually loaded the Signup page!!! So it's in line 6
-
-#are these tests view tests, model test...etc?
 		fill_in "First name", with: 'Eric'
 		fill_in "Last name", with: 'Szeto'
 		fill_in "Email", with: 'eric@gmail.com'
 		fill_in "Password", with: '123456'
 		fill_in "Password confirmation", with: '123456'
 		click_button 'Sign Up'
-		page.should have_text("Hostings")
+		page.should have_text("Welcome to StayTraders")
 	end	
 
-	it "successfully logs existing user in" do
+	it "successfully logs in existing user" do
+		user = FactoryGirl.create(:user, password: 'password')
 		click_link("Log In")
 		page.should have_text("Email")
-		#how do we test existing user login
-		#user = FactoryGirl.build(:user)?
-
+		fill_in('Email', :with => user.email)
+		fill_in('Password', :with => 'password')
+		click_button 'Log In'
+		expect(page).to have_text("Logged in")
 	end
 
 
