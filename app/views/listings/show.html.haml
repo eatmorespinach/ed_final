@@ -4,23 +4,17 @@
 =flash[:notice]
 
 
-
-
-%h2= @listing.title
-%h3= @listing.city
-
-
 .row-fluid
   .span12
-    %p this is the Fluid 12 level
+    %h2= @listing.title
+    %h3= @listing.city
     .row-fluid
-      .span6
-        %p= @listing.description
-        %p Guests: #{@listing.guests}
-        %p #{@listing.stay_length}
-         
+      .span6 
         - @listing.listing_images.each do |image|
           = image_tag image.file_url
+
+        %p Guests: #{@listing.guests}
+        %p #{@listing.stay_length}
 
         %h4 Reviews
 
@@ -28,6 +22,7 @@
           %p= review.description
     .row-fluid
       .span6
+        %p= @listing.description
         %h4 Create new Review
 
         = form_for([@listing, @review]) do |f|

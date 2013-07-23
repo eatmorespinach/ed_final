@@ -35,9 +35,21 @@ $site_width: 940px;
 
 
 .navbar-inner {
+  -webkit-box-shadow: none;
   background-image: none;
   background-color: white;
+  background-repeat:none;
   border-radius: none;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+  border-bottom-color: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-left-color: none;
+  border-right-color: none;
 }
 
 .nav-collapse {
