@@ -7,23 +7,18 @@
 .row-fluid
   .span12
     %h2= @listing.title
-    %h3= @listing.city
+    %h4= @listing.city
     .row-fluid
-      .span6
-      - if @listing.listing_images.empty?
-        = image_tag("default_listing_image.gif")
-      - else 
-        = image_tag @listing.listing_images.first.file_url
+      .span5
+        - if @listing.listing_images.empty?
+          = image_tag("default_listing_image.gif")
+        - else 
+          = image_tag @listing.listing_images.first.file_url
 
 
-        %h4 Reviews
-        - @listing.reviews.each do |review|
-          %p= review.description
-    .row-fluid
-      .span6
+      .span7
         %p= @listing.description
-        %h4 Create new Review
-
+        %h3 Create new Review
         = form_for([@listing, @review]) do |f|
           .field
             =f.label :description
@@ -31,3 +26,6 @@
             =f.text_area :description
           .actions
             =f.submit
+        %h4 Reviews
+        - @listing.reviews.each do |review|
+          %p= review.description
