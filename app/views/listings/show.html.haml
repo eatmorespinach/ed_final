@@ -11,13 +11,14 @@
     .row-fluid
       .span6 
         - @listing.listing_images.each do |image|
-          = image_tag image.file_url
-
-        %p Guests: #{@listing.guests}
-        %p #{@listing.stay_length}
+          - if image.nil?
+            = image_tag("default_listing_image.gif")
+        
+          - else 
+            = image_tag image.file_url
+        - binding.pry
 
         %h4 Reviews
-
         - @listing.reviews.each do |review|
           %p= review.description
     .row-fluid
