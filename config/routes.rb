@@ -9,6 +9,7 @@ MyProject::Application.routes.draw do
   get 'myprofile' => "profiles#my_profile"
   get 'myprofile/edit' => "profiles#edit"  
   resources :listings do
+    resources :listing_images
     resources :reviews
   end
 

@@ -25,18 +25,9 @@ before_action :require_login, :only => [:show]
     @listing = Listing.new(listing_params)
     #if they save listing, but forget image, listing will not have image and will require user to update listing with image. 
     #user before_save possibly to solve.
-    @listing_image = ListingImage.new
-
-    @listing_image.file = params[:listing][:file]
-      #now we assign 
 
     if @listing.save
-      @listing_image.listing_id = @listing.id #build would remove this line, and replace "new"
-      if @listing_image.save
-        redirect_to listings_url, :alert => "Hosting created!"
-      else
-        render :new, notice: 'you need to upload an image'
-      end
+      redirect_to @listing, notice: "Created Listing Successfully"
     else
       render :new
     end

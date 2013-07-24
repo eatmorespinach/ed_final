@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 	  @user = User.new(set_user)
 	  if @user.save
 	  	auto_login(@user)
+	  	Profile.create!(user_id: current_user.id)
 	    redirect_to listings_path, :alert => "Welcome to StayTraders. View Hostings below"
 	  else
 	    render :new
