@@ -1,6 +1,6 @@
 
 
-= form_for @listing, :html => { :multipart => true} do |f|
+= form_for @listing do |f|
   - if @listing.errors.any?
     .alert.alert-error
       - for message in @listing.errors.full_messages

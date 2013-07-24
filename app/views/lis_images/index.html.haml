@@ -1,2 +1,4 @@
 - @lis_images.each do |image|
 	= image_tag image.file_url
+
+= link_to "Add Image", new_listing_lis_image_path(@listing)
