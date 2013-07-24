@@ -1,7 +1,7 @@
 - content_for :title do
-  = "#{@user.first_name} Profile" 
+  = "#{current_user.first_name} #{current_user.last_name} Profile" 
 
-%h3 #{@user.first_name} #{@user.last_name}
+%h2 #{current_user.first_name} #{current_user.last_name}
 
 %h3 A picture
 
