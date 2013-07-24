@@ -14,9 +14,9 @@
         %ul.nav
           - if current_user
             %li= link_to "Hostings", listings_path
-            %li= link_to current_user.first_name, profile_path
+            %li= link_to current_user.first_name, '#'
             %li= link_to "Add your space", new_listing_path
-            %li= link_to "Profile", active_user_profile_path
+            %li= link_to "Profile", myprofile_path
             %li= link_to "Log out", session_path('current'), method: :delete
           - else
             %li=link_to "Sign Up", signup_path
