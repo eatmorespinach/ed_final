@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :listings
+  has_one :profile
 
   before_save {|user| user.email = email.downcase}
   validates :first_name, presence: true, length: {minimum: 2, maximum:30}

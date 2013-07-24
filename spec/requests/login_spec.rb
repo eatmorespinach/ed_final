@@ -18,7 +18,7 @@ describe 'User sign up and login process' do
 	end	
 
 	it "successfully logs in existing user" do
-		user = FactoryGirl.create(:user, password: 'password')
+		user = FactoryGirl.create(:user)
 		click_link("Log In")
 		page.should have_text("Email")
 		fill_in('Email', :with => user.email)
@@ -28,7 +28,7 @@ describe 'User sign up and login process' do
 	end
 
 	it "successfully logs out a user" do
-		user = FactoryGirl.create(:user, password: 'password')
+		user = FactoryGirl.create(:user)
 		click_link("Log In")
 		page.should have_text("Email")
 		fill_in('Email', :with => user.email)

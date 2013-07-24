@@ -3,9 +3,11 @@ MyProject::Application.routes.draw do
 
   get "login" => "sessions#new"
   get "signup" => "users#new"
-  get "profile" => "users#show"
-  get "profile/edit" => "users#edit"
-  
+  # get "profile" => "users#show"
+  # get "profile/edit" => "users#edit"
+  resources :profiles, only: [:index, :show]
+  get 'myprofile' => "profiles#my_profile"
+  get 'myprofile/edit' => "profiles#edit"  
   resources :listings do
     resources :reviews
   end
