@@ -14,6 +14,9 @@
           = image_tag("default_listing_image.gif")
         - else 
           = image_tag @listing.lis_images.first.file_url
+        %br
+        = link_to "Manage Images", listing_lis_images_path(@listing)
+        = link_to "Edit Listing", edit_listing_path(@listing)
 
 
       .span7

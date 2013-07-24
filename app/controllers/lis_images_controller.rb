@@ -1,8 +1,12 @@
 class LisImagesController < ApplicationController
-before_save :load_listing
+before_filter :load_listing
+
+	def index
+		@lis_images = LisImage.where(listing_id: params[:listing_id])
+	end
 
 	def new
-		@lis_image = ListingImage.new
+		@lis_image = LisImage.new
 	end
 	
 	def create
@@ -28,7 +32,7 @@ before_save :load_listing
 	end
 
 	def load_listing
-		@listing = current_user.listings.find(:listing_id)
+		@listing = current_user.listings.find(params[:listing_id])
 	end
 
 
