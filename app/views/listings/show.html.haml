@@ -9,14 +9,12 @@
     %h2= @listing.title
     %h3= @listing.city
     .row-fluid
-      .span6 
-        - @listing.listing_images.each do |image|
-          - if image.nil?
-            = image_tag("default_listing_image.gif")
-        
-          - else 
-            = image_tag image.file_url
-        - binding.pry
+      .span6
+      - if @listing.listing_images.empty?
+        = image_tag("default_listing_image.gif")
+      - else 
+        = image_tag @listing.listing_images.first.file_url
+
 
         %h4 Reviews
         - @listing.reviews.each do |review|
