@@ -1,6 +1,43 @@
 - content_for :title do
   = "#{@user.first_name} Profile" 
 
+.row-fluid
+  .span12
+    .row-fluid
+      .span5
+        - if @listing.lis_images.empty?
+          = image_tag("default_listing_image.gif")
+        - else 
+          = image_tag @listing.lis_images.first.file_url
+        %br
+        = link_to "Manage Images", listing_lis_images_path(@listing)
+        = link_to "Edit Listing", edit_listing_path(@listing)
+
+
+      .span7
+        %p= @listing.description
+        %h3 Create new Review
+        = form_for([@listing, @review]) do |f|
+          .field
+            =f.label :description
+            %br
+            =f.text_area :description
+          .actions
+            =f.submit
+        %h4 Reviews
+        - @listing.reviews.each do |review|
+          %p= review.description
+
+
+
+
+
+
+
+
+
+
+
 %h3 #{@user.first_name} #{@user.last_name}
 
 %h3 A picture
