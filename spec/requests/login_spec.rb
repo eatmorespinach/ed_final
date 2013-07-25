@@ -36,7 +36,7 @@ describe 'User sign up and login process' do
 		click_button 'Log In'
 		expect(page).to have_text("Hostings")
 		click_link 'Log out'
-		expect(page).to have_text("Logged out")
+
 	end
 
 
