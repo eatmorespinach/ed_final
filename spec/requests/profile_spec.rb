@@ -16,7 +16,20 @@ describe 'User profile' do
 		fill_in('Password', :with => 'password')
 		click_button 'Log In'
 		page.should have_content("Profile")
+		User.all.count.should == 1
 	end
+
+	it "signing up should generate a new profile automatically" do
+		visit signup_path
+		fill_in "First name", with: 'Eric'
+		fill_in "Last name", with: 'Szeto'
+		fill_in "Email", with: 'eric@gmail.com'
+		fill_in "Password", with: '123456'
+		fill_in "Password confirmation", with: '123456'
+		click_button 'Sign Up'
+		Profile.all.count.should == 1
+	end
+	
 	
 
 	# it "for logged in user profile page should have dit profile button" do
