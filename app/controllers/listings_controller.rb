@@ -22,7 +22,7 @@ before_action :require_login, :only => [:show]
   end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.build(listing_params)
     #if they save listing, but forget image, listing will not have image and will require user to update listing with image. 
     #user before_save possibly to solve.
 
