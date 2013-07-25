@@ -6,8 +6,8 @@ FactoryGirl.define do
   	password "password"
   end
   factory :listing do
-  	title "Bitmaker"
-  	description "Description stuff"
+  	title "Little House on the Prarie"
+  	description "Description stuff. This is a really nice place to stay. It is amazing. "
   	guests 3
   	city "Toronto"
   	country_id 1
