@@ -3,20 +3,13 @@ Drew Sing and Eric Szeto's Bitmaker final project.
 
 Notes: 
 
-Ask mina Twitter bootstrap contents.css.scss issue
-.main-content {
-	@extend .row-fluid;
-}
 
-.left {
-	@include makeFluidColumn(6);
+Best way to organize spec files
 
-}
-
-.right {
-	@include makeFluidColumn(6);
-}
-
-difference between bourbon and bourbon neat
+how to make fields bigger in forms
 
 
+
+How do we set our git merge default editor to sublime text as opposed to vim. 
+
+How to consolidate
