@@ -21,6 +21,13 @@
 $default_text: #333333;
 $site_width: 940px;
 
+h1, h2, h3, h4 {
+  color: $default_text;
+}
+
+h2 {
+
+}
 
 .container {
 	max-width: 940px;
@@ -31,8 +38,6 @@ $site_width: 940px;
 	max-width: 940px;
 	margin: 0px auto;	
 }
-
-
 
 .navbar-inner {
   -webkit-box-shadow: none;
