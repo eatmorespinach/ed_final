@@ -36,6 +36,11 @@ describe Listing do
 		it { should_not be_valid }
 	end
 
+	describe "when guests is not integer" do
+		before { @listing.guests = "one" }
+		it { should_not be_valid }
+	end
+
 	describe "when city is blank" do
 		before { @listing.city = "" }
 		it { should_not be_valid }

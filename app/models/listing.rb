@@ -4,5 +4,6 @@ class Listing < ActiveRecord::Base
   has_many :lis_images, dependent: :destroy
 
   validates :title, presence: true, length: {maximum: 40}
-  validates :guests, numericality: true 
+  validates :description, :city, :stay_length, :in_exchange, :user_id, presence: true
+  validates :guests, presence: true, numericality: true 
 end
