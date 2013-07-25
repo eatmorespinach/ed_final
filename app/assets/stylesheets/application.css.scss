@@ -7,7 +7,7 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
+ *  font-size: 38.5px;
  *= require_self
  *= require_tree .
  */
@@ -25,8 +25,22 @@ h1, h2, h3, h4 {
   color: $default_text;
 }
 
-h2 {
+h1 {
+  font-size: 38.5px;
+}
 
+h2 {
+  font-size: 31.5px;
+}
+
+h3 {
+  font-size: 24.5px;
+}
+
+h4 {
+  font-size: 17.5px;
+  color: gray;
+  font-weight: normal;
 }
 
 .container {
