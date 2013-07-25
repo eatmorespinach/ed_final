@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  has_many :reviews
-  has_many :listings
-  has_one :profile
+  has_many :reviews, dependent: :destroy
+  has_many :listings, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   before_save {|user| user.email = email.downcase}
   validates :first_name, presence: true, length: {minimum: 2, maximum:30}
