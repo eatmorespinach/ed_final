@@ -1,2 +1,3 @@
 class ProImagesController < ApplicationController
+
 end
