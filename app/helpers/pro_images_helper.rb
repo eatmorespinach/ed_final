@@ -1,0 +1,2 @@
+module ProImagesHelper
+end
