@@ -1,0 +1,4 @@
+- if @listing.lis_images.empty?
+  = image_tag("default_listing_image.gif")
+- else 
+  = image_tag @listing.lis_images.first.file_url

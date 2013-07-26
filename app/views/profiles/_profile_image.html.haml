@@ -1,0 +1,4 @@
+- if @profile.pro_images.empty?
+  = image_tag("default_listing_image.gif")
+- else
+  = image_tag @profile.pro_images.first.file_url

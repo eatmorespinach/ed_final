@@ -8,7 +8,7 @@
     
     .row-fluid
       .span5
-        = image_tag @profile.pro_images.first.file_url
+        = render "profile_image"
         = link_to "Manage Images", profile_pro_images_path(@profile)
         = link_to "Edit Profile", myprofile_edit_path
         %h5 Hometown: Olympia, Washington
