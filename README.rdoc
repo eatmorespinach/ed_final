@@ -3,13 +3,6 @@ Drew Sing and Eric Szeto's Bitmaker final project.
 
 Notes: 
 
+Set so manage and edit listing can only be viewed by creator
 
-Best way to organize spec files
-
-how to make fields bigger in forms
-
-
-
-How do we set our git merge default editor to sublime text as opposed to vim. 
-
-How to consolidate
+pro_images_controller.rb line 5 - Why does it only work with ProImageS when it doesn't have an s in lis_images_controller 

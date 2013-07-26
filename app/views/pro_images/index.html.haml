@@ -1,0 +1,4 @@
+= link_to "Add New Image", new_profile_pro_image_path(@profile)
+
+- @pro_images.each do |image|
+  = image_tag image.file_url

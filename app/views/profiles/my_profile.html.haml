@@ -5,6 +5,7 @@
   .span12
     %h2 #{current_user.first_name} #{current_user.last_name}
     %h4 Current City: Toronto, Canada
+    =link_to "Manage Images", profile_pro_images_path(@profile)
     .row-fluid
       .span5
         %h4 ---picture goes here---
