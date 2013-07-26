@@ -1,0 +1,27 @@
+= form_for @profile do |f|
+  - if @profile.errors.any?
+    .alert.alert-error
+      - for message in @profile.errors.full_messages
+        %p= message
+  .span.offset3
+    .field
+      = f.label :current_city
+      = f.text_field :current_city
+    .field
+      = f.label :about
+      %br
+      = f.text_area :about
+    .field
+      = f.label :skills
+      = f.text_area :skills
+    .field
+      = f.label :hometown
+      %br
+      = f.text_area :hometown
+    .field
+      = f.label :nationality
+      %br
+      = f.number_field :nationality
+    
+    .actions
+      = f.submit "profileeeee"
