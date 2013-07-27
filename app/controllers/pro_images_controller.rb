@@ -13,9 +13,7 @@ before_filter :load_profile
 		@pro_image = @profile.pro_images.build(params_image)
 
 		if @pro_image.save
-			redirect_to root_path, :alert => "Image Added, boyyyy"
-
-			#profile_pro_images_path(@profile)
+			redirect_to profile_pro_images_path, :alert => "Image Added!"
 		else
 			render 'new', notice: 'Error image not uploade'
 		end

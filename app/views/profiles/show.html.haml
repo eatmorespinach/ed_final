@@ -1,43 +1,30 @@
-/ - content_for :title do
-/   = "#{@user.first_name} Profile" 
+- content_for :title do
+  = "#{current_user.first_name} #{current_user.last_name} Profile" 
 
-/ .row-fluid
-/   .span12
-/     .row-fluid
-/       .span5
-/         - if @listing.lis_images.empty?
-/           = image_tag("default_listing_image.gif")
-/         - else 
-/           = image_tag @listing.lis_images.first.file_url
-/         %br
-/         %br
-/         = link_to "Manage Images", listing_lis_images_path(@listing)
+.row-fluid
+  .span12
+    %h2 #{current_user.first_name} #{current_user.last_name}
+    %h4 Current City: Toronto, Canada
+    
+    .row-fluid
+      .span5
+        %div{:id=> "myCarousel", :class="carousel slide"}
+          %ol{:class => "carousel-indicators"}
+            %li{ :"data-target" => "#{myCarousel}" :"data-slide-to"="0", :"class" => "active"} 
+            %li{ :"data-target" => "#{myCarousel}" :"data-slide-to"="1"}
+            %li{ :"data-target" => "#{myCarousel}" :"data-slide-to"="2"}
+        = render "profile_image"
 
-/         = link_to "Edit Listing", edit_listing_path(@listing)
-
-
-/       .span7
-/         %p= @listing.description
-/         %h3 Create new Review
-/         = form_for([@listing, @review]) do |f|
-/           .field
-/             =f.label :description
-/             %br
-/             =f.text_area :description
-/           .actions
-/             =f.submit
-/         %h4 Reviews
-/         - @listing.reviews.each do |review|
-/           %p= review.description
-
-
-
-
-
-
-
-
-
-
-
-/ %h3 #{@user.first_name} #{@user.last_name}
+        %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
+      .span7
+        %h4 Ways I can help (skills and experience):
+        %p= @profile.skills
+        %br
+        %h4 I'm happy to teach
+        %p= @profile.skills
+        %br
+        %h4 About me
+        %p= @profile.about
+        %br
+        %h4 Hosting I'm Interested In
+        %p As of January 2012, the website had 3.6 million members.[3] In March 2013, the website had 6 million members in 100,000 cities worldwide.
