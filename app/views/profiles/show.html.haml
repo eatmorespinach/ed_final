@@ -3,14 +3,20 @@
 
 .row-fluid
   .span12
-    %h2 #{current_user.first_name} #{current_user.last_name}
-    %h4 Current City: Toronto, Canada
     .row-fluid
       .span5
+        %h2 #{current_user.first_name} #{current_user.last_name}
+        %h4 Current City: #{@profile.hometown}
         = render "profile_image"
-        %h5 Hometown: #{@profile.current_city}, #{@profile.
-        nationality}    
-      .span7
+        %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
+        %h5 Contact me: emailgoeshere
+      .lower20.span7
+        .contact_button
+          .btn contact #{current_user.first_name}
+        %br
+        %br
+        %br
+        %br
         %h4 Ways I can help (skills and experience):
         %p= @profile.skills
         %br
@@ -22,7 +28,3 @@
         %br
         %h4 Hosting I'm Interested In
         %p As of January 2012, the website had 3.6 million members.[3] In March 2013, the website had 6 million members in 100,000 cities worldwide.
-
-
-
-      

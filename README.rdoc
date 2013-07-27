@@ -7,7 +7,7 @@ Set so manage and edit listing can only be viewed by creator
 
 pro_images_controller.rb line 5 - Why does it only work with ProImageS when it doesn't have an s in lis_images_controller
 
-
+http://latimesphoto.files.wordpress.com/2011/11/la-me-wwoofing08.jpg	
 
 
 / %div{:id=> "myCarousel", :class="carousel slide"}
