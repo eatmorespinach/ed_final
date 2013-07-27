@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   #required for rails 4
   #config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-	def not_authorized
-  	redirect_to new_sessions_path, alert: "Please log in!"
+  def not_authenticated
+  	redirect_to new_session_path, alert: "Please log in!"
   end
 
 

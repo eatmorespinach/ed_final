@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-before_action :require_login, :only => [:show, :index]
+  before_filter :require_login, except: [:index]
 
   def index
     @listings = Listing.all

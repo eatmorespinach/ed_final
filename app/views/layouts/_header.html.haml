@@ -13,8 +13,8 @@
       / Everything you want hidden at 940px or less, place within here
       .nav-collapse.collapse
         %ul.nav.pull-right
+          %li= link_to "Hostings", listings_path
           - if current_user
-            %li= link_to "Hostings", listings_path
             %li= link_to "Guests", listings_path
             %li= link_to "Add your space", new_listing_path
             %li.dropdown

@@ -1,5 +1,5 @@
 class LisImagesController < ApplicationController
-before_filter :load_listing
+	before_filter :load_listing
 
 	def index
 		@lis_images = LisImage.where(listing_id: params[:listing_id])
