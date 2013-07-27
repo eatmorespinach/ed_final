@@ -18,7 +18,7 @@ namespace :db do
         description: "Where everybody knows your name",
         guests: n+1,
         city: Faker::Address.city, 
-        country_id: n+1, 
+        country_id: Faker::Address.city, 
         stay_length: "#{n+1} days", 
         in_exchange: "I want stuff",
         user_id: 1)
