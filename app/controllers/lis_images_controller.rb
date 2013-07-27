@@ -1,5 +1,6 @@
 class LisImagesController < ApplicationController
-	before_filter :load_listing
+	include ListingsHelper
+	before_filter :load_listing, :correct_user
 
 	def index
 		@lis_images = LisImage.where(listing_id: params[:listing_id])
@@ -29,7 +30,11 @@ class LisImagesController < ApplicationController
 	end
 
 	def load_listing
-		@listing = current_user.listings.find(params[:listing_id])
+		@listing = Listing.find(params[:listing_id])
+	end
+
+	def correct_user
+		redirect_to root_path unless current_user?(@listing.user)
 	end
 
 

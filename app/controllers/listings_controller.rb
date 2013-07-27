@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
+  include ListingsHelper
   before_filter :require_login, except: [:index]
-
+  before_filter :correct_user, only: [:edit, :update, :destroy]
   def index
     @listings = Listing.all
   end
@@ -53,6 +54,11 @@ class ListingsController < ApplicationController
   #   # Use callbacks to share common setup or constraints between actions.
   def listing_params
     params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country_id, :in_exchange)
+  end
+
+  def correct_user
+    @listing = Listing.find(params[:id])
+    redirect_to root_path unless current_user?(@listing.user)
   end
 
   # def listing_image_params

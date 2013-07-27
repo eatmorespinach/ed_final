@@ -16,7 +16,7 @@ MyProject::Application.routes.draw do
     resources :reviews
   end
 
-  resources :users
+  resources :users, only: [:new, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
 
   
