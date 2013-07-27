@@ -11,6 +11,7 @@
         = render "profile_image"
         = link_to "Manage Images", profile_pro_images_path(@profile)
         = link_to "Edit Profile", myprofile_edit_path
+        = link_to "View Profile", profile_path(@profile)
         %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
       .span7
         %h4 Ways I can help (skills and experience):
