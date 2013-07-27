@@ -7,7 +7,9 @@ gem 'sorcery'
 gem 'friendly_id'
 gem 'faker'
 
+gem 'carmen'
 gem 'carmen-rails'
+gem 'country_select'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
