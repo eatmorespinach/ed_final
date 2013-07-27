@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = Review.new(review_params)
+		@review = current_user.reviews.build(review_params)
 		@review.listing = @listing
 
 		if @review.save
@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
 	private 
 
 	def review_params
-		params.require(:review).permit!
+		params.require(:review).permit(:rating, :description)
 #what is :review? is it the review params, which includes rating, description, listing_id, user_id?
 	end
 
