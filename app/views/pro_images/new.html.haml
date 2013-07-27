@@ -1,0 +1,14 @@
+= form_for [@profile, @pro_image], :html => { :multipart => true} do |f|
+  - if @pro_image.errors.any?
+    .alert.alert-error
+      - for message in @pro_image.errors.full_messages
+        %p= message
+  .span.offset3
+    .field
+      = f.label :file
+      = f.file_field :file
+    .field
+      = f.label "OR Image URL"
+      = f.text_field :remote_file_url
+    .actions
+      = f.submit "Upload Image"

@@ -10,10 +10,7 @@
     %h4= @listing.city
     .row-fluid
       .span5
-        - if @listing.lis_images.empty?
-          = image_tag("default_listing_image.gif")
-        - else 
-          = image_tag @listing.lis_images.first.file_url
+        = render "listing_image"
         %br
         = link_to "Manage Images", listing_lis_images_path(@listing)
         = link_to "Edit Listing", edit_listing_path(@listing)

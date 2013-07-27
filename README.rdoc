@@ -3,27 +3,6 @@ Drew Sing and Eric Szeto's Bitmaker final project.
 
 Notes: 
 
-suggested we each do at least one separate feature each so we can give job offers a good example of our own code.
+Set so manage and edit listing can only be viewed by creator
 
-google maps,
-email possible matches that want a place to stay have something property owner wants.
-could possibly allow users to gather a list of reviews, possibly able to review tenants
-
-
-figure out possible ways to monetize
-implement a credit card payment system
-good sorting system
-read about polymorphic trees
-figure out a good way to use carmen for country id
-
-
-
-Best way to organize spec files
-
-how to make fields bigger in forms
-
-
-
-How do we set our git merge default editor to sublime text as opposed to vim. 
-
-How to consolidate
+pro_images_controller.rb line 5 - Why does it only work with ProImageS when it doesn't have an s in lis_images_controller 

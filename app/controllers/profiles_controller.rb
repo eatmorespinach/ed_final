@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
 
   def show
   	@profile = Profile.find(params[:id])
+
   end
 
   def edit
@@ -18,11 +19,15 @@ class ProfilesController < ApplicationController
   def update
   	@profile = current_user.profile
 
-  	if @profile.update_attributes(params_profile)
+  	if @profile.update_attributes(profile_params)
   		redirect_to myprofile_path, notice: "Profile Updated"
   	else
   		render 'new', alert: "Error"
   	end
+  end
+
+  def profile_params
+    params.require(:profile).permit(:skills, :about, :hometown, :nationality, :current_city)
   end
 
 end

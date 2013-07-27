@@ -56,11 +56,6 @@ describe Listing do
 		it { should_not be_valid }
 	end
 
-	describe "when in_exchange is blank" do
-		before { @listing.in_exchange = "" }
-		it { should_not be_valid }
-	end
-
 	describe "when user_id is blank" do
 		before { @listing.user_id = "" }
 		it { should_not be_valid }

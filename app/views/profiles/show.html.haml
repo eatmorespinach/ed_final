@@ -1,36 +1,34 @@
-- content_for :title do
-  = "#{@user.first_name} Profile" 
+/ - content_for :title do
+/   = "#{@user.first_name} Profile" 
 
-.row-fluid
-  .span12
-    .row-fluid
-      .span5
-        - if @listing.lis_images.empty?
-          = image_tag("default_listing_image.gif")
-        - else 
-          = image_tag @listing.lis_images.first.file_url
-        %br
-        = link_to "Manage Images", listing_lis_images_path(@listing)
-        = link_to "Edit Listing", edit_listing_path(@listing)
+/ .row-fluid
+/   .span12
+/     .row-fluid
+/       .span5
+/         - if @listing.lis_images.empty?
+/           = image_tag("default_listing_image.gif")
+/         - else 
+/           = image_tag @listing.lis_images.first.file_url
+/         %br
+/         %br
+/         = link_to "Manage Images", listing_lis_images_path(@listing)
 
-
-      .span7
-        %p= @listing.description
-        %h3 Create new Review
-        = form_for([@listing, @review]) do |f|
-          .field
-            =f.label :description
-            %br
-            =f.text_area :description
-          .actions
-            =f.submit
-        %h4 Reviews
-        - @listing.reviews.each do |review|
-          %p= review.description
+/         = link_to "Edit Listing", edit_listing_path(@listing)
 
 
-
-
+/       .span7
+/         %p= @listing.description
+/         %h3 Create new Review
+/         = form_for([@listing, @review]) do |f|
+/           .field
+/             =f.label :description
+/             %br
+/             =f.text_area :description
+/           .actions
+/             =f.submit
+/         %h4 Reviews
+/         - @listing.reviews.each do |review|
+/           %p= review.description
 
 
 
@@ -38,17 +36,8 @@
 
 
 
-%h3 #{@user.first_name} #{@user.last_name}
 
-%h3 A picture
 
-%h4 Current Location
-%p Toronto, Canada
 
-%h4 Skills and Experience
-%p I am good at mowing the fucking lawn. 
 
-%h4 Hostings I'm Interested In
-%p Couchsurfing was founded in 2004 and sold to the private for-profit corporation Better World Through Travel in 2011. The website provides a platform for members to "surf" on couches by staying as a guest at a host's home, host travelers, or join an event.
-
-%p As of January 2012, the website had 3.6 million members.[3] In March 2013, the website had 6 million members in 100,000 cities worldwide.[4]
+/ %h3 #{@user.first_name} #{@user.last_name}
