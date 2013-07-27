@@ -5,4 +5,21 @@ Notes:
 
 Set so manage and edit listing can only be viewed by creator
 
-pro_images_controller.rb line 5 - Why does it only work with ProImageS when it doesn't have an s in lis_images_controller 
+pro_images_controller.rb line 5 - Why does it only work with ProImageS when it doesn't have an s in lis_images_controller
+
+
+
+
+/ %div{:id=> "myCarousel", :class="carousel slide"}
+          / %ol{:class => "carousel-indicators"}
+            / %li{ :"data-target" => "#{myCarousel}" :"data-slide-to"="0", :"class" => "active"} 
+            / %li{ :"data-target" => "#{myCarousel}" :"data-slide-to"="1"}
+            / %li{ :"data-target" => "#{myCarousel}" :"data-slide-to"="2"}
+          / .carousel-inner
+          /   %div{:class => "active item"}
+          /   %img{ src="1stimageurl" alt""}
+          /   .item
+          /   .item
+          / %a{:class => "carousel-control left" :href => "#{myCarousel}" :"data-slide"=>"prev"}
+          / %a{:class => "carousel-control right" :href => "#{myCarousel}" :"data-slide"=>"next
+          / "}

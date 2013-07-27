@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+ruby "2.0.0"
 gem 'pg'
 gem 'sorcery'
-gem 'friendly_id'
 gem 'faker'
 
 gem 'carmen'
@@ -26,6 +26,8 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
 end
+
+gem 'rails_12factor', group: :production
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
