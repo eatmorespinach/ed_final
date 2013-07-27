@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+
   def my_profile
   	@profile = current_user.profile
   end
@@ -25,6 +26,8 @@ class ProfilesController < ApplicationController
   		render 'new', alert: "Error"
   	end
   end
+
+  private
 
   def profile_params
     params.require(:profile).permit(:skills, :about, :hometown, :nationality, :current_city)
