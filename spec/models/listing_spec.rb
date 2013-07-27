@@ -7,7 +7,7 @@ describe Listing do
 			description: "home is where the heart it",
 			guests: 2,
 			city: "Toronto",
-			country_id: 1,
+			country: "Canada",
 			stay_length: "Long time",
 			in_exchange: "I want slaves",
 			user_id: user.id)
