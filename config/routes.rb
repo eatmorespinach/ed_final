@@ -5,7 +5,7 @@ MyProject::Application.routes.draw do
   get "signup" => "users#new"
   # get "profile" => "users#show"
   # get "profile/edit" => "users#edit"
-  resources :profiles, only: [:index, :show] do
+  resources :profiles, only: [:index, :show, :update] do
     resources :pro_images
   end
 

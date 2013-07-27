@@ -7,21 +7,22 @@
     .field
       = f.label :current_city
       = f.text_field :current_city
+      %br
     .field
       = f.label :about
-      %br
       = f.text_area :about
+      %br
     .field
       = f.label :skills
       = f.text_area :skills
+      %br
     .field
       = f.label :hometown
+      = f.text_field :hometown
       %br
-      = f.text_area :hometown
     .field
-      = f.label :nationality
-      %br
-      = f.number_field :nationality
+      = f.label :home_country
+      = f.text_field :nationality
     
     .actions
-      = f.submit "profileeeee"
+      = f.submit "Save Profile"
