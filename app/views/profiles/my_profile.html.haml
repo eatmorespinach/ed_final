@@ -3,17 +3,23 @@
 
 .row-fluid
   .span12
-    %h2 #{current_user.first_name} #{current_user.last_name}
-    %h4 Current City: Toronto, Canada
-    
     .row-fluid
       .span5
+        %h2 #{current_user.first_name} #{current_user.last_name}
+        %h4 Current City: #{@profile.hometown}
         = render "profile_image"
         = link_to "Manage Images", profile_pro_images_path(@profile)
         = link_to "Edit Profile", myprofile_edit_path
         = link_to "View Profile", profile_path(@profile)
         %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
-      .span7
+        %h5 Contact me: emailgoeshere
+      .lowerby20.span7
+        .contact_button
+          .btn contact #{current_user.first_name}
+        %br
+        %br
+        %br
+        %br
         %h4 Ways I can help (skills and experience):
         %p= @profile.skills
         %br
