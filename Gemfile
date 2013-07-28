@@ -48,7 +48,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
-  gem 'haml-rails', '>= 0.3.4'
 end
 
 group :test do 
@@ -56,7 +55,7 @@ group :test do
   gem "capybara" # needed for our integration tests, which we'll talk about more later
 end
 
-
+gem 'haml-rails', '>= 0.3.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
