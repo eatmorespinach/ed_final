@@ -3,6 +3,8 @@ Drew Sing and Eric Szeto's Bitmaker final project.
 
 Notes: 
 
+When and where do we reference the not_authenticated method in application controller?
+
 Set so manage and edit listing can only be viewed by creator
 
 pro_images_controller.rb line 5 - Why does it only work with ProImageS when it doesn't have an s in lis_images_controller

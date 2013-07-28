@@ -13,16 +13,19 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 
-  before_save do |user| 
-    user.email = email.downcase
-    user.first_name = first_name.capitalize
-    user.last_name = last_name.capitalize
+  before_save do |user|
+      user.email = email.downcase
+      user.first_name = first_name.capitalize
+      user.last_name = last_name.capitalize
   end
+  # how would we refactor this into a method?
 
   after_save :create_profile
 
   def create_profile
     Profile.create!(user_id: self.id) if profile.blank?
   end
+
+
 
 end

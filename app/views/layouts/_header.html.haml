@@ -13,7 +13,6 @@
       / Everything you want hidden at 940px or less, place within here
       .nav-collapse.collapse
         %ul.nav.pull-right
-          %li= link_to "Hostings", listings_path
           - if current_user
             %li= link_to "Guests", listings_path
             %li= link_to "Add your space", new_listing_path
@@ -21,6 +20,7 @@
               %a.dropdown-toggle{ :"data-toggle"=>'dropdown', :href =>'#'} #{current_user.first_name}
               %ul.dropdown-menu{ :role => 'menu', :"aria-labelledby"=>"dLabel"}
                 %li= link_to "Profile", myprofile_path
+                %li= link_to "Your listing", listings_path
                 %li= link_to "Log out", session_path('current'), method: :delete
           - else
             %li=link_to "Sign Up", signup_path

@@ -1,5 +1,6 @@
 class LisImagesController < ApplicationController
 	include ListingsHelper
+	
 	before_filter :load_listing, :correct_user
 
 	def index
