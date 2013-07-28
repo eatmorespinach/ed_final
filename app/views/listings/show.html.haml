@@ -11,11 +11,12 @@
     .row-fluid
       .span5
         = render "listing_image"
-        %br
-        = link_to "Manage Images", listing_lis_images_path(@listing)
-        = link_to "Edit Listing", edit_listing_path(@listing)
+        - if @listing.user == current_user    
+          %br
+          = link_to "Manage Images", listing_lis_images_path(@listing)
+          = link_to "Edit Listing", edit_listing_path(@listing)
 
-
+          / same as if @listing.user_id == current_user.id
       .span7
         %p= @listing.description
         %br
@@ -37,9 +38,9 @@
             =f.label :description
             %br
             =f.text_area :description
+          %br
           .field
-            =f.label :"rating (1 to 5)"
-            %br
+            =f.label :"rating (1 to 5)"  
             =f.number_field :rating
           .actions
             =f.submit

@@ -14,6 +14,7 @@
       .nav-collapse.collapse
         %ul.nav.pull-right
           - if current_user
+            %li= link_to "Hostings", listings_path
             %li= link_to "Guests", listings_path
             %li= link_to "Add your space", new_listing_path
             %li.dropdown

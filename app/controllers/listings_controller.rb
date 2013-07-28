@@ -2,16 +2,15 @@ class ListingsController < ApplicationController
   include ListingsHelper
   before_filter :require_login, except: [:index]
   before_filter :correct_user, only: [:edit, :update, :destroy]
+
+
   def index
     @listings = Listing.all
   end
 
   def show
     @listing = Listing.find(params[:id])
-
-    if current_user
-      @review = @listing.reviews.build
-    end
+    @review = @listing.reviews.build
   end
 
   def new
@@ -24,9 +23,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = current_user.listings.build(listing_params)
-    #if they save listing, but forget image, listing will not have image and will require user to update listing with image. 
-    #user before_save possibly to solve.
-
+     
     if @listing.save
       redirect_to @listing, notice: "Created Listing Successfully"
     else
@@ -47,6 +44,10 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     @listing.destroy
+  end
+
+  def your_listing
+    @listings = Listing.all
   end
 
   private
