@@ -11,13 +11,14 @@ MyProject::Application.routes.draw do
   end
 
   get 'myprofile' => "profiles#my_profile"
-  get 'myprofile/edit' => "profiles#edit"  
+  get 'myprofile/edit' => "profiles#edit"
+  get 'myaccount' => "users#edit"  
   resources :listings do
     resources :lis_images
     resources :reviews
   end
 
-  resources :users, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :destroy, :update]
   resources :sessions, only: [:new, :create, :destroy]
 
   

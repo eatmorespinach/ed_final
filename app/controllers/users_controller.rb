@@ -21,7 +21,17 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		#this will be settings
+		@user = current_user
+	end
+
+	def update
+		@user = current_user
+
+		if @user.update_attributes(set_user)
+			redirect_to myaccount_path, notice: "Your account has been updated."
+		else
+			render 'new'
+		end
 	end
 
 private
