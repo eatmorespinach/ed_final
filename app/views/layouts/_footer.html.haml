@@ -1,10 +1,13 @@
 %footer
-  #inner-footer
-    %small
-      %a{:href => "http://drewsing.com/"} Bitmaker project by Drew Sing and Eric Szeto
-    %nav
-      %ul
-        %li= link_to "faq", "/faq"
-        %li= link_to "About", "/about"
-        %li= link_to "Contact", '/contact'
-      
+  .container.container-fluid
+    .row-fluid
+      .span4
+        %small
+          %a{:href => "http://drewsing.com/"} Bitmaker project by Drew Sing and Eric Szeto
+      .span4.pull-right
+        %nav
+          %ul
+            %li= link_to "faq", "/faq"
+            %li= link_to "About", "/about"
+            %li= link_to "Contact", '/contact'
+          
