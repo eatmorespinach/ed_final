@@ -2,11 +2,11 @@ class NotificationsMailer < ActionMailer::Base
 	default :from => "support@staytraders.com"
 	default :to => "support@staytraders.com"
 
-	def listing_contact(message, user, listing)
+	def profile_contact(message, user, profile)
 		@message = message
 		@user = user
-		@listing = listing
-		mail(to: @listing.user.email, subject: "[StayTraders] Contact from #{@user.email} about #{@listing.title} ")
+		@profile = profile
+		mail(to: @profile.user.email, subject: "[StayTraders] Contact from #{@user.email} ")
 	end
 
 	def registration_confirmation(user)

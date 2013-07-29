@@ -16,7 +16,7 @@
         .contact_button
           -if current_user
             %p Contact me at 
-            .btn= mail_to @profile.user.email
+            .btn= link_to "Contact me", new_profile_contact_path(@profile)
           -else   
             .btn= link_to "Contact me", login_path
         %br

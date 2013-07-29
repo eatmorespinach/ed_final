@@ -7,6 +7,7 @@ MyProject::Application.routes.draw do
   # get "profile/edit" => "users#edit"
   resources :profiles, only: [:index, :show, :update] do
     resources :pro_images
+    resource :contact, only: [:new, :create]
   end
 
   get 'myprofile' => "profiles#my_profile"

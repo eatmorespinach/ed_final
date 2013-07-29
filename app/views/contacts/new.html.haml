@@ -1,0 +1,16 @@
+- content_for :title do
+  = "Contact #{@profile.first_name}" 
+
+%h1 Contact #{@profile.first_name}
+
+= form_for([@profile, @message], url: profile_contact_path(@profile)) do |f|
+  .field
+    = f.label :subject
+    %br
+    = f.text_field :subject
+  .field
+    = f.label :body
+    %br
+    = f.text_area :body
+  .actions
+    = f.submit "Send Message"
