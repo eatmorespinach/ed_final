@@ -12,17 +12,19 @@
 
         %div{:id=> "myCarousel", :class=> "carousel slide"}
           .carousel-inner
+
             - if @listing.lis_images.empty?
               .item.active
                 = image_tag("default_listing_image.gif")
             - else
               - @listing.lis_images.each do |picture|
-                - if picture.id == 1
-                  .item.active 
-                    = image_tag picture.file_url(:thumb)
+                - if picture == @listing.lis_images.first
+                  .item.active
+                    = image_tag picture.file_url(:thumb), :class => "center"
                 - else
                   .item
-                    = image_tag picture.file_url(:thumb)
+                    = image_tag picture.file_url(:thumb), :class => "center"
+
 
 
           %a{:class => "carousel-control left", :href => "#myCarousel", :"data-slide"=>"prev"} &lsaquo;
