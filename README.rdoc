@@ -25,3 +25,7 @@ http://latimesphoto.files.wordpress.com/2011/11/la-me-wwoofing08.jpg
           / %a{:class => "carousel-control left" :href => "#{myCarousel}" :"data-slide"=>"prev"}
           / %a{:class => "carousel-control right" :href => "#{myCarousel}" :"data-slide"=>"next
           / "}
+
+          - if current_user
+            .btn= mail_to "sing.drew@gmail.com" 
+          - else login_path

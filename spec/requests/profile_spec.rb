@@ -5,7 +5,7 @@ describe 'User profile' do
 		visit root_path
 	end
 
-	it "non logged in user shoould not see profile button" do
+	it "non logged in user should not see profile button" do
 		page.should_not have_content("Profile")
 	end
 

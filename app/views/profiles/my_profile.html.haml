@@ -8,11 +8,10 @@
         %h2 #{current_user.first_name} #{current_user.last_name}
         %h4 Current City: #{@profile.hometown}
         = render "profile_image"
-        = link_to "Manage Images", profile_pro_images_path(@profile)
-        = link_to "Edit Profile", myprofile_edit_path
-        = link_to "View Profile", profile_path(@profile)
+        .btn= link_to "Manage Images", profile_pro_images_path(@profile)
+        .btn= link_to "Edit Profile", myprofile_edit_path
+        .btn= link_to "View Profile", profile_path(@profile)
         %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
-        %h5 Contact me: emailgoeshere
       .span7
         %br
         %br

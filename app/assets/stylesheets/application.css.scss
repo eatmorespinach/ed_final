@@ -108,3 +108,9 @@ footer {
     }
   }
 }
+
+
+.btn.a {
+  text-decoration: none !important;
+//  for some reason, the underline upon hover won't go away
+}
