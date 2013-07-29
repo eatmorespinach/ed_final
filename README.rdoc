@@ -1,6 +1,8 @@
 Drew Sing and Eric Szeto's Bitmaker final project. 
 
 
+Alerts don't have actions in bootstrap.  (logged out)
+
 Notes: 
 
 When and where do we reference the not_authenticated method in application controller?

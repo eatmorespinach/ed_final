@@ -48,6 +48,10 @@ h5 {
   font-weight: normal;
 }
 
+p {
+  font-size: 16px;
+}
+
 .container {
 	max-width: 940px;
 	margin: 0px auto;	
@@ -56,6 +60,10 @@ h5 {
 #container {
 	max-width: 940px;
 	margin: 0px auto;	
+}
+
+a.brand {
+  font-color: white;
 }
 
 .navbar-inner {

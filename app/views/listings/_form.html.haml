@@ -8,24 +8,27 @@
   .span.offset3
     .field
       = f.label :title
-      %br
       = f.text_field :title
+    %br
     .field
       = f.label :city
       = f.text_field :city
+    %br
     .field
       = f.label :description
-      %br
       = f.text_area :description
+    %br
     .field
       = f.label :number_of_guests
-      %br
       = f.number_field :guests
+    %br
     .field
       = f.label :stay_length
       = f.text_field :stay_length
+    %br
     .field
       = f.label :country
       = f.country_select :country
+    %br
     .actions
-      = f.submit "List Hosting"
+      = f.submit "List Hosting", :class => "btn btn-info"
