@@ -13,6 +13,7 @@ class LisImagesController < ApplicationController
 	
 	def create
 		@lis_image = @listing.lis_images.build(params_image)
+		# @lis_thumb_image = @listing.lis_thumb_image.build(params_image)
 
 	    if @lis_image.save
 	      redirect_to listing_lis_images_path(@listing), :alert => "Image Added"
