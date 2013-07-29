@@ -10,13 +10,31 @@
     %h4= @listing.country
     .row-fluid
       .span5
-        = render "listing_image"
+
+        %div{:id=> "myCarousel", :class=> "carousel slide"}
+          .carousel-inner
+            - if @listing.lis_images.empty?
+              .item.active
+                = image_tag("default_listing_image.gif")
+            - else
+              - @listing.lis_images.each do |picture|
+                - if picture.id == 1
+                  .item.active 
+                    = image_tag picture.file_url
+                - else
+                  .item
+                    = image_tag picture.file_url
+
+
+
+          %a{:class => "carousel-control left", :href => "#myCarousel", :"data-slide"=>"prev"} &lsaquo;
+          %a{:class => "carousel-control right", :href => "#myCarousel", :"data-slide"=>"next"} &rsaquo;
+
         - if @listing.user == current_user    
           %br
           = link_to "Manage Images", listing_lis_images_path(@listing)
           = link_to "Edit Listing", edit_listing_path(@listing)
 
-          / same as if @listing.user_id == current_user.id
       .span7
         %p= @listing.description
         %br
