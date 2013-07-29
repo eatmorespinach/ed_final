@@ -22,8 +22,14 @@ class LisImagesController < ApplicationController
 	    end
 	end
 
+
+	def show
+		@lis_image = LisImage.find(params[:id])
+	end
+		
 	def destroy
 	end
+
 
 	private
 

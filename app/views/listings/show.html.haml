@@ -19,13 +19,10 @@
               - @listing.lis_images.each do |picture|
                 - if picture == @listing.lis_images.first
                   .item.active
-                    = image_tag picture.file_url(:thumb), :class => "center"
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_lis_image_path(@listing, picture)                
                 - else
                   .item
-                    = image_tag picture.file_url(:thumb), :class => "center"
-
-
-
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_lis_image_path(@listing, picture)
           %a{:class => "carousel-control left", :href => "#myCarousel", :"data-slide"=>"prev"} &lsaquo;
           %a{:class => "carousel-control right", :href => "#myCarousel", :"data-slide"=>"next"} &rsaquo;
 
