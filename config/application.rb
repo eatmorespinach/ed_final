@@ -23,5 +23,21 @@ module MyProject
     g.template_engine :haml
   end
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => "staytraders@gmail.com",
+      :password             => ENV['SMTP_PASSWORD'],
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+      }
+
+  config.action_mailer.default_url_options = {
+      :host => "stormy-wave-1963.herokuapp.com"
+    }
+  
+
   end
 end

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 	  @user = User.new(set_user)
 	  if @user.save
 	  	auto_login(@user)
+	  	NotificationsMailer.registration_confirmation(@user).deliver
 	    redirect_to myprofile_edit_path, :alert => "Welcome to StayTraders! Please complete your profile:"
 	  else
 	    render :new
