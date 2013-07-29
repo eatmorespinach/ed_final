@@ -6,11 +6,9 @@
 = form_for(current_user) do |f|
   .field
     = f.label :first_name
-    %br/
     = f.text_field :first_name
   .field
     = f.label :last_name
-    %br/
     = f.text_field :last_name
   .actions
     = f.submit
