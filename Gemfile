@@ -7,6 +7,7 @@ gem 'pg'
 gem 'sorcery'
 gem 'faker'
 
+
 gem 'carmen'
 gem 'carmen-rails'
 gem 'country_select'
@@ -19,6 +20,7 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'pry'
 gem 'carrierwave'
+gem "rmagick"
 
 gem "binding_of_caller"
 

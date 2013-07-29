@@ -20,11 +20,10 @@
               - @listing.lis_images.each do |picture|
                 - if picture.id == 1
                   .item.active 
-                    = image_tag picture.file_url
+                    = image_tag picture.file_url(:thumb)
                 - else
                   .item
-                    = image_tag picture.file_url
-
+                    = image_tag picture.file_url(:thumb)
 
 
           %a{:class => "carousel-control left", :href => "#myCarousel", :"data-slide"=>"prev"} &lsaquo;
