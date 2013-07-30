@@ -1,17 +1,17 @@
 = render 'shared/errors', f: @profile
 = form_for @profile do |f|
-  .span.offset3
+  .span.offset2
     .field
       = f.label :current_city
-      = f.text_field :current_city
+      = f.text_field(:current_city)
       %br
     .field
       = f.label :about
-      = f.text_area :about
+      = f.text_area :about, :class => "wider-input taller-input"
       %br
     .field
       = f.label :skills
-      = f.text_area :skills
+      = f.text_area :skills, :class => "wider-input taller-input"
       %br
     .field
       = f.label :hometown
@@ -20,6 +20,6 @@
     .field
       = f.label :home_country
       = f.country_select :nationality
-    
+      
     .actions
       = f.submit "Save Profile", :class => "btn btn-info"

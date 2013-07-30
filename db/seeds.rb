@@ -19,3 +19,5 @@ user = User.create(email: 'test@test.com', password: 'testpassword', first_name:
 		guests: 4, city: Faker::Address.city, country: @countries.sample, 
 		stay_length: Faker::Lorem.sentence, in_exchange: Faker::Lorem.sentence, user_id: user.id)
 end
+
+# profile = Profile.create()

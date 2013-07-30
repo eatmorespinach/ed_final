@@ -68,8 +68,20 @@ p {
 
 //forms
 
-.input[type="text"] {
+.normal-input {
   width: 400px;
+}
+
+.wider-input {
+  width: 500px;
+}
+
+.taller-input {
+  height: 200px;
+}
+
+.long-input {
+  length: 500px;
 }
 
 .container {
