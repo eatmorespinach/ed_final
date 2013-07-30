@@ -19,7 +19,7 @@
       %br
     .field
       = f.label :home_country
-      = f.text_field :nationality
+      = f.country_select :nationality
     
     .actions
       = f.submit "Save Profile", :class => "btn btn-info"
