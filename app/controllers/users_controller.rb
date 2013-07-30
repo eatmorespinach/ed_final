@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :require_login, :only => [:edit]
+	before_action :require_login, :only => [:edit, :update]
 
 	def new
 	  @user = User.new
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		if @user.update_attributes(set_user)
 			redirect_to myaccount_path, notice: "Your account has been updated."
 		else
-			render 'new'
+			render 'edit'
 		end
 	end
 

@@ -1,0 +1,4 @@
+- if f.errors.any?
+  .alert.alert-error
+    - for message in f.errors.full_messages
+      %p= message

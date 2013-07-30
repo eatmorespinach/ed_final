@@ -1,8 +1,5 @@
+= render 'shared/errors', f: @lis_image
 = form_for [@listing, @lis_image], :html => { :multipart => true} do |f|
-  - if @lis_image.errors.any?
-    .alert.alert-error
-      - for message in @lis_image.errors.full_messages
-        %p= message
   .span.offset3
     .field
       = f.label :file

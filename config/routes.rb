@@ -12,7 +12,7 @@ MyProject::Application.routes.draw do
 
   get 'myprofile' => "profiles#my_profile"
   get 'myprofile/edit' => "profiles#edit"
-  get 'myaccount' => "users#edit"  
+  get 'myaccount' => "users#edit"
   resources :listings do
     resources :lis_images
     resources :reviews

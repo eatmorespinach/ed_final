@@ -2,13 +2,9 @@
   = "Edit Profile" 
 
 %h1 Edit your profile
+= render 'shared/errors', f: current_user
 
 = form_for(current_user) do |f|
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
+  = render 'fields', f: f
   .actions
-    = f.submit
+    = f.submit "Save Changes"
