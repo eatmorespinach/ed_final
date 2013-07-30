@@ -5,6 +5,14 @@
 = render 'shared/errors', f: current_user
 
 = form_for(current_user) do |f|
-  = render 'fields', f: f
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field  
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :email
+    = f.text_field :email
   .actions
     = f.submit "Save Changes"
