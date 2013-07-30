@@ -18,7 +18,7 @@ class LisImagesController < ApplicationController
 	    if @lis_image.save
 	      redirect_to listing_lis_images_path(@listing), :alert => "Image Added"
 	    else
-	      render 'new', notice: 'Error image not uploaded'
+	      render 'new', alert: 'Error image not uploaded'
 	    end
 	end
 
@@ -28,6 +28,9 @@ class LisImagesController < ApplicationController
 	end
 		
 	def destroy
+		@lis_image = LisImage.find(params[:id])
+		@lis_image.destroy
+		redirect_to listing_lis_images_path(@listing), alert: "Image deleted"
 	end
 
 
