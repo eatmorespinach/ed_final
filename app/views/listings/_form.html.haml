@@ -1,9 +1,10 @@
 = render 'shared/errors', f: @listing
 = form_for @listing do |f|
-  .span.offset3
+  %br
+  .span.offset2
     .field
       = f.label :title
-      = f.text_field :title
+      = f.text_field :title, :class => "wider-input"
     %br
     .field
       = f.label :city
@@ -11,15 +12,15 @@
     %br
     .field
       = f.label :description
-      = f.text_area :description
+      = f.text_area :description, :class => "wider-input taller-input"
     %br
     .field
       = f.label :number_of_guests
-      = f.number_field :guests
+      = f.number_field :guests, :class => "number-input"
     %br
     .field
       = f.label :stay_length
-      = f.text_field :stay_length
+      = f.text_field :stay_length, :class => "wider-input"
     %br
     .field
       = f.label :country
