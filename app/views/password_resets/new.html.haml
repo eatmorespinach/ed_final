@@ -1,0 +1,10 @@
+- content_for :title do
+  = "Password Reset Request"
+
+= form_tag password_resets_path do
+  .field
+    = label_tag :email
+    %br
+    = text_field_tag :email
+  .actions
+    = submit_tag "Request Reset"

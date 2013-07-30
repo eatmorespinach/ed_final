@@ -1,6 +1,7 @@
 MyProject::Application.routes.draw do
 
 
+
   get "login" => "sessions#new"
   get "signup" => "users#new"
   # get "profile" => "users#show"
@@ -20,7 +21,7 @@ MyProject::Application.routes.draw do
 
   resources :users, only: [:new, :create, :destroy, :update]
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :password_resets
   
   get "about" => "contents#about"
   get "faq" => "contents#faq"
