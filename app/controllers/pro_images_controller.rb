@@ -15,7 +15,7 @@ before_filter :load_profile
 		if @pro_image.save
 			redirect_to profile_pro_images_path, :alert => "Image Added!"
 		else
-			render 'new', notice: 'Error image not uploade'
+			render 'new', alert: 'Error image not uploaded'
 		end
 	end
 
@@ -24,7 +24,9 @@ before_filter :load_profile
 	end
 
 	def destroy
-
+		@pro_image = ProImage.find(params[:id])
+		@pro_image.destroy
+		redirect_to profile_pro_images_path, alert: "Image deleted"
 	end
 
 	private
