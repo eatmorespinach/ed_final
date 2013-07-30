@@ -1,10 +1,5 @@
-
-
+= render 'shared/errors', f: @listing
 = form_for @listing do |f|
-  - if @listing.errors.any?
-    .alert.alert-error
-      - for message in @listing.errors.full_messages
-        %p= message
   .span.offset3
     .field
       = f.label :title
