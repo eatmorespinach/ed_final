@@ -1,18 +1,35 @@
 - content_for :title do
-  = "#{current_user.first_name} #{current_user.last_name} Profile" 
+  = "#{@profile.first_name} #{@profile.last_name} Profile" 
 
 .row-fluid
   .span12
     .row-fluid
       .span5
-        %h2 #{current_user.first_name} #{current_user.last_name}
+        %h2 #{@profile.first_name} #{@profile.last_name}
         %h4 Current City: #{@profile.hometown}
-        = render "profile_image"
-        .btn= link_to "Manage Images", profile_pro_images_path(@profile)
-        .btn= link_to "Edit Profile", myprofile_edit_path
-        .btn= link_to "View Profile", profile_path(@profile)
+
+        %div{:id=> "profileCarousel", :class=> "carousel slide"}
+          .carousel-inner.static_height
+            - if @profile.pro_images.empty?
+              .item.active
+                = image_tag(("default_listing_image.gif"), :class => "center")
+            - else
+              - @profile.pro_images.each do |picture|
+                - if picture == @profile.pro_images.first
+                  .item.active
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
+                - else
+                  .item
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
+          %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
+          %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
+        = link_to "Manage Images", profile_pro_images_path(@profile), :class => "btn"
+        = link_to "Edit Profile", myprofile_edit_path, :class => "btn"
+        = link_to "View Profile", profile_path(@profile), :class => "btn"
+
+        
         %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
-      .span7
+      .lower20.span7
         %br
         %br
         %br
@@ -26,5 +43,3 @@
         %h4 About me
         %p= @profile.about
         %br
-        %h4 Hosting I'm Interested In
-        %p As of January 2012, the website had 3.6 million members.[3] In March 2013, the website had 6 million members in 100,000 cities worldwide.

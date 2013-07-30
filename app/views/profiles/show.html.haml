@@ -1,8 +1,6 @@
 - content_for :title do
   = "#{@profile.first_name} #{@profile.last_name} Profile" 
 
-/ are we allowed to do @profile.first_name because of delegate?
-
 .row-fluid
   .span12
     .row-fluid
@@ -26,11 +24,10 @@
           %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
           %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
 
-        %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
+        %h4 Hometown: #{@profile.current_city}, #{@profile.nationality}
       .lower20.span7
         .contact_button
-          -if current_user
-            %p Contact me at 
+          -if current_user 
             .btn= link_to "Contact me", new_profile_contact_path(@profile)
           -else   
             .btn= link_to "Contact me", login_path
@@ -48,4 +45,3 @@
         %p= @profile.about
         %br
         %h4 Hosting I'm Interested In
-        %p As of January 2012, the website had 3.6 million members.[3] In March 2013, the website had 6 million members in 100,000 cities worldwide.
