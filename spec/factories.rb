@@ -5,16 +5,18 @@ FactoryGirl.define do
   	sequence(:email) { |n| "Ted#{n}@example.com"}
   	password "password"
   end
+  
   factory :listing do
   	title "Bitmaker"
   	description "Description stuff"
   	guests 3
   	city "Toronto"
-  	country_id 1
+  	country "Canada"
   	stay_length "Here for a while"
   	in_exchange "Want money"
   	user
   end
+
   factory :review do
   	rating 9
   	description "It was a pretty good place to stay"
