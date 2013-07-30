@@ -28,6 +28,9 @@ class LisImagesController < ApplicationController
 	end
 		
 	def destroy
+		@lis_image = LisImage.find(params[:id])
+		@lis_image.destroy
+		redirect_to listing_lis_images_path(@listing)
 	end
 
 
