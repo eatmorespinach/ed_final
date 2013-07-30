@@ -68,7 +68,7 @@ p {
 
 //forms
 
-.reg_length {
+.input[type="text"] {
   width: 400px;
 }
 
@@ -137,10 +137,4 @@ footer {
       margin-left: 10px;
     }
   }
-}
-
-
-.btn.a {
-  text-decoration: none !important;
-//  for some reason, the underline upon hover won't go away
 }
