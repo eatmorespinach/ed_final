@@ -4,13 +4,14 @@
 %h1 Contact #{@profile.first_name}
 
 = form_for([@profile, @message], url: profile_contact_path(@profile)) do |f|
-  .field
-    = f.label :subject
-    %br
-    = f.text_field :subject
-  .field
-    = f.label :body
-    %br
-    = f.text_area :body
-  .actions
-    = f.submit "Send Message", :class=> "btn btn-info"
+  .span.offset3  
+    .field
+      = f.label :subject
+      = f.text_field :subject
+      %br
+      %br
+    .field
+      = f.label :body
+      = f.text_area :body
+    .actions
+      = f.submit "Send Message", :class=> "btn btn-info"
