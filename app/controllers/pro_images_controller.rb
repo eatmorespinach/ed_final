@@ -19,6 +19,10 @@ before_filter :load_profile
 		end
 	end
 
+	def show
+		@pro_image = ProImage.find(params[:id])
+	end
+
 	def destroy
 
 	end

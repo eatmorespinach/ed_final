@@ -12,7 +12,7 @@
           .carousel-inner.static_height
             - if @listing.lis_images.empty?
               .item.active
-                = image_tag("default_listing_image.gif")
+                = image_tag(("default_listing_image.gif"), :class => "center")
             - else
               - @listing.lis_images.each do |picture|
                 - if picture == @listing.lis_images.first

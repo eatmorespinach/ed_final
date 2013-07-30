@@ -9,9 +9,24 @@
       .span5
         %h2 #{@profile.first_name} #{@profile.last_name}
         %h4 Current City: #{@profile.hometown}
-        = render "profile_image"
+
+        %div{:id=> "profileCarousel", :class=> "carousel slide"}
+          .carousel-inner.static_height
+            - if @profile.pro_images.empty?
+              .item.active
+                = image_tag(("default_listing_image.gif"), :class => "center")
+            - else
+              - @profile.pro_images.each do |picture|
+                - if picture == @profile.pro_images.first
+                  .item.active
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
+                - else
+                  .item
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
+          %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
+          %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
+
         %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
-        %h5 Contact me: emailgoeshere
       .lower20.span7
         .contact_button
           -if current_user
