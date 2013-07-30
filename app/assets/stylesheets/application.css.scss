@@ -9,17 +9,31 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *  font-size: 38.5px;
  *= require_self
- *= require_tree .
  */
 
 
-//Mina sez consider getting rid of sprockets and @importing them each individually. 
 
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+
+
 $default_text: #333333;
+$gray_text: gray;
 $site_width: 940px;
+
+@import "contents.css.scss";
+@import "landing.css.scss";
+@import "listings.css.scss";
+@import "profiles.css.scss";
+
+
+
+//fonts
+
+.graytext {
+  color: $gray_text;
+}
 
 h1, h2, h3, h4 {
   color: $default_text;
@@ -52,6 +66,12 @@ p {
   font-size: 16px;
 }
 
+//forms
+
+.reg_length {
+  width: 400px;
+}
+
 .container {
 	max-width: 940px;
 	margin: 0px auto;	
@@ -67,6 +87,7 @@ a.brand {
 }
 
 .navbar-inner {
+
   -webkit-box-shadow: none;
   background-image: none;
   background-color: white;
@@ -83,6 +104,7 @@ a.brand {
   border-left-color: none;
   border-right-color: none;
 }
+
 
 .nav-collapse {
   float: right

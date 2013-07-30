@@ -4,13 +4,12 @@
 
 .row-fluid
   .span12
-    %h2= @listing.title
-    %h4= @listing.city + ", " + @listing.country
+    %h1= @listing.title
+    %h3.graytext= @listing.city + ", " + @listing.country
     .row-fluid
       .span5
-
         %div{:id=> "myCarousel", :class=> "carousel slide"}
-          .carousel-inner.bob
+          .carousel-inner.static_height
             - if @listing.lis_images.empty?
               .item.active
                 = image_tag("default_listing_image.gif")
@@ -34,7 +33,10 @@
         %p= @listing.description
         %br
         %br
-        %h4 Reviews
+        
+        - if !@listing.reviews.first.new_record?
+          %h3.graytext Reviews
+          
         - @listing.reviews.each do |review|
           - if !review.new_record?
             %p
@@ -45,15 +47,15 @@
         %br
         %br
         %br
-        %h4 Create new Review
+        %h4.graytext Create new Review
         = form_for([@listing, @review]) do |f|
           .field
-            =f.label :description
             %br
+            =f.label :description
             =f.text_area :description
           %br
           .field
             =f.label :"rating (1 to 5)"  
             =f.number_field :rating
           .actions
-            =f.submit
+            =f.submit "Create Review", :class => ".btn btn-info"

@@ -1,6 +1,8 @@
 Drew Sing and Eric Szeto's Bitmaker final project. 
 
 
+why doesn't line 39 of show.html.haml listing work?
+
 Alerts don't have actions in bootstrap.  (logged out)
 
 Notes: 

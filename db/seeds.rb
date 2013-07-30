@@ -9,11 +9,13 @@
 User.destroy_all
 Listing.destroy_all
 
-user = User.create(email: 'test@test.com', password: 'testee', first_name: 'Bob', last_name: 'Sagat')
+@countries = ["United States", "Canada", "United Kingdom", "Germany", "Mexico"]
+
+user = User.create(email: 'test@test.com', password: 'testpassword', first_name: 'Bob', last_name: 'Sagat')
 
  
 10.times do
-	Listing.create!(title: Faker::Lorem.word, description: Faker::Lorem.paragraph, 
-		guests: 4, city: Faker::Address.city, country: "United", 
+	Listing.create(title: Faker::Company.bs, description: Faker::Lorem.paragraph, 
+		guests: 4, city: Faker::Address.city, country: @countries.sample, 
 		stay_length: Faker::Lorem.sentence, in_exchange: Faker::Lorem.sentence, user_id: user.id)
 end

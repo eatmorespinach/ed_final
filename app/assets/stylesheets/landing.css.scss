@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$default_text: #333333;
+
+
+//@mixin test() {
+//	color: blue;
+//}
+
 
 .navbar .brand {
 	padding-bottom: 7px;
@@ -20,7 +25,6 @@ $default_text: #333333;
 
 #tagline {
 	position: absolute;
-	color: $default_text;
 	margin-left:80px;
 	margin-top: 400px;
 	line-height: 110%;
@@ -30,6 +34,7 @@ $default_text: #333333;
 .taglines {
 	margin-top:15px;
 	text-align: left;
+//	@include test;
 }
 
 #hero button {
