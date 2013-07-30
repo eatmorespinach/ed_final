@@ -6,7 +6,7 @@
     .row-fluid
       .span5
         %h2 #{@profile.first_name} #{@profile.last_name}
-        %h4 Current City: #{@profile.hometown}
+        %h4 Current City: #{@profile.current_city}
 
         %div{:id=> "profileCarousel", :class=> "carousel slide"}
           .carousel-inner.static_height
@@ -28,7 +28,7 @@
         = link_to "View Profile", profile_path(@profile), :class => "btn"
 
         
-        %h5 Hometown: #{@profile.current_city}, #{@profile.nationality}
+        %h5 Hometown: #{@profile.hometown}, #{@profile.nationality}
       .lower20.span7
         %br
         %br
