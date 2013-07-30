@@ -27,10 +27,8 @@
         %h4 Hometown: #{@profile.current_city}, #{@profile.nationality}
       .lower20.span7
         .contact_button
-          -if current_user 
-            .btn= link_to "Contact me", new_profile_contact_path(@profile)
-          -else   
-            .btn= link_to "Contact me", login_path
+          = link_to "Contact me", new_profile_contact_path(@profile), :class => "btn"
+
         %br
         %br
         %br
