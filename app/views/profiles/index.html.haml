@@ -3,22 +3,23 @@
 
 %h1 People
 
-.users
+.listings
   - @profiles.each do |profile|
-    .row-fluid
-      .span12
-        %h3= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)  
-        %h4  #{profile.hometown}, #{profile.nationality}
+    .individual-listing
+      .row-fluid
+        .span12
+          %h3= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)  
+          %h4  #{profile.hometown}, #{profile.nationality}
 
-        .row-fluid
-          .span5
-            - if profile.pro_images.empty?
-              = image_tag("default_listing_image.gif") 
-            - else
-              = image_tag profile.pro_images.first.file_url
-          .span7   
-            %p Skills: #{profile.skills} 
-            %p About: #{profile.about}
+          .row-fluid
+            .span5
+              - if profile.pro_images.empty?
+                = image_tag("default_listing_image.gif") 
+              - else
+                = image_tag profile.pro_images.first.file_url
+            .span7   
+              %p Skills: #{profile.skills} 
+              %p About: #{profile.about}
 
 
 
