@@ -2,16 +2,18 @@
   = "Contact #{@profile.first_name}" 
 
 %h1 Contact #{@profile.first_name}
-
+%br
 = form_for([@profile, @message], url: profile_contact_path(@profile)) do |f|
-  .span.offset3  
+  .span.offset2
     .field
       = f.label :subject
-      = f.text_field :subject
+      = f.text_field :subject, :class=> "wider-input"
       %br
       %br
     .field
       = f.label :body
-      = f.text_area :body
+      = f.text_area :body, :class=> "wider-input taller-input"
+      %br
+      %br
     .actions
       = f.submit "Send Message", :class=> "btn btn-info"

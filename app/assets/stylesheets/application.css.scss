@@ -11,16 +11,14 @@
  *= require_self
  */
 
-
-
 @import "bootstrap";
 @import "bootstrap-responsive";
-
 
 
 $default_text: #333333;
 $gray_text: gray;
 $site_width: 940px;
+
 
 @import "contents.css.scss";
 @import "landing.css.scss";
@@ -80,30 +78,23 @@ p {
   height: 200px;
 }
 
-.long-input {
-  length: 500px;
-}
-
 .number-input {
   width: 50px;
 }
 
+//layout dimensions
+
 .container {
-	max-width: 940px;
+	max-width: $site_width;
 	margin: 0px auto;	
 }
 
 #container {
-	max-width: 940px;
+	max-width: $site_width;
 	margin: 0px auto;	
 }
 
-a.brand {
-  font-color: white;
-}
-
 .navbar-inner {
-
   -webkit-box-shadow: none;
   background-image: none;
   background-color: white;
@@ -120,7 +111,6 @@ a.brand {
   border-left-color: none;
   border-right-color: none;
 }
-
 
 .nav-collapse {
   float: right
