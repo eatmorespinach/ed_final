@@ -9,6 +9,7 @@ MyProject::Application.routes.draw do
   resources :profiles, only: [:index, :show, :update] do
     resources :pro_images
     resource :contact, only: [:new, :create]
+    resources :assets
   end
 
   get 'myprofile' => "profiles#my_profile"
@@ -17,6 +18,7 @@ MyProject::Application.routes.draw do
   resources :listings do
     resources :lis_images
     resources :reviews
+    resources :assets
   end
 
   resources :users, only: [:new, :create, :destroy, :update]

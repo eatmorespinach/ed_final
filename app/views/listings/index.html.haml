@@ -13,10 +13,10 @@
         .row-fluid
           .span5
             = link_to listing_path(listing[:id]) do
-              - if listing.lis_images.empty?
+              - if listing.assets.empty?
                 = image_tag("default_listing_image.gif") 
               - else
-                = image_tag listing.lis_images.first.file_url
+                = image_tag listing.assets.first.file_url
           .span7   
             %p= listing.description 
             %p Guests: #{listing.guests}

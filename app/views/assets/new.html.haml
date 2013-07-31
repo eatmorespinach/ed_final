@@ -1,0 +1,11 @@
+= render 'shared/errors', f: @asset
+= form_for [@assetable, @asset], :html => { :multipart => true} do |f|
+  .span.offset3
+    .field
+      = f.label :file
+      = f.file_field :file
+    .field
+      = f.label "OR Image URL"
+      = f.text_field :remote_file_url
+    .actions
+      = f.submit "Upload Image", :class => "btn btn-info"

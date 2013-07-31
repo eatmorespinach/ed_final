@@ -26,7 +26,7 @@
 
         - if @listing.user == current_user    
           %br
-          .btn= link_to "Manage Images", listing_lis_images_path(@listing)
+          .btn= link_to "Manage Images", listing_assets_path(@listing)
           .btn= link_to "Edit Listing", edit_listing_path(@listing)
 
       .span7

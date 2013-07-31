@@ -1,0 +1,7 @@
+%h1 Images
+= link_to "Add Image", [:new, @assetable, :asset]
+%br
+- @assets.each do |asset|
+  = image_tag asset.file_url
+  = link_to "Delete Image", [@assetable, asset], method: :delete, data: { confirm: "Are you sure?" }
+
