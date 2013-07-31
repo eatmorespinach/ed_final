@@ -12,10 +12,11 @@
 
         .row-fluid
           .span5
-            - if profile.pro_images.empty?
-              = image_tag("default_listing_image.gif") 
-            - else
-              = image_tag profile.pro_images.first.file_url
+            = link_to profile_path(profile[:id]) do
+              - if profile.pro_images.empty?
+                = image_tag("default_listing_image.gif") 
+              - else
+                = image_tag profile.pro_images.first.file_url
           .span7   
             %p Skills: #{profile.skills} 
             %p About: #{profile.about}
