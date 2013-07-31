@@ -22,6 +22,7 @@ gem 'pry'
 gem 'carrierwave'
 gem "rmagick"
 
+
 gem "binding_of_caller"
 
 group :development do
@@ -58,6 +59,12 @@ group :test do
 end
 
 gem 'haml-rails', '>= 0.3.4'
+
+
+group :assets do
+  gem 'coffee-rails'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
