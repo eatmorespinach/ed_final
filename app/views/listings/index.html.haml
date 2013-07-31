@@ -5,20 +5,21 @@
 
 .listings
   - @listings.each do |listing|
-    .row-fluid
-      .span12
-        %h3= link_to listing.title, listing_path(listing[:id])  
-        %h4= listing.city + ", " + listing.country
+    .individual-listing
+      .row-fluid
+        .span12
+          %h3= link_to listing.title, listing_path(listing[:id])  
+          %h4= listing.city + ", " + listing.country
 
-        .row-fluid
-          .span5
-            - if listing.lis_images.empty?
-              = image_tag("default_listing_image.gif") 
-            - else
-              = image_tag listing.lis_images.first.file_url
-          .span7   
-            %p= listing.description 
-            %p Guests: #{listing.guests}
+          .row-fluid
+            .span5
+              - if listing.lis_images.empty?
+                = image_tag("default_listing_image.gif") 
+              - else
+                = image_tag listing.lis_images.first.file_url
+            .span7   
+              %p= listing.description 
+              %p Guests: #{listing.guests}
 
 
 
