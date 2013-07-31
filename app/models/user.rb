@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
       user.first_name = first_name.capitalize
       user.last_name = last_name.capitalize
   end
-  # how would we refactor this into a method?
 
   after_save :create_profile
 
