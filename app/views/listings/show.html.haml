@@ -10,12 +10,12 @@
       .span5
         %div{:id=> "myCarousel", :class=> "carousel slide"}
           .carousel-inner.static_height
-            - if @listing.lis_images.empty?
+            - if @listing.assets.empty?
               .item.active
                 = image_tag(("default_listing_image.gif"), :class => "center")
             - else
-              - @listing.lis_images.each do |picture|
-                - if picture == @listing.lis_images.first
+              - @listing.assets.each do |picture|
+                - if picture == @listing.assets.first
                   .item.active
                     = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_lis_image_path(@listing, picture)                
                 - else

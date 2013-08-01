@@ -10,12 +10,12 @@
 
         %div{:id=> "profileCarousel", :class=> "carousel slide"}
           .carousel-inner.static_height
-            - if @profile.pro_images.empty?
+            - if @profile.assets.empty?
               .item.active
                 = image_tag(("default_listing_image.gif"), :class => "center")
             - else
-              - @profile.pro_images.each do |picture|
-                - if picture == @profile.pro_images.first
+              - @profile.assets.each do |picture|
+                - if picture == @profile.assets.first
                   .item.active
                     = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
                 - else
