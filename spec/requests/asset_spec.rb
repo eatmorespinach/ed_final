@@ -27,6 +27,15 @@ describe "assets" do
 			Asset.all.count.should == 1
 		end
 
+		
+		it "should allow correct user to delete image" do
+			FactoryGirl.create(:asset, assetable_id: profile.id, assetable_type: profile.class.to_s)
+			visit profile_assets_path(profile)
+			page.should have_content("Delete Image")
+			click_link "Delete Image"
+			page.should_not have_content("Delete Image")
+		end
+
 	end
 
 	

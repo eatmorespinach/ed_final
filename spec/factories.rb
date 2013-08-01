@@ -1,3 +1,4 @@
+include ActionDispatch::TestProcess
 FactoryGirl.define do
   factory :user do
   	first_name "Ted"
@@ -33,8 +34,11 @@ FactoryGirl.define do
     user
   end
 
-  factory :asset_profile do
-    file "picture.jpg"
-    association :assetable, factory: :profile
+  factory :asset do
+    file {fixture_file_upload(Rails.root + 'app/assets/images/logo.gif', 'image/gif')}
   end
+
+
+  
+
 end
