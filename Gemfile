@@ -19,9 +19,10 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'pry'
+
 gem 'carrierwave'
 gem "rmagick"
-
+gem "fog", "~> 1.3.1"
 
 gem "binding_of_caller"
 
