@@ -7,12 +7,10 @@ gem 'pg'
 gem 'sorcery'
 gem 'faker'
 
-
 gem 'carmen'
 gem 'carmen-rails'
 gem 'country_select'
 
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 

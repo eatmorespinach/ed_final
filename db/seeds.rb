@@ -20,11 +20,11 @@ user = User.create(email: 'test@test.com', password: 'testpassword', first_name:
 		stay_length: Faker::Lorem.sentence, in_exchange: Faker::Lorem.sentence, user_id: user.id)
 end
 
-3.times do
+
 	Profile.create(skills: Faker::Lorem.paragraph(sentence_count = 5), about: Faker::Lorem.paragraph(sentence_count = 5),
 		hometown: Faker::Address.city, nationality: @countries.sample, current_city: Faker::Address.city, 
 		user_id: 1)
-end
+
 
 #how do we set user_id to diff user every time?
 

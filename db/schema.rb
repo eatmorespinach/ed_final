@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731193630) do
+ActiveRecord::Schema.define(version: 20130801195751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,6 @@ ActiveRecord::Schema.define(version: 20130731193630) do
 
   add_index "assets", ["assetable_id", "assetable_type"], name: "index_assets_on_assetable_id_and_assetable_type", using: :btree
 
-  create_table "lis_images", force: true do |t|
-    t.string   "file"
-    t.integer  "listing_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "lis_images", ["listing_id"], name: "index_lis_images_on_listing_id", using: :btree
-
   create_table "listings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,15 +38,6 @@ ActiveRecord::Schema.define(version: 20130731193630) do
     t.text     "in_exchange"
     t.integer  "user_id"
   end
-
-  create_table "pro_images", force: true do |t|
-    t.string   "file"
-    t.integer  "profile_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "pro_images", ["profile_id"], name: "index_pro_images_on_profile_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.text     "skills"

@@ -1,7 +1,0 @@
-%h1 Listing Images
-= link_to "Add New Image", new_listing_lis_image_path(@listing)
-%br
-- @lis_images.each do |image|
-	= image_tag image.file_url
-	= link_to "Delete Image", [@listing, image], method: :delete, data: { confirm: "Are you sure?" }
-

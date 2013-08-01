@@ -1,6 +1,0 @@
-%h1 Profile Images
-= link_to "Add New Image", new_profile_pro_image_path(@profile)
-%br
-- @pro_images.each do |image|
-  = image_tag image.file_url
-  = link_to "Delete Image", [@profile, image], method: :delete, data: { confirm: "Are you sure?" }
