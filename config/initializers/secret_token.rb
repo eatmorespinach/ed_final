@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MyProject::Application.config.secret_key_base = 'a21908352a461c3bd1d48445459f7e425d49e10397b3c921d2764a72e71958b2c1b2a2f93a8d09b6c2a9b33ed51782941ee77b4eb3e7f4ae137cd10110cc7284'
+MyProject::Application.config.secret_key_base = ENV['RAILS_SECRET_TOKEN']

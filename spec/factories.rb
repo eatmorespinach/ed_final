@@ -1,3 +1,4 @@
+include ActionDispatch::TestProcess
 FactoryGirl.define do
   factory :user do
   	first_name "Ted"
@@ -23,4 +24,21 @@ FactoryGirl.define do
   	user
   	listing
   end
+
+  factory :profile do
+    skills "I have skills"
+    about "About me"
+    hometown "Toronto"
+    nationality "Canadian"
+    current_city "Toronto"
+    user
+  end
+
+  factory :asset do
+    file {fixture_file_upload(Rails.root + 'app/assets/images/logo.gif', 'image/gif')}
+  end
+
+
+  
+
 end
