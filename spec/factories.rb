@@ -23,4 +23,18 @@ FactoryGirl.define do
   	user
   	listing
   end
+
+  factory :profile do
+    skills "I have skills"
+    about "About me"
+    hometown "Toronto"
+    nationality "Canadian"
+    current_city "Toronto"
+    user
+  end
+
+  factory :asset_profile do
+    file "picture.jpg"
+    association :assetable, factory: :profile
+  end
 end
