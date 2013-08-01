@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 		@user = current_user
 
 		if @user.update_attributes(set_user)
-			redirect_to myaccount_path, notice: "Your account has been updated."
+			redirect_to myaccount_path, alert: "Your account has been updated."
 		else
 			render 'edit'
 		end
