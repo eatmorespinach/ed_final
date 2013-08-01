@@ -18,6 +18,7 @@
                   = image_tag("default_listing_image.gif") 
                 - else
                   = image_tag listing.assets.first.file_url
+                  
             .span7   
               %p= listing.description 
               %p Guests: #{listing.guests}
