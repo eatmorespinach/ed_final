@@ -18,6 +18,10 @@ class AssetsController < ApplicationController
 	    end
 	end
 
+	def show
+		@asset = Asset.find(params[:id])
+	end
+
 	def destroy
 		@asset = Asset.find(params[:id])
 		@asset.destroy

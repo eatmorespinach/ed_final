@@ -1,14 +1,17 @@
 - content_for :title do
   = "Your Hostings" 
 
-%h1 Hostings
+%h1 Your Hostings
 
 .listings
   - @listings.each do |listing|
     .individual-listing
       .row-fluid
         .span12
-          %h3= link_to listing.title, listing_path(listing[:id])  
+          %h3
+            = link_to listing.title, listing_path(listing[:id])
+            = link_to listing, method: :delete, data: { confirm: "Are you sure you want to delete this listing?" } do
+              .label.label-important X
           %h4= listing.city + ", " + listing.country
 
           .row-fluid

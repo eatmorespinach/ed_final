@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
 
     if @listing.save
-      redirect_to @listing, notice: "Created Listing Successfully"
+      redirect_to @listing, alert: "Created Listing Successfully"
     else
       render :new
     end
@@ -44,6 +44,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     @listing.destroy
+    redirect_to mylistings_path
   end
 
   def my_listings
