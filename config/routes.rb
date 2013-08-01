@@ -15,6 +15,7 @@ MyProject::Application.routes.draw do
   get 'myprofile' => "profiles#my_profile"
   get 'myprofile/edit' => "profiles#edit"
   get 'myaccount' => "users#edit"
+  get 'mylistings' => "listings#my_listings"
   resources :listings do
     resources :lis_images
     resources :reviews

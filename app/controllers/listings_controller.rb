@@ -46,8 +46,8 @@ class ListingsController < ApplicationController
     @listing.destroy
   end
 
-  def your_listing
-    @listings = Listing.all
+  def my_listings
+    @listings = current_user.listings
   end
 
   private
