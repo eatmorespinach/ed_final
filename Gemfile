@@ -25,6 +25,7 @@ gem 'carrierwave'
 gem "rmagick"
 gem "fog", "~> 1.3.1"
 
+gem 'kaminari'
 gem "binding_of_caller"
 
 group :development do
