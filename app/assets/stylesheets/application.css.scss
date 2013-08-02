@@ -116,7 +116,7 @@ p {
   float: right
 }
 
-//Listing and Profile Index Pages
+//listing and Profile Index Pages
 
 .listings h4 {
   padding: none;
@@ -138,6 +138,21 @@ p {
 .navbar .nav > li > a {
   padding: 25px 10px 23px 15px;
   font-size: 16px;
+}
+
+//positioning
+
+.center {
+  margin: 0 auto;
+  float: none;
+}
+
+.center-index {
+  text-align: center;
+}
+
+.dark-background {
+  background-color: $default_text;
 }
 
 footer {

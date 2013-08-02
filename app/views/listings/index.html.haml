@@ -12,23 +12,24 @@
           %h4= listing.city + ", " + listing.country
 
           .row-fluid
-            .span5
-              = link_to listing_path(listing[:id]) do
+            .span5.dark-background
+              = link_to listing_path(listing[:id]), :class=>"center" do
                 - if listing.assets.empty?
                   = image_tag("default_listing_image.gif") 
                 - else
-                  = image_tag listing.assets.first.file_url
-                  
+                  = image_tag(listing.assets.first.file_url(:thumb), :class => "center")
+                / Get help on thissssss! Why won't image center on index listings?
             .span7   
               %p= listing.description 
               %p Guests: #{listing.guests}
-  .pagination
-    %ul
-      %li
-        %a{:href=>""} Prev
-      %li
-        %a{:href=>"#"} 1
-      %li
-        %a{:href=>"#"} 2
-      %li
-        %a{:href=>"#"} Next
+  = paginate @listings
+    .pagination.pagination-large.pagination-centered
+      %ul
+        %li
+          %a{:href=>""} Prev
+        %li
+          %a{:href=>"#"} 1
+        %li
+          %a{:href=>"#"} 2
+        %li
+          %a{:href=>"#"} Next
