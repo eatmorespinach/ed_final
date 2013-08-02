@@ -3,7 +3,7 @@
   .span.offset2
     .field
       = f.label :current_city
-      = f.text_field(:current_city)
+      = f.text_field :current_city, placeholder: "e.g. Toronto"
       %br
     .field
       = f.label :about
@@ -15,7 +15,7 @@
       %br
     .field
       = f.label :hometown
-      = f.text_field :hometown
+      = f.text_field :hometown, placeholder: "e.g. Mississauga"
       %br
     .field
       = f.label :home_country
