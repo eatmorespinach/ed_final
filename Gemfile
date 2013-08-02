@@ -8,6 +8,7 @@ ruby "2.0.0"
 gem 'pg'
 gem 'sorcery'
 gem 'faker'
+gem 'state_machine'
 
 gem 'carmen'
 gem 'carmen-rails'

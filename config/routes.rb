@@ -10,6 +10,7 @@ MyProject::Application.routes.draw do
     resources :pro_images
     resource :contact, only: [:new, :create]
     resources :assets
+    put 'assets' => "assets#update"
   end
 
   get 'myprofile' => "profiles#my_profile"

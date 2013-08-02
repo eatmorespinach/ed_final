@@ -17,7 +17,7 @@
                 - if profile.assets.empty?
                   = image_tag("default_listing_image.gif") 
                 - else
-                  = image_tag profile.assets.first.file_url
+                  = image_tag profile.find_active.file_url
             .span7   
               %p Skills: #{profile.skills} 
               %p About: #{profile.about}

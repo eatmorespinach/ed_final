@@ -12,7 +12,8 @@ class AssetsController < ApplicationController
 		@asset = @assetable.assets.build(params_asset)
 
 		if @asset.save
-	      redirect_to [@assetable, :assets], :alert => "Image Added"
+			@asset.first_upload?(@assetable)
+	    	redirect_to [@assetable, :assets], :alert => "Image Added"
 	    else
 	      render 'new', alert: 'Error image not uploaded'
 	    end
@@ -20,6 +21,16 @@ class AssetsController < ApplicationController
 
 	def show
 		@asset = Asset.find(params[:id])
+	end
+
+	def edit
+		@assets = @assetable.assets
+	end
+
+	def update
+		@asset = Asset.find(params[:selected])
+		@asset.preview_select(@assetable)
+		redirect_to [@assetable, :assets], alert: "Default Image Selected"
 	end
 
 	def destroy
