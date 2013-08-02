@@ -2,34 +2,18 @@
   = "Hostings" 
 
 %h1 Hostings
+%div
+  .listings
+    Country:
+    %select{:"ng-model" => "country"}
+      - @listings.pluck(:country).uniq.each do |country|
+        %option{:"value" => "#{country}"} #{country}
+    Filter:
+    %input{:"ng-model" => "query"}
+    .span12.listing{:"ng-repeat"=>"listing in listings | filter:country | filter:query"}
+      %h3
+        = link_to "/listings/{{listing.id}}" do
+          {{listing.title}}
+      %h4= "{{listing.city}}" + ", " + "{{listing.country}}"
 
-.listings
-  - @listings.each do |listing|
-    .individual-listing
-      .row-fluid
-        .span12
-          %h3= link_to listing.title, listing_path(listing[:id])  
-          %h4= listing.city + ", " + listing.country
-
-          .row-fluid
-            .span5.dark-background
-              = link_to listing_path(listing[:id]), :class=>"center" do
-                - if listing.assets.empty?
-                  = image_tag("default_listing_image.gif") 
-                - else
-                  = image_tag(listing.assets.first.file_url(:thumb), :class => "center")
-                / Get help on thissssss! Why won't image center on index listings?
-            .span7   
-              %p= listing.description 
-              %p Guests: #{listing.guests}
-  = paginate @listings
-    .pagination.pagination-large.pagination-centered
-      %ul
-        %li
-          %a{:href=>""} Prev
-        %li
-          %a{:href=>"#"} 1
-        %li
-          %a{:href=>"#"} 2
-        %li
-          %a{:href=>"#"} Next
+     

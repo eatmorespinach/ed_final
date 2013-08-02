@@ -1,10 +1,12 @@
 !!!
-%html
+%html{"ng-app" => ""}
   %head
     %title
       = set_title(yield(:title))
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"}
+
     = csrf_meta_tags
   %body
 
@@ -16,7 +18,7 @@
     - if flash[:notice]
       .notice
         = flash[:notice]
-    .container
+    .container{:"ng-controller" => "ListingsCtrl"}
       = yield 
 
 

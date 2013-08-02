@@ -5,7 +5,11 @@ class ListingsController < ApplicationController
 
 
   def index
-    @listings = Listing.page.limit(2).per(4)
+    @listings = Listing.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @listings }
+    end
   end
 
   def show

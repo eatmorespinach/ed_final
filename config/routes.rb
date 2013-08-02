@@ -7,7 +7,7 @@ MyProject::Application.routes.draw do
   # get "profile" => "users#show"
   # get "profile/edit" => "users#edit"
   resources :profiles, only: [:index, :show, :update] do
-    resources :pro_images
+    # resources :pro_images
     resource :contact, only: [:new, :create]
     resources :assets
     put 'assets' => "assets#update"
@@ -18,7 +18,7 @@ MyProject::Application.routes.draw do
   get 'myaccount' => "users#edit"
   get 'mylistings' => "listings#my_listings"
   resources :listings do
-    resources :lis_images
+    # resources :lis_images
     resources :reviews
     resources :assets
   end
