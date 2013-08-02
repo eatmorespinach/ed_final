@@ -17,10 +17,10 @@
               - @profile.assets.each do |picture|
                 - if picture.active?
                   .item.active
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
                 - else
                   .item
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_pro_image_path(@profile, picture)
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
           %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
           %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
 
