@@ -24,8 +24,9 @@
                   = image_tag("default_avatar_image.gif")
                 - else 
                   = image_tag(listing.user.avatar_path)
-              %p Host: #{listing.user.first_name}
-              %p Guests: #{listing.guests}
+              .description-box 
+                %p Host: <strong> #{listing.user.first_name} </strong>
+                %p Guests: <strong> #{listing.guests} </strong>
 
             .span5
 
