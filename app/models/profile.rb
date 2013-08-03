@@ -4,6 +4,9 @@ class Profile < ActiveRecord::Base
 	delegate :first_name, :last_name, :to => :user
 	has_many :assets, as: :assetable
 
+	def to_param
+		"#{id} #{first_name} #{last_name}".parameterize
+	end
 
 	def find_active
 		self.assets.each do |asset|
