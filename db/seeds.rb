@@ -21,7 +21,7 @@ user = User.create(email: 'test@test.com', password: 'testpassword', first_name:
 end
 
 
-	Profile.create(skills: Faker::Lorem.paragraph(sentence_count = 5), about: Faker::Lorem.paragraph(sentence_count = 5),
+	Profile.create(helping_skills: Faker::Lorem.paragraph(sentence_count = 5), teaching_skills: Faker::Lorem.paragraph(sentence_count = 5), about: Faker::Lorem.paragraph(sentence_count = 5),
 		hometown: Faker::Address.city, nationality: @countries.sample, current_city: Faker::Address.city, 
 		user_id: 1)
 

@@ -3,25 +3,29 @@
 
 %h1 Your Hostings
 
-.listings
-  - @listings.each do |listing|
-    .individual-listing
-      .row-fluid
-        .span12
-          %h3
-            = link_to listing.title, listing_path(listing[:id])
-            = link_to listing, method: :delete, data: { confirm: "Are you sure you want to delete this listing?" } do
-              .label.label-important X
-          %h4= listing.city + ", " + listing.country
 
-          .row-fluid
-            .span5
-              = link_to listing_path(listing[:id]) do
-                - if listing.assets.empty?
-                  = image_tag("default_listing_image.gif") 
-                - else
-                  = image_tag listing.assets.first.file_url
-                  
-            .span7   
-              %p= listing.description 
-              %p Guests: #{listing.guests}
+- if current_user.listings.empty?
+  %h5 Hey #{current_user.first_name}, looks like you listing your place for a hosting yet. That's okay. To set one up, click #{link_to 'here', new_listing_path}.
+- else
+  .listings
+    - @listings.each do |listing|
+      .individual-listing
+        .row-fluid
+          .span12
+            %h3
+              = link_to listing.title, listing_path(listing[:id])
+              = link_to listing, method: :delete, data: { confirm: "Are you sure you want to delete this listing?" } do
+                .label.label-important X
+            %h4= listing.city + ", " + listing.country
+
+            .row-fluid
+              .span5
+                = link_to listing_path(listing[:id]) do
+                  - if listing.assets.empty?
+                    = image_tag("default_listing_image.gif") 
+                  - else
+                    = image_tag listing.assets.first.file_url
+                    
+              .span7   
+                %p= listing.description 
+                %p Guests: #{listing.guests}

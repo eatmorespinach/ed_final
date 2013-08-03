@@ -5,7 +5,8 @@ describe Profile do
 	before do
 		user = FactoryGirl.create(:user)
 		@profile = Profile.new(
-			skills: "I am a Blacksmith",
+			helping_skills: "I am a Blacksmith",
+			teaching_skills: "I know karate"
 			about: "I am rock",
 			hometown: "Village",
 			nationality: "Viking",
@@ -16,7 +17,8 @@ describe Profile do
 	subject { @profile }
 
 	it { should be_valid }
-	it { should respond_to(:skills) }
+	it { should respond_to(:helping_skills) }
+	it { should respond_to(:teaching_skills) }
 	it { should respond_to(:about) }
 	it { should respond_to(:hometown) }
 	it { should respond_to(:nationality) }

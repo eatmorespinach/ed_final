@@ -15,7 +15,7 @@ class AssetsController < ApplicationController
 			@asset.first_upload?(@assetable)
 	    	redirect_to [@assetable, :assets], :alert => "Image Added"
 	    else
-	      render 'new', alert: 'Error image not uploaded'
+	      render 'new', alert: 'Error: Image not uploaded'
 	    end
 	end
 
