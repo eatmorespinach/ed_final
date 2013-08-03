@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
 
 
   def index
-    @listings = Listing.page.limit(2).per(4)
+    @listings = Listing.all
   end
 
   def show
@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
 
     if @listing.save
-      redirect_to @listing, alert: "Created Listing Successfully"
+      redirect_to listing_assets_path(@listing), alert: "Listing created. Now add images!"
     else
       render :new
     end

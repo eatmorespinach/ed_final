@@ -25,6 +25,14 @@ class User < ActiveRecord::Base
     Profile.create!(user_id: self.id) if profile.blank?
   end
 
+  def avatar_path
+    if self.profile.assets.empty?
+      "avatar-70-by-70.gif"
+    else
+      self.profile.assets.first.file_url(:avatar)
+    end
+  end
+
 
 
 end

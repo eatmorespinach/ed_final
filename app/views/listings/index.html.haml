@@ -17,8 +17,17 @@
                 - if listing.assets.empty?
                   = image_tag("default_listing_image.gif") 
                 - else
-                  = image_tag(listing.assets.first.file_url(:thumb)
-            .span7   
-              %p= listing.description 
+                  = image_tag(listing.assets.first.file_url(:thumb))
+            .span2
+              = link_to listing_path(listing[:id]) do
+                - if listing.user.profile.assets.empty?
+                  = image_tag("default_avatar_image.gif")
+                - else 
+                  = image_tag(listing.user.avatar_path)
+              %p Host: #{listing.user.first_name}
               %p Guests: #{listing.guests}
-    
+
+            .span5
+
+              %p= listing.description 
+              

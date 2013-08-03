@@ -42,7 +42,7 @@ class AssetsController < ApplicationController
 	private
 
 	def params_asset
-    	params.require(:asset).permit(:file, :remote_file_url)
+    	params.require(:asset).permit(:file, :remote_file_url, :scale)
 	end
 
 	def load_assetable
