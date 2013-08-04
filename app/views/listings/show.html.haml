@@ -5,7 +5,7 @@
 .row-fluid
   .span12
     %h1= @listing.title
-    %h3.graytext= @listing.city + ", " + @listing.country
+    %h3.gray-text= @listing.city + ", " + @listing.country
     .row-fluid
       .span5
         %div{:id=> "myCarousel", :class=> "carousel slide"}
@@ -35,7 +35,7 @@
         %br
         
         - if !@listing.reviews.first.new_record?
-          %h3.graytext Reviews
+          %h3.gray-text Reviews
           
         - @listing.reviews.each do |review|
           - if !review.new_record?
@@ -47,7 +47,7 @@
         %br
         %br
         %br
-        %h4.graytext Create new Review
+        %h4.gray-text Create new Review
         = form_for([@listing, @review]) do |f|
           .field
             %br

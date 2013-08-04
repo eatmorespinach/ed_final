@@ -1,15 +1,16 @@
 .field
-  = f.label :first_name
-  = f.text_field :first_name, placeholder: "e.g. John"
+  = f.label :first_name, :class => "invisible-text"
+  = f.text_field :first_name, placeholder: "first name"
 .field  
-  = f.label :last_name
-  = f.text_field :last_name, placeholder: "e.g. Doe"
+  = f.label :last_name, :class => "invisible-text"
+  = f.text_field :last_name, placeholder: "last name"
 .field
-  = f.label :email
-  = f.text_field :email, placeholder: "e.g. jd@email.com"
+  = f.label :email, :class => "invisible-text"
+  = f.text_field :email, placeholder: "email"
 .field
-  = f.label :password
-  = f.password_field :password
+  = f.label :password, :class => "invisible-text"
+  = f.password_field :password, placeholder: "password"
 .field
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
+  = f.label :password_confirmation, :class => "invisible-text"
+  = f.password_field :password_confirmation, placeholder: "confirm password"
+%br

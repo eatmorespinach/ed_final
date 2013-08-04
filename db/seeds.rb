@@ -8,15 +8,22 @@
 
 User.destroy_all
 Listing.destroy_all
+Profile.destroy_all
 
 @countries = ["United States", "Canada", "United Kingdom", "Germany", "Mexico"]
+@guests = [0,1,2,3,4,5,6]
+@first_name = ["Bob", "Stephanie", "Alexandria", "Coretta", "Toni"]
+@last_name = ["Sagat", "Kukoc", "Davidsonator", "Bradley-Longasshewit", "King"]
 
-user = User.create(email: 'test@test.com', password: 'testpassword', first_name: 'Bob', last_name: 'Sagat')
+user = User.create(email: 'test@test.com', password: 'password', first_name: @first_name.sample, last_name: @last_name.sample)
+
+10.times do
+	 User.create(email: Faker::Internet.email, password: 'password', first_name: Faker::Name.first_name, 
+	 	last_name: Faker::Name.last_name)
 
  
-10.times do
 	Listing.create(title: Faker::Company.bs, description: Faker::Lorem.paragraph, 
-		guests: 4, city: Faker::Address.city, country: @countries.sample, 
+		guests: @guests.sample, city: Faker::Address.city, country: @countries.sample, 
 		stay_length: Faker::Lorem.sentence, in_exchange: Faker::Lorem.sentence, user_id: user.id)
 end
 

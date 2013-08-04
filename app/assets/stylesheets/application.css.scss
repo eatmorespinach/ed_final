@@ -19,7 +19,7 @@ $default_text: #333333;
 $gray_text: gray;
 $light_gray_text: #878787;
 $site_width: 940px;
-
+$white_text: white;
 
 @import "contents.css.scss";
 @import "landing.css.scss";
@@ -30,8 +30,12 @@ $site_width: 940px;
 
 //FONTS
 
-.graytext {
+.gray-text {
   color: $gray_text;
+}
+
+.white-text {
+  color: $white_text;
 }
 
 .description-box {
@@ -39,7 +43,7 @@ $site_width: 940px;
 }
 
 .description-box strong {
-  color:$default_text;
+  color: $default_text;
   font-weight: normal;
 }
 //how would I do this properly?
@@ -83,10 +87,14 @@ h5 {
 p {
   font-size: 16px;
   line-height: 1.6;
-  word-spacing: .15em;
+  word-spacing: .10em;
 }
 
 //FORMS
+
+.invisible-text {
+  color: $white_text;
+}
 
 .normal-input {
   width: 400px;

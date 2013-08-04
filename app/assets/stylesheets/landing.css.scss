@@ -15,12 +15,16 @@
 	position: relative;
 }
 
-#tagline {
+#hero-box {
 	position: absolute;
-	margin-left:80px;
-	margin-top: 200px;
+	text-align: center;
+	top: 280px;
 	line-height: 110%;
-	background: white;
+	width: 100%;
+	h2 {
+		color: purple;
+	}
+//	background-color: gray;
 }
 
 .taglines {
@@ -29,11 +33,7 @@
 //	@include test;
 }
 
-#hero button {
-	position: absolute;
-	margin-left: 650px;
-	margin-top: 600px;
-}
+
 
 #images {
 
