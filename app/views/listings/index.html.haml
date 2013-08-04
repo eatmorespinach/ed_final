@@ -6,6 +6,7 @@
   .listings
     Country:
     %select{:"ng-model" => "country"}
+      %option{:"value" => ""} No Value
       - @listings.pluck(:country).uniq.each do |country|
         %option{:"value" => "#{country}"} #{country}
     Filter:
@@ -15,5 +16,3 @@
         = link_to "/listings/{{listing.id}}" do
           {{listing.title}}
       %h4= "{{listing.city}}" + ", " + "{{listing.country}}"
-
-     
