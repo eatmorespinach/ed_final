@@ -4,7 +4,7 @@
   .span.offset2
     .field
       = f.label :title
-      = f.text_field :title, :class => "wider-input", placeholder: "e.g. Teach Me Ruby on Rails"
+      = f.text_field :title, :class => "wider-input", placeholder: "e.g. Help out in our Cabbagetown Community Garden!"
     %br
     .field
       = f.label :city
@@ -12,15 +12,15 @@
     %br
     .field
       = f.label :description
-      = f.text_area :description, :class => "wider-input taller-input"
+      = f.text_area :description, :class => "wider-input taller-input" ,placeholder: "Do you best to be descriptive! It will help people get a feel for your stay, and increase the likelyhood of a good fit."
     %br
     .field
       = f.label :number_of_guests
-      = f.number_field :guests, :class => "number-input", placeholder: "e.g. 2"
+      = f.number_field :guests, :class => "number-input"
     %br
     .field
       = f.label :stay_length
-      = f.text_field :stay_length, :class => "wider-input", placeholder: "e.g. Three or four weeks"
+      = f.text_field :stay_length, :class => "wider-input", placeholder: "State what you think the stay length min and max amount of days may be"
     %br
     .field
       = f.label :country
