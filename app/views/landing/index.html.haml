@@ -2,11 +2,9 @@
   = "Live for Free: StayTraders" 
 
 #container
-  #hero
-    =image_tag("staytraders-970-509.jpg")
-    #hero-box
-      %h2 Teach or Volunteer your skills <br>In return, a free place to stay
-      %button{:class => "btn btn-large btn-info"}sign up
+  #hero-unit  
+    %h1 Teach or Volunteer your skills <br>In return, a free place to stay
+    #signup= link_to "Sign Up", signup_path, :class => "btn btn-large btn-info"
   #content
     .taglines
       .row-fluid

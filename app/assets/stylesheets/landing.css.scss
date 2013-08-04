@@ -11,21 +11,42 @@
 
 
 
-#hero {
-	position: relative;
+//#hero {
+//	position: relative;
+//}
+
+#hero-unit {
+	background-image:url("staytraders-970-509.jpg");
+	background-repeat: no-repeat;
+	padding: 250px 180px 180px 120px;
+	h1 {
+	color: white;
+	text-align: center;
+	background-color: black;
+	opacity: .8;
+	}
+	#signup {
+		float: right;
+	}
+}
+//	text-align: center;
+//	line-height: 110%;
+//	width: 100%;
+
+
+#hero-boxy {
+	position: absolute;
+	
 }
 
-#hero-box {
-	position: absolute;
-	text-align: center;
-	top: 280px;
-	line-height: 110%;
-	width: 100%;
-	h2 {
-		color: purple;
-	}
-//	background-color: gray;
-}
+//#hero-box {
+//	position: absolute;
+//	
+//	h2 {
+//		color: purple;
+//	}
+////	background-color: gray;
+//}
 
 .taglines {
 	margin-top:15px;
