@@ -18,6 +18,11 @@
         %td
           = listing.state
         %td
-          .btn deactivate
-          .btn approve
+          = link_to approve_listing_path(listing), method: :post do 
+            .btn approve
+          = link_to deactivate_listing_path(listing), method: :post do 
+            .btn deactivate
+          = link_to reactivate_listing_path(listing), method: :post do 
+            .btn reactivate
+
 
