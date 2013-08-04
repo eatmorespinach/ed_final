@@ -16,3 +16,18 @@
         = link_to "/listings/{{listing.id}}" do
           {{listing.title}}
       %h4= "{{listing.city}}" + ", " + "{{listing.country}}"
+      .row-fluid
+        .span5.dark-background.center-index
+          = link_to "/listings/{{listing.id}}", :class=>"center" do
+            = image_tag("default_listing_image.gif") 
+        .span2
+          = link_to "/listings/{{listing.id}}" do
+            = image_tag("")
+          .description-box 
+            %p Host: <strong> {{listing.user.first_name}} </strong>
+            %p Guests: <strong> {{listing.guests}} </strong>
+
+        .span5
+
+          %p {{listing.description }}
+          
