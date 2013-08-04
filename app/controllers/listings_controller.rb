@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
 
 
   def index
-    @listings = Listing.all
+    @listings = Listing.where(state: "active")
   end
 
   def show
@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
 
     if @listing.save
-      redirect_to new_listing_asset_path(@listing), alert: "Listing created. Now add images!"
+      redirect_to new_listing_asset_path(@listing), alert: "Hosting created. You can add images and edit while it waits for approval for display."
     else
       render :new
     end
@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing = Listing.find(params[:id])
-    @listing.destroy
+    @listing.deactivate
     redirect_to mylistings_path
   end
 

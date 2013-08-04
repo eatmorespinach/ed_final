@@ -11,4 +11,18 @@ class Listing < ActiveRecord::Base
 		"#{id} #{title}".parameterize
 	end
 
+	state_machine :state, initial: :pending do
+		event :approve do
+			transition :pending => :active
+		end
+
+		event :deactivate do
+			transition :active => :inactive
+		end
+
+		event :reactivate do
+			transition :inactive => :active
+		end
+
+	end
 end
