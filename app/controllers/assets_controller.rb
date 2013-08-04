@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-	before_filter :load_assetable
+	before_filter :load_assetable, :correct_user
 	def index
 		@assets = @assetable.assets
 	end
@@ -30,7 +30,7 @@ class AssetsController < ApplicationController
 	def update
 		@asset = Asset.find(params[:selected])
 		@asset.preview_select(@assetable)
-		redirect_to [@assetable, :assets], alert: "Default Image Selected"
+		redirect_to myprofile_path, alert: "Default Image Selected"
 	end
 
 	def destroy
@@ -49,5 +49,9 @@ class AssetsController < ApplicationController
 		resource, id = request.path.split('/')[1,2]
 		@assetable = resource.singularize.classify.constantize.find(id)
 	end
+
+	def correct_user
+    redirect_to root_path unless current_user?(@assetable.user)
+  end
 
 end

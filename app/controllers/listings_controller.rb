@@ -1,5 +1,4 @@
 class ListingsController < ApplicationController
-  include ListingsHelper
   before_filter :require_login, except: [:index]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
