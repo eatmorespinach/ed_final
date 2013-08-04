@@ -1,5 +1,6 @@
 %h1 Images
 %br
+= link_to "Back", :back, :class => "btn"
 = link_to "Add Image", [:new, @assetable, :asset], :class => "btn"
 = form_tag profile_assets_path(@assetable), :method => :put do
   - @assets.each do |asset|
