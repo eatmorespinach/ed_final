@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_filter :require_login, except: [:index]
   before_filter :correct_user, only: [:edit, :update, :destroy]
+  before_filter :admin_check, only: [:admin_page, :approve, :deactivate, :reactivate]
 
 
   def index
@@ -57,7 +58,7 @@ class ListingsController < ApplicationController
   def approve
     @listing = Listing.find(params[:id])
     @listing.approve
-    p @listing
+    NotificationsMailer.listing_approved(@listing).deliver
     redirect_to admin_path
   end
 
@@ -84,6 +85,10 @@ class ListingsController < ApplicationController
   def correct_user
     @listing = Listing.find(params[:id])
     redirect_to root_path unless current_user?(@listing.user) || current_user.admin == true
+  end
+
+  def admin_check
+    redirect_to root_path unless current_user.admin?
   end
 
   # def listing_image_params
