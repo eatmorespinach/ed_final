@@ -1,0 +1,23 @@
+%h1 Admin Page
+%br
+%br
+%table.table
+  %thead
+    %tr
+      %th User
+      %th Listing Title
+      %th Listing State 
+      %th Listing Actions
+  - @listings.each do |listing|
+    %tbody
+      %tr
+        %td 
+          = listing.user.email
+        %td
+          = listing.title
+        %td
+          = listing.state
+        %td
+          .btn deactivate
+          .btn approve
+

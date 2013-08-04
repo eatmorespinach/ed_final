@@ -5,14 +5,22 @@
       = f.label :current_city
       = f.text_field :current_city, placeholder: "e.g. Toronto"
       %br
+
     .field
-      = f.label :about
-      = f.text_area :about, :class => "wider-input taller-input"
-      %br
+      = f.label :I_am_happy_to_teach
+      = f.text_area :teaching_skills, :class => "wider-input taller-input"
+
+
     .field
-      = f.label :skills
+      = f.label :Ways_I_can_help
       = f.text_area :helping_skills, :class => "wider-input taller-input"
       %br
+
+    .field
+      = f.label :about_Me
+      = f.text_area :about, :class => "wider-input taller-input"
+      %br
+
     .field
       = f.label :hometown
       = f.text_field :hometown, placeholder: "e.g. Mississauga"

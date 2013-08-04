@@ -50,6 +50,10 @@ class ListingsController < ApplicationController
     @listings = current_user.listings
   end
 
+  def admin_page
+    @listings = Listing.all.order("created_at ASC")
+  end
+
   private
 
   #   # Use callbacks to share common setup or constraints between actions.
@@ -59,7 +63,7 @@ class ListingsController < ApplicationController
 
   def correct_user
     @listing = Listing.find(params[:id])
-    redirect_to root_path unless current_user?(@listing.user)
+    redirect_to root_path unless current_user?(@listing.user) || current_user.admin == true
   end
 
   # def listing_image_params
