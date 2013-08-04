@@ -26,4 +26,6 @@ class Asset < ActiveRecord::Base
 		self.activate unless assetable.assets.count > 1
 	end
 
+	
+
 end
