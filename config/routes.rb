@@ -12,12 +12,20 @@ MyProject::Application.routes.draw do
     put 'assets' => "assets#update"
   end
 
+
   get 'myprofile' => "profiles#my_profile"
   get 'myprofile/edit' => "profiles#edit"
   get 'myaccount' => "users#edit"
   get 'mylistings' => "listings#my_listings"
   get 'admin' => "listings#admin_page"
+  
   resources :listings do
+    member do
+      post :approve
+      post :reactivate
+      post :deactivate
+    end
+
     resources :reviews
     resources :assets
   end

@@ -54,11 +54,31 @@ class ListingsController < ApplicationController
     @listings = Listing.all.order("created_at ASC")
   end
 
+  def approve
+    @listing = Listing.find(params[:id])
+    @listing.approve
+    p @listing
+    redirect_to admin_path
+  end
+
+  def deactivate
+    @listing = Listing.find(params[:id])
+    @listing.deactivate
+    redirect_to admin_path
+  end
+
+  def reactivate
+    @listing = Listing.find(params[:id])
+    @listing.reactivate
+    redirect_to admin_path
+  end
+
+
   private
 
   #   # Use callbacks to share common setup or constraints between actions.
   def listing_params
-    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country, :in_exchange)
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country, :in_exchange, :state)
   end
 
   def correct_user
