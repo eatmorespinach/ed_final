@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
     @listings = Listing.all
     respond_to do |format|
       format.html
-      format.json { render json: @listings.as_json( :include => :user ) }
+      format.json { render json: @listings.as_json( :include => {:user => {only: [:first_name]} , :assets => {}} ) }
     end
   end
 
