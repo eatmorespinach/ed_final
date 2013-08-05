@@ -26,7 +26,7 @@ class ListingsController < ApplicationController
 
     if @listing.save
       NotificationsMailer.listing_created(@listing).deliver
-      redirect_to new_listing_asset_path(@listing), alert: "Hosting created. You can add images and edit while it waits for approval for display."
+      redirect_to listing_path(@listing), alert: "Hosting created. You can add images and edit while it waits for approval for display."
     else
       render :new
     end
@@ -80,7 +80,7 @@ class ListingsController < ApplicationController
 
   #   # Use callbacks to share common setup or constraints between actions.
   def listing_params
-    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country, :in_exchange, :state)
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country, :in_exchange)
   end
 
   def correct_user

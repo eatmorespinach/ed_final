@@ -8,18 +8,18 @@
     .individual-listing
       .row-fluid
         .span12
-          %h3= link_to listing.title, listing_path(listing[:id])  
+          %h3= link_to listing.title, listing_path(listing)  
           %h4= listing.city + ", " + listing.country
 
           .row-fluid
             .span5.dark-background.center-index
-              = link_to listing_path(listing[:id]), :class=>"center" do
+              = link_to listing_path(listing), :class=>"center" do
                 - if listing.assets.empty?
                   = image_tag("default_listing_image.gif") 
                 - else
                   = image_tag(listing.assets.first.file_url(:thumb))
             .span2
-              = link_to listing_path(listing[:id]) do
+              = link_to listing_path(listing) do
                 - if listing.user.profile.assets.empty?
                   = image_tag("default_avatar_image.gif")
                 - else 
