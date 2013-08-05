@@ -29,6 +29,6 @@ class NotificationsMailer < ActionMailer::Base
 	def listing_created(listing)
 		@listing = listing
 		@user = listing.user
-		mail(subject: "StayTraders #{user.email} created a listing")
+		mail(subject: "StayTraders #{@user.email} created a listing")
 	end 
 end
