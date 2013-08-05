@@ -25,7 +25,7 @@ class AssetUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_limit => [1500, 1000]
+  process :resize_to_limit => [900, 1500]
   # #
   # def scale(width, height)
   #  do something
@@ -33,11 +33,28 @@ class AssetUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [400, 250]
+    process :resize_to_fill => [378, 236]
+  end
+
+  version :squarethumb do
+    process :crop
+    process :resize_to_fill => [350, 350]
   end
 
   version :avatar do
     process :resize_to_fill => [70,70]
+  end
+
+  def crop
+    if model.crop_x.present?
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+        img.crop!(x, y, w, h)
+      end
+    end
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

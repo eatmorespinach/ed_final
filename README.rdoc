@@ -1,5 +1,6 @@
 Drew Sing and Eric Szeto's Bitmaker final project. 
 
+From where does assetable get passed in in first upload for asset.rb
 
 why doesn't line 39 of show.html.haml listing work?
 
@@ -21,9 +22,3 @@ http://latimesphoto.files.wordpress.com/2011/11/la-me-wwoofing08.jpg
         %a{:href=>"#"} 2
       %li
         %a{:href=>"#"} Next
-
-
-
-          - if current_user
-            .btn= mail_to "sing.drew@gmail.com" 
-          - else login_path
