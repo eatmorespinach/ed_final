@@ -1,6 +1,6 @@
 class NotificationsMailer < ActionMailer::Base
-	default :from => "support@staytraders.com"
-	default :to => "support@staytraders.com"
+	default :from => "staytraders@gmail.com"
+	default :to => "staytraders@gmail.com"
 
 	def profile_contact(message, user, profile)
 		@message = message
@@ -25,4 +25,10 @@ class NotificationsMailer < ActionMailer::Base
 		@user = listing.user
 		mail(to: @user.email, subject: "StayTraders: Hosting Approved!")
 	end
+
+	def listing_created(listing)
+		@listing = listing
+		@user = listing.user
+		mail(subject: "StayTraders #{user.email} created a listing")
+	end 
 end

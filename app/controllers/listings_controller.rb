@@ -25,6 +25,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
 
     if @listing.save
+      NotificationsMailer.listing_created(@listing).deliver
       redirect_to new_listing_asset_path(@listing), alert: "Hosting created. You can add images and edit while it waits for approval for display."
     else
       render :new
