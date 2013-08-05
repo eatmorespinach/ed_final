@@ -7,7 +7,9 @@ class Listing < ActiveRecord::Base
   validates :description, :city, :stay_length, :user_id, presence: true
   validates :guests, presence: true, numericality: true 
 
-
+	def to_param
+		"#{id} #{title}".parameterize
+	end
 
 	state_machine :state, initial: :pending do
 		event :approve do

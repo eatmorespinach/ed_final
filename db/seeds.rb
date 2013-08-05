@@ -12,7 +12,7 @@ Profile.destroy_all
 
 @countries = ["United States", "Canada", "United Kingdom", "Germany", "Mexico"]
 @guests = [0,1,2,3,4,5,6]
-@first_name = ["Bob", "Stephanie", "Alexandria", "Coretta", "Toni"]
+@first_name = ["Stephanie", "Alexandria", "Coretta", "Toni"]
 @last_name = ["Sagat", "Kukoc", "Davidsonator", "Bradley-Longasshewit", "King"]
 
 user = User.create(email: 'test@test.com', password: 'password', first_name: @first_name.sample, last_name: @last_name.sample)
@@ -24,7 +24,7 @@ user = User.create(email: 'test@test.com', password: 'password', first_name: @fi
  
 	Listing.create(title: Faker::Company.bs, description: Faker::Lorem.paragraph, 
 		guests: @guests.sample, city: Faker::Address.city, country: @countries.sample, 
-		stay_length: Faker::Lorem.sentence, in_exchange: Faker::Lorem.sentence, user_id: user.id)
+		stay_length: Faker::Lorem.sentence, in_exchange: Faker::Lorem.sentence, user_id: user.id, state: "active")
 end
 
 
