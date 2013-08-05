@@ -1,6 +1,9 @@
 - content_for :title do
   = "#{@profile.first_name} #{@profile.last_name} Profile" 
 
+- content_for :meta_tag do
+  = "#{@profile.first_name} #{@profile.last_name} Staytraders"
+
 .row-fluid
   .span12
     .row-fluid
