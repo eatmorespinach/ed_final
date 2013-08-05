@@ -79,7 +79,7 @@ class ListingsController < ApplicationController
 
   #   # Use callbacks to share common setup or constraints between actions.
   def listing_params
-    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country, :in_exchange, :state)
+    params.require(:listing).permit(:title, :description, :guests, :city, :stay_length, :country, :in_exchange)
   end
 
   def correct_user

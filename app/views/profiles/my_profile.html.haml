@@ -35,7 +35,10 @@
         %br
         %br
         %h4 Ways I can help (skills and experience):
-        %p= @profile.helping_skills
+        - if @profile.helping_skills.empty?
+          %p You haven't filled this field out yet!!
+        - else
+          %p= @profile.helping_skills
         %br
         %h4 I'm happy to teach
         %p= @profile.teaching_skills
