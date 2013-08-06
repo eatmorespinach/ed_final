@@ -33,6 +33,7 @@ class AssetUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
+    process :crop
     process :resize_to_fill => [378, 236]
   end
 

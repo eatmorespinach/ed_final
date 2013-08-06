@@ -33,6 +33,9 @@ class AssetsController < ApplicationController
 		redirect_to myprofile_path, alert: "Default Image Selected"
 	end
 
+
+		
+
 	def destroy
 		@asset = Asset.find(params[:id])
 		if @asset.active?
