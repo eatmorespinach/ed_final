@@ -35,8 +35,12 @@ class AssetsController < ApplicationController
 
 	def destroy
 		@asset = Asset.find(params[:id])
-		set_first_active(@assetable) if @asset.active?
-		@asset.destroy
+		if @asset.active?
+			@asset.destroy
+			set_first_active(@assetable)
+		else
+			@asset.destroy
+		end
 		redirect_to [@assetable, :assets], alert: "Image deleted"
 	end
 
