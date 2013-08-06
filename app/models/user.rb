@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
   after_save :create_profile
 
   def create_profile
-    Profile.create!(user_id: self.id) if profile.blank?
+    Profile.create!(user_id: self.id, 
+      helping_skills: "The user still needs to fill in this field!", 
+      teaching_skills: "The user still needs to fill in this field!",
+      about: "The user still needs to fill in this field!") if profile.blank?
   end
 
   def avatar_path
