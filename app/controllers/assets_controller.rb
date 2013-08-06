@@ -24,7 +24,7 @@ class AssetsController < ApplicationController
 	end
 
 	def edit
-		@assets = @assetable.assets
+		@asset = Asset.find(params[:id])
 	end
 
 	def update
