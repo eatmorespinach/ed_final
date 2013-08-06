@@ -30,7 +30,7 @@
         %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
       .lower20.span7
         .contact_button
-          = link_to "Contact me", new_profile_contact_path(@profile), :class => "btn"
+          = link_to "Contact #{@profile.first_name}", new_profile_contact_path(@profile), :class => "btn btn-info"
 
         %br
         %br

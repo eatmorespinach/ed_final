@@ -22,10 +22,10 @@ AssetCropper = (function() {
   }
 
   AssetCropper.prototype.update = function(coords) {
-    $('#user_crop_x').val(coords.x);
-    $('#user_crop_y').val(coords.y);
-    $('#user_crop_w').val(coords.w);
-    return $('#user_crop_h').val(coords.h);
+    $('#asset_crop_x').val(coords.x);
+    $('#asset_crop_y').val(coords.y);
+    $('#asset_crop_w').val(coords.w);
+    return $('#asset_crop_h').val(coords.h);
   };
 
   return AssetCropper;
