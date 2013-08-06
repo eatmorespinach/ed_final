@@ -8,8 +8,11 @@ MyProject::Application.routes.draw do
   # get "profile/edit" => "users#edit"
   resources :profiles, only: [:index, :show, :update] do
     resource :contact, only: [:new, :create]
-    resources :assets
-    put 'assets/:id/edit' => "assets#crop"
+    resources :assets do
+      member do
+        post :crop
+      end
+    end
     put 'assets' => "assets#update"
   end
 

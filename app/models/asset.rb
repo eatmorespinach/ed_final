@@ -29,7 +29,7 @@ class Asset < ActiveRecord::Base
 	end
 
 	def crop_image
-		asset.recreate_versions! if crop_x.present?
+		file.recreate_versions! if crop_x.present?
 	end
 
 

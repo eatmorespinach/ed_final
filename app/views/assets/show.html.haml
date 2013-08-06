@@ -1,7 +1,2 @@
-= image_tag @asset.file_url, id: "cropbox"
+= image_tag @asset.file_url 
 
-= form_for [@assetable, @asset] do |f| 
-  - %w[x y w h].each do |attribute|
-    = f.text_field "crop_#{attribute}"
-  .actions
-    = f.submit "Crop"

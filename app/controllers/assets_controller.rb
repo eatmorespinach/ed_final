@@ -25,14 +25,26 @@ class AssetsController < ApplicationController
 
 	def edit
 		@asset = Asset.find(params[:id])
+
 	end
 
-	def update
-		@asset = Asset.find(params[:selected])
-		@asset.preview_select(@assetable)
-		redirect_to myprofile_path, alert: "Default Image Selected"
+	def update 
+		if params[:selected]
+			@asset = Asset.find(params[:selected])
+			@asset.preview_select(@assetable)
+			redirect_to myprofile_path, alert: "Default Image Selected"
+		else
+			@asset = Asset.find(params[:id])
+			@asset.update_attributes(params_asset)
+			redirect_to [@assetable, :assets]
+		end
 	end
 
+
+	def crop
+
+	
+	end
 
 		
 
@@ -50,7 +62,7 @@ class AssetsController < ApplicationController
 	private
 
 	def params_asset
-    	params.require(:asset).permit(:file, :remote_file_url, :scale)
+    	params.require(:asset).permit(:file, :remote_file_url, :scale, :crop_x, :crop_y, :crop_w, :crop_h)
 	end
 
 	def load_assetable

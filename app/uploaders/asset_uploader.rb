@@ -3,8 +3,8 @@
 class AssetUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  # include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
@@ -25,7 +25,7 @@ class AssetUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_limit => [900, 1500]
+  # process :resize_to_limit => [900, 1500]
   # #
   # def scale(width, height)
   #  do something
@@ -39,7 +39,7 @@ class AssetUploader < CarrierWave::Uploader::Base
 
   version :squarethumb do
     process :crop
-    process :resize_to_fill => [350, 350]
+    process :resize_to_fill => [200, 200]
   end
 
   version :avatar do
@@ -47,14 +47,17 @@ class AssetUploader < CarrierWave::Uploader::Base
   end
 
   def crop
+    
     if model.crop_x.present?
-      manipulate! do |img|
-        x = model.crop_x.to_i
-        y = model.crop_y.to_i
-        w = model.crop_w.to_i
-        h = model.crop_h.to_i
-        img.crop!(x, y, w, h)
-      end
+      x = model.crop_x.to_i
+      y = model.crop_y.to_i
+      w = model.crop_w.to_i
+      h = model.crop_h.to_i
+      img = MiniMagick::Image.open(self.file.path) 
+      img.crop("#{w}x#{h}+#{x}+#{y}")
+      img.write(self.file.path)
+      img
+
     end
   end
 

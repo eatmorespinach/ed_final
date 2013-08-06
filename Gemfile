@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'pry'
 
 gem 'carrierwave'
-gem "rmagick"
+gem "mini_magick"
 gem "fog", "~> 1.3.1"
 
 gem 'kaminari'

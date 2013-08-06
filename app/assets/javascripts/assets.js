@@ -30,4 +30,17 @@ AssetCropper = (function() {
 
   return AssetCropper;
 
+  var _this = this;
+
+  ({
+    updatePreview: function(coords) {
+      return $('#preview').css({
+        width: Math.round(100 / coords.w * $('#cropbox').width()) + 'px',
+        height: Math.round(100 / coords.h * $('#cropbox').height()) + 'px',
+        marginLeft: '-' + Math.round(100 / coords.w * coords.x) + 'px',
+        marginTop: '-' + Math.round(100 / coords.h * coords.y) + 'px'
+      });
+    }
+  });
+
 })();
