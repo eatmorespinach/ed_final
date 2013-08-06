@@ -7,9 +7,10 @@
 .row-fluid
   .span12
     .row-fluid
-      .span5
+      .span4
         %h2 #{@profile.first_name} #{@profile.last_name}
         %h4 Current City: #{@profile.current_city}
+        %h2= @profile.tagline
 
         %div{:id=> "profileCarousel", :class=> "carousel slide"}
           .carousel-inner.static_height
@@ -28,7 +29,7 @@
           %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
 
         %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
-      .lower20.span7
+      .lower20.span8
         .contact_button
           = link_to "Contact #{@profile.first_name}", new_profile_contact_path(@profile), :class => "btn btn-info"
 

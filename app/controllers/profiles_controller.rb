@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
   	@profile = current_user.profile
 
   	if @profile.update_attributes(profile_params)
-  		redirect_to new_profile_asset_path(@profile), alert: "Profile Updated!"
+  		redirect_to myprofile_path(@profile), alert: "Profile Updated!"
   	else
   		render 'new', alert: "Error"
   	end

@@ -12,8 +12,8 @@
           %h4= listing.city + ", " + listing.country
 
           .row-fluid
-            .span5.dark-background.center-index
-              = link_to listing_path(listing), :class=>"center" do
+            .span4
+              = link_to listing_path(listing), :class => "center" do
                 - if listing.assets.empty?
                   = image_tag("default_listing_image.gif") 
                 - else
@@ -28,7 +28,7 @@
                 %p Host: <strong> #{listing.user.first_name} </strong>
                 %p Guests: <strong> #{listing.guests} </strong>
 
-            .span5
+            .span6
 
               %p= listing.description 
               

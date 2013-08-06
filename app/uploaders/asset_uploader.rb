@@ -35,7 +35,7 @@ class AssetUploader < CarrierWave::Uploader::Base
   
   version :thumb do
     process :crop
-    process :resize_to_fill => [378, 378]
+    process :resize_to_fill => [297, 297]
   end
 
   version :avatar do
