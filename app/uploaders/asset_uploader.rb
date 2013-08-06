@@ -32,14 +32,10 @@ class AssetUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  
   version :thumb do
     process :crop
-    process :resize_to_fill => [378, 236]
-  end
-
-  version :squarethumb do
-    process :crop
-    process :resize_to_fill => [200, 200]
+    process :resize_to_fill => [378, 378]
   end
 
   version :avatar do
@@ -57,7 +53,6 @@ class AssetUploader < CarrierWave::Uploader::Base
       img.crop("#{w}x#{h}+#{x}+#{y}")
       img.write(self.file.path)
       img
-
     end
   end
 

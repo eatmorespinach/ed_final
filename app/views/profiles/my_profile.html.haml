@@ -9,7 +9,7 @@
         %h4 Current City: #{@profile.current_city}
 
         %div{:id=> "profileCarousel", :class=> "carousel slide"}
-          .carousel-inner.static_height
+          .carousel-inner
             - if @profile.assets.empty?
               .item.active
                 = image_tag(("default_listing_image.gif"), :class => "center")
