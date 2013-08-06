@@ -9,6 +9,8 @@ MyProject::Application.routes.draw do
   resources :profiles, only: [:index, :show, :update] do
     resource :contact, only: [:new, :create]
     resources :assets
+    get 'assets/crop' => "assets#edit"
+    put 'assets/crop' => "assets#crop"
     put 'assets' => "assets#update"
   end
 
@@ -28,6 +30,9 @@ MyProject::Application.routes.draw do
 
     resources :reviews
     resources :assets
+    get 'assets/crop' => "assets#edit"
+    put 'assets/crop' => "assets#crop"
+    put 'assets' => "assets#update"
   end
 
   resources :users, only: [:new, :create, :destroy, :update]
