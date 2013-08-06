@@ -7,9 +7,14 @@
       %br
 
     .field
+      = f.label :currently
+      = f.text_area :tagline, placeholder: "e.g. Looking for a place to stay in Australia"
+      %br
+
+    .field
       = f.label :I_can_teach
       = f.text_area :teaching_skills, :class => "wider-input taller-input"
-
+      %br
 
     .field
       = f.label :Skills_and_Experience
@@ -25,9 +30,16 @@
       = f.label :hometown
       = f.text_field :hometown, placeholder: "e.g. Mississauga"
       %br
+
     .field
       = f.label :home_country
       = f.country_select :nationality
+      %br
+
+    .field
+      = f.label :linkedin
+      = f.text_area :linkedin, placeholder: "Enter your linkedin URL"
+      %br
       
     .actions
       = f.submit "Save Profile", :class => "btn btn-info"
