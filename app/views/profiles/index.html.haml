@@ -1,7 +1,13 @@
 - content_for :title do
   = "People" 
 
-%h1 People
+.row-fluid
+  .span4
+    %h1 People
+  .span4.pull-right
+    = search_form_for @search do |f|
+      .field
+        = f.text_field :tagline_or_hometown_or_nationality_or_current_city_or_helping_skills_or_teaching_skills_cont, placeholder: "Search..."
 
 .listings
   - @profiles.each do |profile|

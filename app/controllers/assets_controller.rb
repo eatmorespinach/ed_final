@@ -69,7 +69,7 @@ class AssetsController < ApplicationController
   	end
 
   	def set_first_active(assetable)
-		assetable.assets.first.activate
+		assetable.assets.first.activate unless assetable.assets.empty?
 	end
 
 end
