@@ -15,6 +15,7 @@
       .row-fluid
         .span12
           %h3= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)  
+          %h4 Current Location: #{profile.current_city}
           %h4  #{profile.hometown}, #{profile.nationality}
 
           .row-fluid
@@ -25,8 +26,10 @@
                 - else
                   = image_tag profile.find_active.file_url(:thumb)
             .span7   
-              %p Skills: #{profile.helping_skills} 
-              %p About: #{profile.about}
+              %h4 Ways I can help (skills and experience)
+              %p  #{profile.helping_skills} 
+              %h4 I'm happy to teach: 
+              %p  #{profile.teaching_skills}
 
 
 

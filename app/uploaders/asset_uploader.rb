@@ -38,6 +38,11 @@ class AssetUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [297, 297]
   end
 
+
+  version :avatar, :from_version => :thumb do
+    process resize_to_fill: [70, 70]
+  end
+
   def crop
     
     if model.crop_x.present?

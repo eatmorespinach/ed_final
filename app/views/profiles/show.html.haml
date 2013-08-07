@@ -4,46 +4,43 @@
 - content_for :meta_tag do
   = "#{@profile.first_name} #{@profile.last_name} Staytraders"
 
-.row-fluid
+#profile-header.row-fluid
   .span12
-    %h2 
-      #{@profile.first_name} #{@profile.last_name}
-      %span{:class => "tagline"} #{@profile.tagline}
+    .span9
+      .profile
+        %h1 
+          #{@profile.first_name} #{@profile.last_name}
+          %span{:class => "tagline"} #{@profile.tagline}
+    .span3
       .contact_button
         = link_to "Contact #{@profile.first_name}", new_profile_contact_path(@profile), :class => "btn btn-info"
-    .row-fluid
-      .span4
-        %h4 Current City: #{@profile.current_city}
-        %div{:id=> "profileCarousel", :class=> "carousel slide"}
-          .carousel-inner.static_height
-            - if @profile.assets.empty?
+
+.row-fluid
+  .span4        
+    %div{:id=> "profileCarousel", :class=> "carousel slide"}
+      .carousel-inner.static_height
+        - if @profile.assets.empty?
+          .item.active
+            = image_tag(("default_listing_image.gif"), :class => "center")
+        - else
+          - @profile.assets.each do |picture|
+            - if picture.active?
               .item.active
-                = image_tag(("default_listing_image.gif"), :class => "center")
+                = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
             - else
-              - @profile.assets.each do |picture|
-                - if picture.active?
-                  .item.active
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
-                - else
-                  .item
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
-          %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
-          %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
-
-        %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
-      .lower20.span8
-        
-
-        %br
-        %br
-        %br
-        %br
-        %h4 Ways I can help (skills and experience):
-        %p= @profile.helping_skills
-        %br
-        %h4 I'm happy to teach
-        %p= @profile.teaching_skills
-        %br
-        %h4 About me
-        %p= @profile.about
-        %br
+              .item
+                = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
+      %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
+      %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
+    %h4 Current City: #{@profile.current_city}
+    %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
+  .profile-right.span8
+    %h4 Ways I can help (skills and experience):
+    %p= @profile.helping_skills
+    %br
+    %h4 I'm happy to teach
+    %p= @profile.teaching_skills
+    %br
+    %h4 About me
+    %p= @profile.about
+    %br
