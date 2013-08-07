@@ -16,8 +16,8 @@
         .span12
           %h3 
             = link_to profile_path(profile) do
-              #{profile.first_name} #{profile.last_name}
-              %span{:class=> "tagline"} #{profile.tagline}  
+              #{profile.first_name} #{profile.last_name}  
+            %span{:class=> "tagline"} #{profile.tagline}  
 
           %h4 Current Location: #{profile.current_city}
 
