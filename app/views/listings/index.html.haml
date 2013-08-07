@@ -4,7 +4,7 @@
 .row-fluid
   .span4
     %h1 Hostings
-  .span6.pull-right.pad-top
+  .span6.pull-right.mar-top
     = search_form_for @search, :class => "zero-margin" do |f|
       .field
         = f.select :country_eq, options_for_select(@countries, "")
