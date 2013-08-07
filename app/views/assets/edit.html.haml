@@ -3,9 +3,13 @@
 = image_tag @asset.file_url, id: "cropbox"
 
 = form_for [ @assetable, @asset] do |f| 
-  .actions
+  - %w[ x y w h].each do |attribute|
+    = f.hidden_field "crop_#{attribute}"
   %br
+  .actions
     = f.submit "Crop", :class => "btn btn-info"
+  %br
+  
   %h4 Preview
   %div{:style=>"width: 100px; height: 100px; overflow:hidden"}
     = image_tag @asset.file_url, :id => "preview"
