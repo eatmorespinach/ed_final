@@ -5,7 +5,8 @@ class ListingsController < ApplicationController
 
 
   def index
-    @listings = Listing.where(state: "active")
+    @search = Listing.where(state: "active").search(params[:q])
+    @listings = @search.result
   end
 
   def show
