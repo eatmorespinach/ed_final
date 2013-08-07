@@ -15,7 +15,7 @@ AssetCropper = (function() {
     this.update = __bind(this.update, this);
     $('#cropbox').Jcrop({
       aspectRatio: 1,
-      setSelect: [0, 0, 378, 378],
+      setSelect: [0, 0, 297, 297],
       onSelect: this.update,
       onChange: this.update
     });

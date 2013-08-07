@@ -25,7 +25,7 @@ class AssetUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process :resize_to_limit => [900, 1500]
+
   # #
   # def scale(width, height)
   #  do something
@@ -36,10 +36,6 @@ class AssetUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :crop
     process :resize_to_fill => [297, 297]
-  end
-
-  version :avatar do
-    process :resize_to_fill => [70,70]
   end
 
   def crop

@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     if self.profile.assets.empty?
       "avatar-70-by-70.gif"
     else
-      self.profile.assets.first.file_url(:avatar)
+      self.profile.assets.first.file_url(:thumb)
     end
   end
 

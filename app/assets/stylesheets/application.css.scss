@@ -82,7 +82,13 @@ h4 {
 
 h5 {
   font-size: 16px;
-  font-weight: normal;
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 16px;
+  color: $light_gray_text;
+  font-weight:normal;
 }
 
 p {
@@ -188,9 +194,6 @@ p {
   text-align: center;
 }
 
-.dark-background {
-  background-color: $default_text;
-}
 
 footer {
   margin-top: 45px;

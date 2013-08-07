@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
   	@profile = current_user.profile
 
   	if @profile.update_attributes(profile_params)
-  		redirect_to myprofile_path(@profile), alert: "Profile Updated!"
+  		redirect_to myprofile_path, alert: "Profile Updated!"
   	else
   		render 'new', alert: "Error"
   	end
@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:helping_skills, :teaching_skills, :about, :hometown, :nationality, :current_city)
+    params.require(:profile).permit(:helping_skills, :teaching_skills, :about, :hometown, :nationality, :current_city, :tagline)
   end
 
 end
