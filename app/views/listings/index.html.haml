@@ -1,13 +1,15 @@
 - content_for :title do
-  = "Hostings" 
+  = "Hostings"
 
-%h1 Hostings
-= search_form_for @search do |f|
-  .field
-    = f.label :title_cont, "Title contains"
-    = f.text_field :title_cont
-  .actions
-    = f.submit "Search"
+.row-fluid
+  .span4
+    %h1 Hostings
+  .span6.pull-right.pad-top
+    = search_form_for @search, :class => "zero-margin" do |f|
+      .field
+        = f.select :country_eq, options_for_select(@countries, "")
+        = f.text_field :title_or_description_or_city_or_country_or_stay_length_or_in_exchange_cont, placeholder: "Search..."
+     
 
 
 .listings

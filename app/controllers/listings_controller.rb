@@ -5,6 +5,7 @@ class ListingsController < ApplicationController
 
 
   def index
+    @countries = Listing.where(state: "active").pluck(:country).uniq << ["All", ""]
     @search = Listing.where(state: "active").search(params[:q])
     @listings = @search.result
   end
