@@ -6,12 +6,12 @@
 
 #profile-header.row-fluid
   .span12
-    .span4
+    .span9
       .profile
-        %h1 #{@profile.first_name} #{@profile.last_name}
-    .span8
-      .profile
-        .tagline #{@profile.tagline}
+        %h1 
+          #{@profile.first_name} #{@profile.last_name}
+          %span{:class => "tagline"} #{@profile.tagline}
+    .span3
       .contact_button
         = link_to "Contact #{@profile.first_name}", new_profile_contact_path(@profile), :class => "btn btn-info"
 
