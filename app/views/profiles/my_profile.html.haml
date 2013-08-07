@@ -1,15 +1,21 @@
 - content_for :title do
   = "#{@profile.first_name} #{@profile.last_name} Profile" 
 
+- content_for :meta_tag do
+  = "#{@profile.first_name} #{@profile.last_name} My Profile"
+
 .row-fluid
   .span12
+    %h2 
+      #{@profile.first_name} #{@profile.last_name}
+      %span{:class => "tagline"} #{@profile.tagline}
+      .contact_button
+        = link_to "Contact #{@profile.first_name}", new_profile_contact_path(@profile), :class => "btn btn-info"
     .row-fluid
       .span4
-        %h2 #{@profile.first_name} #{@profile.last_name}
         %h4 Current City: #{@profile.current_city}
-
         %div{:id=> "profileCarousel", :class=> "carousel slide"}
-          .carousel-inner
+          .carousel-inner.static_height
             - if @profile.assets.empty?
               .item.active
                 = image_tag(("default_listing_image.gif"), :class => "center")
@@ -21,15 +27,16 @@
                 - else
                   .item
                     = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
-                    %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
-                    %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
+          %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
+          %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
         = link_to "Manage Images", profile_assets_path(@profile), :class => "btn"
         = link_to "Edit Profile", myprofile_edit_path, :class => "btn"
         = link_to "View Profile", profile_path(@profile), :class => "btn"
 
-        
-        %h5 Hometown: #{@profile.hometown}, #{@profile.nationality}
+        %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
       .lower20.span8
+        
+
         %br
         %br
         %br
@@ -43,3 +50,4 @@
         %h4 About me
         %p= @profile.about
         %br
+

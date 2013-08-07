@@ -1,5 +1,6 @@
 class AssetsController < ApplicationController
 	before_filter :load_assetable, :correct_user
+
 	def index
 		@assets = @assetable.assets
 	end
@@ -40,13 +41,6 @@ class AssetsController < ApplicationController
 		end
 	end
 
-
-	def crop
-
-	
-	end
-
-		
 
 	def destroy
 		@asset = Asset.find(params[:id])
