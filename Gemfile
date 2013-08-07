@@ -9,6 +9,7 @@ gem 'pg'
 gem 'sorcery'
 gem 'faker'
 gem 'state_machine'
+gem "ransack", github: "ernie/ransack"
 
 gem 'carmen'
 gem 'carmen-rails'
