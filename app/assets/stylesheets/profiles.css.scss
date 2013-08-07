@@ -11,6 +11,15 @@
 	
 }
 
+
+.tagline {
+  font-size: 18px;
+  font-style: italic;
+  color: $gray_text;
+  font-weight:normal;
+  padding-left: 26px;
+}
+
 .profile {
 	h1 {
 		font-size: 27px;
@@ -23,9 +32,11 @@
 	.tagline {
 		color: white;
 		padding-top: 19px;
-		padding-left: 26px;
 	}
 }
+
+
+
 
 #profileCarousel {
 	padding-top: 48px;
