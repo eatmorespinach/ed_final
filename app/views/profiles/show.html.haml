@@ -32,8 +32,8 @@
                 = link_to image_tag(picture.file_url(:thumb), :class => "center"), profile_asset_path(@profile, picture)
       %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
       %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
-    %h4 Current City: #{@profile.current_city}
-    %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
+    %h5 Current City: #{@profile.current_city}
+    %h5 Hometown: #{@profile.hometown}, #{@profile.nationality}
   .profile-right.span8
     %h4 Ways I can help (skills and experience):
     %p= @profile.helping_skills

@@ -31,9 +31,9 @@
                   = image_tag profile.find_active.file_url(:thumb)
             .span7   
               %h4 Ways I can help (skills and experience)
-              %p  #{profile.helping_skills} 
+              %p  #{profile.helping_skills.truncate(250)} 
               %h4 I'm happy to teach: 
-              %p  #{profile.teaching_skills}
+              %p  #{profile.teaching_skills.truncate(250)}
               %h4
 
 
