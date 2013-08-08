@@ -15,12 +15,15 @@
       .nav-collapse.collapse
         %ul.nav.pull-right
           - if current_user
+            %li= link_to "Map", map_path, :"data-no-turbolink" => ""
             %li= link_to "Hostings", listings_path
             %li= link_to "People", profiles_path
             %li= link_to "Add your space", new_listing_path
             %li.dropdown
               %a.dropdown-toggle{ :"data-toggle"=>'dropdown', :href =>'#'} #{current_user.first_name}
               %ul.dropdown-menu{ :role => 'menu', :"aria-labelledby"=>"dLabel"}
+                - if current_user.admin?
+                  %li= link_to "Admin", admin_path
                 %li= link_to "Profile", myprofile_path
                 %li= link_to "Your hosting", mylistings_path
                 %li= link_to "Account", myaccount_path
