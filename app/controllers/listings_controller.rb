@@ -5,9 +5,19 @@ class ListingsController < ApplicationController
 
 
   def index
-    @countries = Listing.where(state: "active").pluck(:country).uniq << ["All", ""]
+    @countries = Listing.where(state: "active").pluck(:country).uniq << ["All Countries", ""]
     @search = Listing.where(state: "active").search(params[:q])
     @listings = @search.result
+  end
+
+  def map
+    @geodata = Listing.count(group: 'country')
+    @geodata = @geodata.collect { |country, num| [country, num] }
+    @geodata = @geodata.insert(0, ['Country', 'Listings'])
+    respond_to do |format|
+      format.html
+      format.json { render json: @geodata.as_json }
+    end
   end
 
   def show
