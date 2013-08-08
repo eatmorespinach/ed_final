@@ -165,10 +165,6 @@ p {
   text-align: center;
 }
 
-.avatar-box {
-  width: 70px;
-  height: 70px;
-}
 
 footer {
   margin-top: 45px;
@@ -199,8 +195,16 @@ footer {
   }
 }
 
-.carousel-control {
+#profileCarousel {
+  .carousel-control{
   top: 306px;
+  }
+}
+
+#listingCarousel {
+  .carousel-control{
+    top: 255px;
+  }
 }
 
 .zero-margin {

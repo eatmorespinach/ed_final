@@ -7,8 +7,8 @@
     %h1= @listing.title
     %h3.gray-text= @listing.city + ", " + @listing.country
     .row-fluid
-      .span5
-        %div{:id=> "myCarousel", :class=> "carousel slide"}
+      .span4
+        %div{:id=> "listingCarousel", :class=> "carousel slide"}
           .carousel-inner.static_height
             - if @listing.assets.empty?
               .item.active
@@ -21,15 +21,15 @@
                 - else
                   .item
                     = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)
-          %a{:class => "carousel-control left", :href => "#myCarousel", :"data-slide"=>"prev"} &lsaquo;
-          %a{:class => "carousel-control right", :href => "#myCarousel", :"data-slide"=>"next"} &rsaquo;
+          %a{:class => "carousel-control left", :href => "#listingCarousel", :"data-slide"=>"prev"} &lsaquo;
+          %a{:class => "carousel-control right", :href => "#listingCarousel", :"data-slide"=>"next"} &rsaquo;
 
         - if @listing.user == current_user    
           %br
           .btn= link_to "Manage Images", listing_assets_path(@listing)
           .btn= link_to "Edit Listing", edit_listing_path(@listing)
 
-      .span7
+      .span8
         %p= @listing.description
         %br
         %br

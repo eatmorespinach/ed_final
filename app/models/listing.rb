@@ -11,6 +11,10 @@ class Listing < ActiveRecord::Base
 		"#{id} #{title}".parameterize
 	end
 
+	def listing_profile
+		self.user.profile
+	end
+
 	state_machine :state, initial: :pending do
 		event :approve do
 			transition :pending => :active
