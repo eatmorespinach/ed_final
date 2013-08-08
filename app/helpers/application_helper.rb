@@ -25,5 +25,6 @@ module ApplicationHelper
   def truncate_text
     
   end
+  
 
 end

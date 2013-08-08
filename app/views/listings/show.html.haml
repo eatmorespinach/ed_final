@@ -15,9 +15,9 @@
                 = image_tag(("default_listing_image.gif"), :class => "center")
             - else
               - @listing.assets.each do |picture|
-                - if picture == @listing.assets.first
+                - if picture.active?
                   .item.active
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)                
+                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)
                 - else
                   .item
                     = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)

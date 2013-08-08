@@ -33,7 +33,7 @@ class AssetsController < ApplicationController
 		if params[:selected]
 			@asset = Asset.find(params[:selected])
 			@asset.preview_select(@assetable)
-			redirect_to myprofile_path, alert: "Default Image Selected"
+			redirect_to @assetable, alert: "Default Image Selected"
 		else
 			@asset = Asset.find(params[:id])
 			@asset.update_attributes(params_asset)

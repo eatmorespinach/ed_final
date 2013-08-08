@@ -26,7 +26,7 @@
                 - if listing.assets.empty?
                   = image_tag("default_listing_image.gif") 
                 - else
-                  = image_tag(listing.assets.first.file_url(:thumb))
+                  = image_tag listing.find_active.file_url(:thumb)
             .span2
               = image_tag avatar_path(listing)
                                 
