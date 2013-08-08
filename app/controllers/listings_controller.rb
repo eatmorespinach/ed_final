@@ -78,14 +78,18 @@ class ListingsController < ApplicationController
     redirect_to admin_path
   end
 
-  
+
   def map
+    @peopledata = Profile.count(group: 'nationality')
+    @peopledata = @peopledata.collect { |nationality, num| [nationality, num] }
+    @peopledata = @peopledata.insert(0, ['Nationality', 'Users'])
+
     @geodata = Listing.count(group: 'country')
     @geodata = @geodata.collect { |country, num| [country, num] }
     @geodata = @geodata.insert(0, ['Country', 'Listings'])
     respond_to do |format|
       format.html
-      format.json { render json: @geodata.as_json }
+      format.json { render json: { list: @geodata, people: @peopledata } }
     end
   end
 

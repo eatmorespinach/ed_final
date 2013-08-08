@@ -17,20 +17,11 @@ Profile.destroy_all
 
 user = User.create(email: 'test@test.com', password: 'password', first_name: @first_name.sample, last_name: @last_name.sample)
 
-20.times do
+30.times do
 	a = User.create(email: Faker::Internet.email, 
 		password: 'password', 
 		first_name: Faker::Name.first_name, 
 	 	last_name: Faker::Name.last_name)
-
-	Profile.create(user_id: a.id, 
-		about: Faker::Lorem.paragraph(sentence_count = 3), 
-		hometown: Faker::Address.city, 
-		nationality: @countries.sample, 
-		current_city: Faker::Address.city,
-		helping_skills: Faker::Lorem.paragraph(sentence_count = 3),
-		teaching_skills: Faker::Lorem.paragraph(sentence_count = 3),
-		tagline: Faker::Company.bs)
 
  
 	Listing.create(title: Faker::Company.bs, 

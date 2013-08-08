@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
     Profile.create!(user_id: self.id, 
       helping_skills: "The user still needs to fill in this field!", 
       teaching_skills: "The user still needs to fill in this field!",
-      about: "The user still needs to fill in this field!") if profile.blank?
+      about: "The user still needs to fill in this field!",
+      nationality: "United States") if profile.blank?
   end
 
   def avatar_path
