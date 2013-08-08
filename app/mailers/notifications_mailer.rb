@@ -9,6 +9,13 @@ class NotificationsMailer < ActionMailer::Base
 		mail(to: @profile.user.email, subject: "StayTraders! #{@user.email} has contacted you :-)")
 	end
 
+	def listing_contact(message, user, listing)
+		@message = message
+		@user = user
+		@listing = listing
+		mail(to: @listing.user.email, subject: "StayTraders! #{@user.email} has contacted you :-)")
+	end
+
 	def registration_confirmation(user)
 		@user = user
 		mail(to: @user.email, subject: "StayTraders: Thanks for joining :-)")

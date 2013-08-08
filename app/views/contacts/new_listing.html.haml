@@ -1,0 +1,19 @@
+- content_for :title do
+  = "Contact #{@listing.user.first_name}" 
+
+%h1 Contact #{@listing.user.first_name}
+%br
+= form_for [@listing, @message], url: create_listing_listing_contact_path(@listing) do |f|
+  .span.offset2
+    .field
+      = f.label :subject
+      = f.text_field :subject, :class=> "wider-input"
+      %br
+      %br
+    .field
+      = f.label :body
+      = f.text_area :body, :class=> "wider-input taller-input"
+      %br
+      %br
+    .actions
+      = f.submit "Send Message", :class=> "btn btn-info"

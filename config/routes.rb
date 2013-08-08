@@ -24,14 +24,23 @@ MyProject::Application.routes.draw do
   get 'admin' => "listings#admin_page"
   get 'map' => 'listings#map'
   
+
+
+
   resources :listings do
+    resource :contact do
+      member do
+        post :create_listing 
+        get :new_listing
+      end
+    end
     member do
       post :approve
       post :reactivate
       post :deactivate
     end
 
-    resources :reviews
+    resources :reviews, only: [:show, :create, :new]
     resources :assets
     put 'assets/:id/edit' => "assets#crop"
     put 'assets' => "assets#update"
