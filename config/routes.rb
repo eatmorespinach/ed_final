@@ -22,7 +22,7 @@ MyProject::Application.routes.draw do
   get 'myaccount' => "users#edit"
   get 'mylistings' => "listings#my_listings"
   get 'admin' => "listings#admin_page"
-  get 'map' => 'listings#map'
+  get 'map' => 'maps#map'
   
 
 
