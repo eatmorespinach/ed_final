@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
     @countries = Listing.where(state: "active").pluck(:country).uniq << ["All Countries", ""]
     @search = Listing.where(state: "active").search(params[:q])
     @listings = @search.result
+    @listings = @listings.page params[:page]
   end
 
 
