@@ -53,7 +53,7 @@ class ListingsController < ApplicationController
   end
 
   def my_listings
-    @listings = current_user.listings
+    @listings = current_user.listings.where.not(state: 'inactive')
   end
 
   def admin_page
