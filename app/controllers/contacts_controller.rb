@@ -4,16 +4,11 @@ class ContactsController < ApplicationController
   before_filter :load_listing, only: [:new_listing, :create_listing]
 
 
-
-
-
   def new
   	@message = Message.new
   end
 
-
-  def create
-  
+  def create  
     @message = Message.new(params_message)
 
   	if @message.valid?

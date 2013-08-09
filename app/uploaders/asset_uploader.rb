@@ -26,13 +26,17 @@ class AssetUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
 
-  # #
+  process :resize_to_fit => [940, 2000]
+  
   # def scale(width, height)
   #  do something
   # end
 
   # Create different versions of your uploaded files:
   
+ 
+
+
   version :thumb do
     process :crop
     process :resize_to_fill => [297, 297]

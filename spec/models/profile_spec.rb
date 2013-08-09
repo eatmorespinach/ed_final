@@ -6,8 +6,8 @@ describe Profile do
 		user = FactoryGirl.create(:user)
 		@profile = Profile.new(
 			helping_skills: "I am a Blacksmith",
-			teaching_skills: "I know karate"
-			about: "I am rock",
+			teaching_skills: "I know karate",
+			about: "I am rock la la",
 			hometown: "Village",
 			nationality: "Viking",
 			current_city: "Asgard",

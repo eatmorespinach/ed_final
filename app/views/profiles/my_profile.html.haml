@@ -36,8 +36,8 @@
       = link_to "Manage Images", profile_assets_path(@profile), :class => "btn"
       = link_to "Edit Profile", myprofile_edit_path, :class => "btn"
       = link_to "View Profile", profile_path(@profile), :class => "btn"
-    %h4 Current City: #{@profile.current_city}
-    %h4 Hometown: #{@profile.hometown}, #{@profile.nationality}
+    %h5 Current City: #{@profile.current_city}
+    %h5 Hometown: #{@profile.hometown}, #{@profile.nationality}
   .profile-right.span8
     %h4 Ways I can help (skills and experience):
     %p= @profile.helping_skills

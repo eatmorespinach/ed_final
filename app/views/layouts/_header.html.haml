@@ -15,9 +15,9 @@
       .nav-collapse.collapse
         %ul.nav.pull-right
           - if current_user
-            %li= link_to "Map", map_path, :"data-no-turbolink" => ""
             %li= link_to "Hostings", listings_path
             %li= link_to "People", profiles_path
+            %li= link_to "Map", map_path, :"data-no-turbolink" => ""
             %li= link_to "Add your space", new_listing_path
             %li.dropdown
               %a.dropdown-toggle{ :"data-toggle"=>'dropdown', :href =>'#'} #{current_user.first_name}
