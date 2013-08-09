@@ -10,15 +10,6 @@ class ListingsController < ApplicationController
     @listings = @search.result
   end
 
-  def map
-    @geodata = Listing.count(group: 'country')
-    @geodata = @geodata.collect { |country, num| [country, num] }
-    @geodata = @geodata.insert(0, ['Country', 'Listings'])
-    respond_to do |format|
-      format.html
-      format.json { render json: @geodata.as_json }
-    end
-  end
 
   def show
     @listing = Listing.find(params[:id])
@@ -85,6 +76,21 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @listing.reactivate
     redirect_to admin_path
+  end
+
+
+  def map
+    @peopledata = Profile.count(group: 'nationality')
+    @peopledata = @peopledata.collect { |nationality, num| [nationality, num] }
+    @peopledata = @peopledata.insert(0, ['Nationality', 'Users'])
+
+    @geodata = Listing.count(group: 'country')
+    @geodata = @geodata.collect { |country, num| [country, num] }
+    @geodata = @geodata.insert(0, ['Country', 'Listings'])
+    respond_to do |format|
+      format.html
+      format.json { render json: { list: @geodata, people: @peopledata } }
+    end
   end
 
 

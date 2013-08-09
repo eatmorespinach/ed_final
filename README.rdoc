@@ -9,6 +9,8 @@ Notes:
 
 Set so manage and edit listing can only be viewed by creator
 
+can change map.js data.list to data.people to switch between listing and profile data
+
 http://latimesphoto.files.wordpress.com/2011/11/la-me-wwoofing08.jpg	
 
 

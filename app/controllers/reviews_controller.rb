@@ -10,8 +10,9 @@ class ReviewsController < ApplicationController
 		@review.listing = @listing
 
 		if @review.save
-			redirect_to listing_path(params[:listing_id]), notice: 'Thanks for your review!'
-
+			redirect_to @listing, alert: 'Thanks for your review!'
+		else
+			redirect_to @listing, alert: 'Error: Review was invalid'
 		end
 	end
 

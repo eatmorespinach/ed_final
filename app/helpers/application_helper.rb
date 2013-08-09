@@ -22,9 +22,7 @@ module ApplicationHelper
   	current_user == user
   end
 
-  def truncate_text
-    
-  end
-  
+
+
 
 end
