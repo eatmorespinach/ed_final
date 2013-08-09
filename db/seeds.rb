@@ -15,7 +15,7 @@ Profile.destroy_all
 @first_name = ["Stephanie", "Alexandria", "Coretta", "Toni"]
 @last_name = ["Sagat", "Kukoc", "Davidsonator", "Bradley-Longasshewit", "King"]
 
-user = User.create(email: 'test@test.com', password: 'password', first_name: @first_name.sample, last_name: @last_name.sample)
+user = User.create(email: 'test@test.com', password: 'password', first_name: @first_name.sample, last_name: @last_name.sample, admin: true)
 
 30.times do
 	a = User.create(email: Faker::Internet.email, 
