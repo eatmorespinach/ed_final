@@ -2,8 +2,8 @@
 = form_for @profile do |f|
   .span.offset2
     .field
-      = f.label :current_city
-      = f.text_field :current_city, :class => "span3"
+      = f.label :current_location
+      = f.text_field :current_city, :class => "span3", placeholder: "e.g. Montreal, Canada"
       %br
 
     .field

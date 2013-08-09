@@ -3,58 +3,61 @@
 
 
 .row-fluid
-  .span12
+  .span9
     %h1= @listing.title
     %h3.gray-text= @listing.city + ", " + @listing.country
-    .row-fluid
-      .span4
-        %div{:id=> "listingCarousel", :class=> "carousel slide"}
-          .carousel-inner.static_height
-            - if @listing.assets.empty?
+  .span3
+    .contact_button
+      = link_to "Contact #{@listing.user.first_name}", new_listing_listing_contact_path(@listing), :class => "btn btn-info"
+.row-fluid
+  .span4
+    %div{:id=> "listingCarousel", :class=> "carousel slide"}
+      .carousel-inner.static_height
+        - if @listing.assets.empty?
+          .item.active
+            = image_tag(("default_listing_image.gif"), :class => "center")
+        - else
+          - @listing.assets.each do |picture|
+            - if picture.active?
               .item.active
-                = image_tag(("default_listing_image.gif"), :class => "center")
+                = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)
             - else
-              - @listing.assets.each do |picture|
-                - if picture.active?
-                  .item.active
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)
-                - else
-                  .item
-                    = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)
-          %a{:class => "carousel-control left", :href => "#listingCarousel", :"data-slide"=>"prev"} &lsaquo;
-          %a{:class => "carousel-control right", :href => "#listingCarousel", :"data-slide"=>"next"} &rsaquo;
+              .item
+                = link_to image_tag(picture.file_url(:thumb), :class => "center"), listing_asset_path(@listing, picture)
+      %a{:class => "carousel-control left", :href => "#listingCarousel", :"data-slide"=>"prev"} &lsaquo;
+      %a{:class => "carousel-control right", :href => "#listingCarousel", :"data-slide"=>"next"} &rsaquo;
 
-        - if @listing.user == current_user    
-          %br
-          .btn= link_to "Manage Images", listing_assets_path(@listing)
-          .btn= link_to "Edit Listing", edit_listing_path(@listing)
+    - if @listing.user == current_user    
+      %br
+      = link_to "Manage Images", listing_assets_path(@listing), :class => "btn"
+      = link_to "Edit Listing", edit_listing_path(@listing), :class => "btn"
 
-      .span8
-        %p= @listing.description
+  .span8
+    %p= @listing.description
+    %br
+    %br
+    
+    - if !@listing.reviews.first.new_record?
+      %h3.gray-text Reviews
+      
+    - @listing.reviews.each do |review|
+      - if !review.new_record?
+        %p
+          = review.description
+          - (review.rating).times do
+            = image_tag ('http://upload.wikimedia.org/wikipedia/en/e/e7/Tiny_Star.gif') 
+    %br
+    %br
+    %br
+    %br
+    %h4.gray-text Create new Review
+    = form_for([@listing, @review]) do |f|
+      .field
         %br
-        %br
-        
-        - if !@listing.reviews.first.new_record?
-          %h3.gray-text Reviews
-          
-        - @listing.reviews.each do |review|
-          - if !review.new_record?
-            %p
-              = review.description
-              - (review.rating).times do
-                = image_tag ('http://upload.wikimedia.org/wikipedia/en/e/e7/Tiny_Star.gif') 
-        %br
-        %br
-        %br
-        %br
-        %h4.gray-text Create new Review
-        = form_for([@listing, @review]) do |f|
-          .field
-            %br
-            =f.label :description
-            =f.text_area :description
-          %br
-          .field
-            =f.label :"rating (1 to 5)"  
-            =f.number_field :rating
-          .actions= f.submit "Create Review", :class => "btn btn-info"
+        =f.label :description
+        =f.text_area :description
+      %br
+      .field
+        =f.label :"rating (1 to 5)"  
+        =f.number_field :rating, :class => "input-mini"
+      .actions= f.submit "Create Review", :class => "btn btn-info"
