@@ -1,4 +1,6 @@
 = image_tag @asset.file_url 
 %br
 %br
-= link_to "Crop", [:edit, @assetable, @asset], :"data-no-turbolink" => "", :class => "btn"
+
+- if current_user.id == @asset.assetable.user.id
+  = link_to "Crop", [:edit, @assetable, @asset], :"data-no-turbolink" => "", :class => "btn"
