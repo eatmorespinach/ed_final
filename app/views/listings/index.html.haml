@@ -9,7 +9,7 @@
       .field
         = f.select :country_eq, options_for_select(@countries, ""), {}, :class => "span5"
         = f.text_field :title_or_description_or_city_or_country_or_stay_length_or_in_exchange_cont, placeholder: "Search..."
-
+        = image_submit_tag "search_icon.gif"
      
 
 
