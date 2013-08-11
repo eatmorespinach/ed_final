@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def set_meta_tags(meta_tags)
-    base_meta = "working holiday, work and travel, travel for free, gap year"
+    base_meta = "accommodation exchange"
     if meta_tags.empty?
       base_meta
     else
