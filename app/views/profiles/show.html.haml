@@ -15,6 +15,8 @@
       .contact_button
         = link_to "Contact #{@profile.first_name}", new_profile_contact_path(@profile), :class => "btn btn-info"
 
+
+
 .row-fluid
   .span4        
     %div{:id=> "profileCarousel", :class=> "carousel slide"}
@@ -35,8 +37,9 @@
     %h5 Current City: #{@profile.current_city}
     %h5 Hometown: #{@profile.hometown}, #{@profile.nationality}
     %h5
-      - if @profile.linkedin.present?
-        = link_to "linkedin", @profile.linkedin
+    - if @profile.linkedin.present?
+      = link_to "Linkedin", @profile.linkedin
+    
   .profile-right.span8
     %h4 Ways I can help (skills and experience):
     %p= @profile.helping_skills

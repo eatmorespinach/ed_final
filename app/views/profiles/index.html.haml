@@ -33,11 +33,10 @@
             .span7   
               %h4 Ways I can help (skills and experience)
               %p  #{profile.helping_skills.truncate(250)} 
+              %br
               %h4 I'm happy to teach: 
               %p  #{profile.teaching_skills.truncate(250)}
-              %h4 
-                = link_to "linkedin", "http://www.linkedin.com/in/drewsing" 
-
+              
 
 
 = paginate @profiles
