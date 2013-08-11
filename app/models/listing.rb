@@ -29,4 +29,11 @@ class Listing < ActiveRecord::Base
 		end
 
 	end
+
+	scope :active, -> { where(state: 'active') }
+
+	def self.data_for_map
+		active.count(group: 'country').to_a.unshift(['Country', 'Listings'])
+	end
+
 end

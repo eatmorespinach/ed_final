@@ -9,4 +9,9 @@ class Profile < ActiveRecord::Base
 	def to_param
 		"#{id} #{first_name} #{last_name}".parameterize
 	end
+
+	def self.data_for_map
+		count(group: 'nationality').to_a.unshift(['Nationality', 'Users'])
+	end
+
 end
