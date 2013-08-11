@@ -66,10 +66,10 @@ class AssetsController < ApplicationController
 	end
 
 	def correct_user
-    	redirect_to root_path unless current_user?(@assetable.user)
-  	end
+		redirect_to root_path unless current_user?(@assetable.user)
+  end
 
-  	def set_first_active(assetable)
+	def set_first_active(assetable)
 		assetable.assets.first.activate unless assetable.assets.empty?
 	end
 
