@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:helping_skills, :teaching_skills, :about, :hometown, :nationality, :current_city, :tagline)
+    params.require(:profile).permit(:helping_skills, :teaching_skills, :about, :hometown, :nationality, :current_city, :tagline, :linkedin)
   end
 
 end

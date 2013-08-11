@@ -1,6 +1,7 @@
 class AssetsController < ApplicationController
 	before_filter :load_assetable
 	before_filter :correct_user, except: [:show]
+	
 	def index
 		@assets = @assetable.assets
 	end

@@ -23,9 +23,9 @@ class User < ActiveRecord::Base
 
   def create_profile
     Profile.create!(user_id: self.id, 
-      helping_skills: "The user still needs to fill in this field!", 
-      teaching_skills: "The user still needs to fill in this field!",
-      about: "The user still needs to fill in this field!",
+      helping_skills: "User still needs to fill in this field!", 
+      teaching_skills: "User still needs to fill in this field!",
+      about: "User still needs to fill in this field!",
       nationality: "United States") if profile.blank?
   end
 

@@ -4,11 +4,12 @@
 
 .row-fluid
   .span9
-    %h1= @listing.title
+    %h2= @listing.title
     %h3.gray-text= @listing.city + ", " + @listing.country
   .span3
     .contact_button
       = link_to "Contact #{@listing.user.first_name}", new_listing_listing_contact_path(@listing), :class => "btn btn-info"
+%br
 .row-fluid
   .span4
     %div{:id=> "listingCarousel", :class=> "carousel slide"}

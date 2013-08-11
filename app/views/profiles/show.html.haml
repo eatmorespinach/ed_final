@@ -34,6 +34,9 @@
       %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
     %h5 Current City: #{@profile.current_city}
     %h5 Hometown: #{@profile.hometown}, #{@profile.nationality}
+    %h5
+      - if @profile.linkedin.present?
+        = link_to "linkedin", @profile.linkedin
   .profile-right.span8
     %h4 Ways I can help (skills and experience):
     %p= @profile.helping_skills
