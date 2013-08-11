@@ -26,7 +26,7 @@ class AssetUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
 
-  process :resize_to_fit => [940, 2000]
+  process :resize_to_limit => [940, 2000]
   
   # def scale(width, height)
   #  do something
@@ -56,6 +56,7 @@ class AssetUploader < CarrierWave::Uploader::Base
       h = model.crop_h.to_i
       img = MiniMagick::Image.open(self.file.path) 
       img.crop("#{w}x#{h}+#{x}+#{y}")
+
       img.write(self.file.path)
       img
     end
