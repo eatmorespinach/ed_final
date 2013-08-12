@@ -16,6 +16,7 @@ MyProject::Application.routes.draw do
     put 'assets' => "assets#update"
   end
 
+  resources :charges
 
   get 'myprofile' => "profiles#my_profile"
   get 'myprofile/edit' => "profiles#edit"
