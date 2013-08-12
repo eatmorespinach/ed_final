@@ -14,4 +14,10 @@ class Profile < ActiveRecord::Base
 		count(group: 'nationality').to_a.unshift(['Nationality', 'Users'])
 	end
 
+	def find_active
+		self.assets.each do |asset|
+			return asset if asset.active?
+		end
+	end
+
 end
