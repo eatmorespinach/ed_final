@@ -1,11 +1,8 @@
 MyProject::Application.routes.draw do
 
-
-
   get "login" => "sessions#new"
   get "signup" => "users#new"
-  # get "profile" => "users#show"
-  # get "profile/edit" => "users#edit"
+
   resources :profiles, only: [:index, :show, :update] do
     resource :contact, only: [:new, :create]
     resources :assets do
@@ -24,8 +21,6 @@ MyProject::Application.routes.draw do
   get 'admin' => "listings#admin_page"
   get 'map' => 'maps#map'
   
-
-
 
   resources :listings do
     resource :contact do

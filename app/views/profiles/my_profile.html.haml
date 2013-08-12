@@ -36,6 +36,7 @@
       %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
       %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
       %br
+      = link_to "Manage Images", profile_assets_path(@profile), :class => "btn"
       = link_to "Edit Profile", myprofile_edit_path, :class => "btn"
       = link_to "View Profile", profile_path(@profile), :class => "btn"
     %h5 Current City: #{@profile.current_city}
