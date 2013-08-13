@@ -35,7 +35,7 @@ module MyProject
       }
 
   config.action_mailer.default_url_options = {
-      :host => "http://staytraders.com"
+      :host => "http://www.staytraders.com"
     }
   
 
