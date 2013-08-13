@@ -33,7 +33,7 @@ class AssetsController < ApplicationController
 	def update 
 		if params[:selected]
 			@asset = Asset.find(params[:selected])
-			@asset.preview_select(@assetable)
+			@asset.preview_select(@assetable) unless @asset.active?
 			redirect_to @assetable, alert: "Default Image Selected"
 		else
 			@asset = Asset.find(params[:id])

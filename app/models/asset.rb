@@ -19,7 +19,7 @@ class Asset < ActiveRecord::Base
 
 	def preview_select(assetable)
 		assetable.assets.each do |asset|
-			asset.deactivate
+			asset.deactivate			
 		end
 		self.activate
 	end
