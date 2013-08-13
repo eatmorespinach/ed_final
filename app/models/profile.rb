@@ -14,4 +14,6 @@ class Profile < ActiveRecord::Base
 		count(group: 'nationality').to_a.unshift(['Nationality', 'Users'])
 	end
 
+	
+
 end

@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :require_login, only: [:my_profile]
+  
   def my_profile
   	@profile = current_user.profile
   end

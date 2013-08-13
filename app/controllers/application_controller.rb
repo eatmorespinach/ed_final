@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   	redirect_to new_session_path, alert: "Member only page. Sign up or log in!"
   end
   
-  	def find_active
-		self.assets.each do |asset|
-			return asset if asset.active?
-		end
-	end
+  def find_active
+    self.assets.each do |asset|
+      return asset if asset.active?
+    end
+  end
   
 end
