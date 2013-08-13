@@ -1,11 +1,7 @@
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<form action="" method="POST">
-  <script
-    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-    data-key="pk_test_Qhx8rsLfLGxx881VOoQZ1Jo0"
-    data-amount="2000"
-    data-name="Demo Site"
-    data-description="2 widgets ($20.00)"
-    data-image="/128x128.png">
-  </script>
-</form>
+<%= form_tag charges_path do %>
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="StayTraders $5 Donation"
+          data-amount="500"
+          data-label="Donate $5"></script>
+<% end %>
