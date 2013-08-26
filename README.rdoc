@@ -1,8 +1,7 @@
 Drew Sing and Eric Szeto's Bitmaker final project. 
 
-From where does assetable get passed in in first upload for asset.rb
 
-why doesn't line 39 of show.html.haml listing work?
+Is the stripe payment suppose to stall on loading icon upon submit of proper fields?
 
 
 Notes: 
@@ -12,19 +11,5 @@ Set so manage and edit listing can only be viewed by creator
 can change map.js data.list to data.people to switch between listing and profile data
 
 http://latimesphoto.files.wordpress.com/2011/11/la-me-wwoofing08.jpg	
-
-
-  .pagination.pagination-large.pagination-centered
-    %ul
-      %li
-        %a{:href=>""} Prev
-      %li
-        %a{:href=>"#"} 1
-      %li
-        %a{:href=>"#"} 2
-      %li
-        %a{:href=>"#"} Next
-
-
 
 
