@@ -42,12 +42,12 @@
     
   .profile-right.span8
     %h4 Ways I can help (skills and experience):
-    %p= @profile.helping_skills
+    %p= sanitize @profile.helping_skills
     %br
     %br
     %h4 I'm happy to teach
-    %p= @profile.teaching_skills
+    %p= sanitize @profile.teaching_skills
     %br
     %h4 About me
-    %p= @profile.about
+    %p= sanitize @profile.about
     %br

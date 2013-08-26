@@ -36,7 +36,7 @@
       %a{:class => "carousel-control left", :href => "#profileCarousel", :"data-slide"=>"prev"} &lsaquo;
       %a{:class => "carousel-control right", :href => "#profileCarousel", :"data-slide"=>"next"} &rsaquo;
       %br
-      = link_to "Manage Images", profile_assets_path(@profile), :class => "btn"
+      = link_to "Manage Images", profile_assets_path(@profile), :class => "btn", :"data-no-turbolink" => ""
       = link_to "Edit Profile", myprofile_edit_path, :class => "btn"
       = link_to "View Profile", profile_path(@profile), :class => "btn"
     %h5 Current City: #{@profile.current_city}
@@ -47,14 +47,14 @@
     
   .profile-right.span8
     %h4 Ways I can help (skills and experience):
-    %p= @profile.helping_skills
+    %p= sanitize @profile.helping_skills
     %br
     %br
     %h4 I'm happy to teach
-    %p= @profile.teaching_skills
+    %p= sanitize @profile.teaching_skills
     %br
     %h4 About me
-    %p= @profile.about
+    %p= sanitize @profile.about
     %br
 
 
