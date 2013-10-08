@@ -24,7 +24,6 @@ describe Listing do
 	it { should respond_to(:in_exchange) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
-	it { should respond_to(:lis_images) }
 
 	describe "when title is blank" do
 		before { @listing.title = "" }

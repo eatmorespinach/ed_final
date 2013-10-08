@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130806223110) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "assets", force: true do |t|
     t.string   "file"
     t.integer  "assetable_id"
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 20130806223110) do
     t.string   "state"
   end
 
-  add_index "assets", ["assetable_id", "assetable_type"], name: "index_assets_on_assetable_id_and_assetable_type", using: :btree
+  add_index "assets", ["assetable_id", "assetable_type"], name: "index_assets_on_assetable_id_and_assetable_type"
 
   create_table "listings", force: true do |t|
     t.datetime "created_at"
@@ -76,6 +73,6 @@ ActiveRecord::Schema.define(version: 20130806223110) do
     t.boolean  "admin",                           default: false
   end
 
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
 
 end

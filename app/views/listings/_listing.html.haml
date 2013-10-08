@@ -1,0 +1,23 @@
+.individual-listing
+  .row-fluid
+    .span12
+      %h3= link_to listing.title, listing_path(listing)  
+      %h4= listing.city + ", " + listing.country
+
+      .row-fluid
+        .span4
+          = link_to listing_path(listing), :class => "center" do
+            - if listing.find_active == []
+              = image_tag("default_listing_image.gif") 
+            - else
+              = image_tag listing.find_active.file_url(:thumb)
+        .span2
+          = image_tag avatar_path(listing)
+                            
+              
+          .description-box 
+            %p Host: <strong> #{listing.user.first_name} </strong>
+            %p Guests: <strong> #{listing.guests} </strong>
+
+        .span6
+          %p= listing.description.truncate(620)
