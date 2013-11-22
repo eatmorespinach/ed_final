@@ -1,14 +1,28 @@
 Drew Sing and Eric Szeto's Bitmaker final project. 
 
+Feel free to view the working site at staytraders.com. Apologies for the slow load, we've recently downgraded our dynos. 
 
-Is the stripe payment suppose to stall on loading icon upon submit of proper fields?
+-----
+
+StayTraders utilizes Haml, Sass, Sorcery for user authentication, pry for debugging, and bootstrap-sass. Instead of using CoffeeScript, we used javascript to try and cement our js understanding.
+
+A cool gem we found was Figaro, which is used to keep our sensitive keys confidential since this is a public repo. And our site is hosted on Heroku’s handy setup!
+
+For testing, we’re utilizing Rspec and Capybara. Our intention was to use BDD. Most of our views are covered, but admittedly we have fallen behind on the specs and need to spend some time catching up on them.
+
+Carrierwave, mini_magick, and S3 – Our images are hosted on Amazon S3. We’re using the carrierwave gem for image uploads and a Jquery cropping plugin called Jcrop for image cropping. Configuring everything was a bit tricky because for some reason mini-magick wasn’t saving the cropped image coordinates (x, y, w, h). In our crop method, we then open the image and manually write the new cropped image dimensions to make sure it saves and displays properly (see asset_uploader.rb under app/uploaders)
+
+State_machine -To get an understanding of state machines, we used them in our admin panel. We transition the state of a hosting to pending once it has been submitted by a user.
+This allows an admin to approve the hosting for display on the site if all the requirements have been filled out.
+
+Polymorphic assets – StayTraders allows multiple image uploads for both Profiles and Hostings. Initially, we set up lis_images and pro_images models and controllers, which wasn’t very DRY and became a bit confusing. We then refactored all our images into an assets polymorphic tree, which can be accessed by both Profiles and Hostings. Our assets table also has a column called “state” (probably not the best name), which is used to label whether an image is the default profile image or not (active or inactive).
+
+Google Charts! – For logged in users, we recently implemented a google chart to display the country location of all hostings and people with a toggle button. Check out our maps_controller.rb for how the data is organized.
+
+Mailers – Test our mailers :-) . Upon registration, we’ve set up mailers to send an automatic email to the user. We’ve also implemented a contact form for both hostings and profiles, which automatically is sent to the recipient via email. It allows us to keep emails private until a user has reached out to another StayTrader.
 
 
-Notes: 
 
-Set so manage and edit listing can only be viewed by creator
-
-can change map.js data.list to data.people to switch between listing and profile data
 
 http://latimesphoto.files.wordpress.com/2011/11/la-me-wwoofing08.jpg	
 
